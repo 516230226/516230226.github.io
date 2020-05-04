@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | yezhibin的博客</title>
+  <title>H5新API | yezhibin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="热爱生活，热爱编程。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yezhibin的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="1 网络状态我们可以通过window.navigator.onLine来检测，用户当前的网络状况，返回一个布尔值， 但是不同浏览器会存在差异 所以HTML5 给我们提供了2个事件  online  和 offline   online用户网络连接时被调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5新API">
+<meta property="og:url" content="http://yoursite.com/2020/02/25/H5%E6%96%B0API/index.html">
 <meta property="og:site_name" content="yezhibin的博客">
-<meta property="og:description" content="热爱生活，热爱编程。">
+<meta property="og:description" content="1 网络状态我们可以通过window.navigator.onLine来检测，用户当前的网络状况，返回一个布尔值， 但是不同浏览器会存在差异 所以HTML5 给我们提供了2个事件  online  和 offline   online用户网络连接时被调用">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-25T11:04:50.000Z">
+<meta property="article:modified_time" content="2020-05-04T18:06:12.260Z">
 <meta property="article:author" content="ye zhibin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -164,238 +166,243 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-H5新API" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      H5新API
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/H5%E6%96%B0API/" class="archive-article-date">
+
+        
+        <a href="/2020/02/25/H5%E6%96%B0API/" class="archive-article-date">
   	<time datetime="2020-02-25T11:04:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/H5%E6%96%B0API/">H5新API</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="1-网络状态"><a href="#1-网络状态" class="headerlink" title="1 网络状态"></a>1 网络状态</h2><p>我们可以通过window.navigator.onLine来检测，用户当前的网络状况，返回一个布尔值， 但是不同浏览器会存在差异</p>
+<p>所以HTML5 给我们提供了2个事件  online  和 offline  </p>
+<p>online用户网络连接时被调用</p>
+<a id="more"></a>
+<p>offline用户网络断开时被调用</p>
+<p>他们监听的对象都是window</p>
+<h2 id="2-全屏"><a href="#2-全屏" class="headerlink" title="2 全屏"></a>2 全屏</h2><p>HTML5规范允许用户自定义网页上任一元素全屏显示。</p>
+<p>1、Node.requestFullScreen() 开启全屏显示</p>
+<p>2、Node.cancelFullScreen() 关闭全屏显示</p>
+<p>由于其兼容性原因，不同浏览器需要添加前缀如：</p>
+<p>webkit内核浏览器：webkitRequestFullScreen、webkitCancelFullScreen，如chrome浏览器。</p>
+<p>Gecko内核浏览器：mozRequestFullScreen、mozCancelFullScreen，如火狐浏览器。</p>
+<p>  ms  微软  msRequestFullscreen  </p>
+<p>3、document.fullScreen检测当前是否处于全屏</p>
+<p>不同浏览器需要添加前缀</p>
+<p>document.webkitIsFullScreen、document.mozFullScreen</p>
+<p>全屏伪类选择器  也有兼容性问题 需要添加前缀思密达</p>
+<p>:full-screen 、:-webkit-full-screen {}、:moz-full-screen {}</p>
+<h2 id="3-文件读取"><a href="#3-文件读取" class="headerlink" title="3 文件读取"></a>3 文件读取</h2><p>我们想：  可以吧上传的文件，内容显示到页面？  或者 上传完毕图片显示缩略图到页面上。。。</p>
+<p>通过FileReader对象我们可以读取本地存储的文件，使用 <a href="https://developer.mozilla.org/zh-CN/docs/DOM/File" target="_blank" rel="noopener">File </a>对象来指定所要读取的文件或数据。其中File对象可以是来自用户在一个 <a href="https://developer.mozilla.org/zh-CN/docs/HTML/Element/input" target="_blank" rel="noopener"> </a>元素上选择文件后返回的<a href="https://developer.mozilla.org/zh-CN/docs/DOM/FileList" target="_blank" rel="noopener">FileList </a>对象，也可以来自由拖放操作生成的  <a href="https://developer.mozilla.org/zh-CN/DragDrop/DataTransfer" target="_blank" rel="noopener">DataTransfer</a></p>
+<h3 id="3-1-Files对象"><a href="#3-1-Files对象" class="headerlink" title="3.1 Files对象"></a>3.1 Files对象</h3><p>由于HTML5中我们可以通过为表单元素添加multiple属性，因此我们通过<input>上传文件后得到的是一个Files对象（伪数组形式）。</p>
+<h3 id="3-2FileReader对象"><a href="#3-2FileReader对象" class="headerlink" title="3.2FileReader对象"></a>3.2FileReader对象</h3><p>HTML5新增内建对象，可以读取本地文件内容。</p>
+<p>var reader = new FileReader; 可以实例化一个对象</p>
+<p>实例方法</p>
+<p>1、<a href="#readAsDataURL()">readAsDataURL</a>() 以DataURL形式读取文件</p>
+<p>事件监听</p>
+<p>onload 当文读取完成时调用</p>
+<p>属性</p>
+<p>result 文件读取结果</p>
+<p><a href="#toc">参考资料</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader</a></p>
+<h2 id="4-地理定位"><a href="#4-地理定位" class="headerlink" title="4 地理定位"></a>4 地理定位</h2><p>在HTML规范中，增加了获取用户地理信息的API，这样使得我们可以基于用户位置开发互联网应用，即基于位置服务 (Location Base Service)</p>
+<h3 id="4-1-API详解"><a href="#4-1-API详解" class="headerlink" title="4.1 API详解"></a>4.1 API详解</h3><p>1、获取当前地理信息</p>
+<p>navigator.geolocation.getCurrentPosition(successCallback, errorCallback) </p>
+<p>2、重复获取当前地理信息</p>
+<p>navigator. geolocation.watchPosition(successCallback, errorCallback)</p>
+<p>当成功获取地理信息后，会调用succssCallback，并返回一个包含位置信息的对象position。</p>
+<p>position.coords.latitude 纬度</p>
+<p>position.coords.longitude经度</p>
+<p>position.coords.accuracy精度</p>
+<p>position.coords.altitude海拔高度</p>
+<p>当获取地理信息失败后，会调用errorCallback，并返回错误信息error</p>
+<p><a href="http://www.w3school.com.cn/html5/html_5_geolocation.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/html5/html_5_geolocation.asp</a></p>
+<h3 id="4-2-应用"><a href="#4-2-应用" class="headerlink" title="4.2 应用"></a>4.2 应用</h3><p>在现实开发中，通过调用第三方API（如百度地图）来实现地理定位信息，这些API都是基于用户当前位置的，并将用位置位置（经/纬度）当做参数传递，就可以实现相应的功能。</p>
+<p><a href="http://lbsyun.baidu.com/" target="_blank" rel="noopener">http://lbsyun.baidu.com/</a>   百度地图api</p>
+<h2 id="5-拖拽"><a href="#5-拖拽" class="headerlink" title="5 拖拽"></a>5 拖拽</h2><p>在 HTML5 中，拖放是标准的一部分，任何元素都能够拖放。</p>
+<h3 id="5-1-拖拽和释放"><a href="#5-1-拖拽和释放" class="headerlink" title="5.1 拖拽和释放"></a>5.1 拖拽和释放</h3><p>拖拽：Drag</p>
+<p>释放：Drop</p>
+<p>拖拽指的是鼠标点击源对象后一直移动对象不松手，一但松手即释放了</p>
+<h3 id="5-2-设置元素为可拖放"><a href="#5-2-设置元素为可拖放" class="headerlink" title="5.2 设置元素为可拖放"></a>5.2 设置元素为可拖放</h3><p>draggable 属性：就是标签元素要设置draggable=true，否则不会有效果 </p>
+<p>注意：  链接和图片默认是可拖动的，不需要 draggable 属性。</p>
+<h3 id="5-2-拖拽API的相关事件"><a href="#5-2-拖拽API的相关事件" class="headerlink" title="5.2 拖拽API的相关事件"></a>5.2 拖拽API的相关事件</h3><p><strong>被拖动的源对象可以触发的事件：</strong></p>
+<p>(1)ondragstart：源对象开始被拖动</p>
+<p>(2)ondrag：源对象被拖动过程中(鼠标可能在移动也可能未移动)</p>
+<p>(3)ondragend：源对象被拖动结束</p>
+<p>  <strong>拖动源对象可以进入到上方的目标对象可以触发的事件：</strong></p>
+<p>(1)ondragenter：目标对象被源对象拖动着进入</p>
+<p>(2)ondragover：目标对象被源对象拖动着悬停在上方</p>
+<p>(3)ondragleave：源对象拖动着离开了目标对象</p>
+<p>(4)ondrop：源对象拖动着在目标对象上方释放/松手</p>
+<p>拖拽API总共就是7个函数！！</p>
+<h3 id="5-3-DataTransfer"><a href="#5-3-DataTransfer" class="headerlink" title="5.3 DataTransfer"></a>5.3 DataTransfer</h3><p>在进行拖放操作时，<code>DataTransfer</code> 对象用来保存被拖动的数据。它可以保存一项或多项数据、一种或者多种数据类型</p>
+<h2 id="6-Web存储"><a href="#6-Web存储" class="headerlink" title="6 Web存储"></a>6 Web存储</h2><p>随着互联网的快速发展，基于网页的应用越来越普遍，同时也变的越来越复杂，为了满足各种各样的需求，会经常性在本地存储大量的数据，HTML5规范提出了相关解决方案。</p>
+<h3 id="6-1-特性"><a href="#6-1-特性" class="headerlink" title="6.1 特性"></a>6.1 特性</h3><p>1、设置、读取方便、页面刷新不丢失数据</p>
+<p>2、容量较大，sessionStorage约5M、localStorage约20M</p>
+<p>4、只能存储字符串，可以将对象JSON.stringify() 编码后存储</p>
+<h3 id="6-2-window-sessionStorage"><a href="#6-2-window-sessionStorage" class="headerlink" title="6.2 window.sessionStorage"></a>6.2 window.sessionStorage</h3><p>1、生命周期为关闭浏览器窗口</p>
+<p>2、在同一个窗口(页面)下数据可以共享</p>
+<h3 id="6-3-window-localStorage"><a href="#6-3-window-localStorage" class="headerlink" title="6.3 window.localStorage"></a>6.3 window.localStorage</h3><p>1、永久生效，除非手动删除 关闭页面也会存在</p>
+<p>2、可以多窗口（页面）共享（同一浏览器可以共享）</p>
+<h3 id="6-4-方法详解"><a href="#6-4-方法详解" class="headerlink" title="6.4 方法详解"></a>6.4 方法详解</h3><p>setItem(key, value) 设置存储内容</p>
+<p>getItem(key) 读取存储内容</p>
+<p>removeItem(key) 删除键值为key的存储内容</p>
+<p>clear() 清空所有存储内容</p>
+<h3 id="6-5-其它"><a href="#6-5-其它" class="headerlink" title="6.5 其它"></a>6.5 其它</h3><p>WebSQL、IndexDB</p>
+<h2 id="7-应用缓存"><a href="#7-应用缓存" class="headerlink" title="7 应用缓存"></a>7 应用缓存</h2><p>HTML5中我们可以轻松的构建一个离线（无网络状态）应用，只需要创建一个cache manifest文件。</p>
+<h3 id="7-1-优势"><a href="#7-1-优势" class="headerlink" title="7.1 优势"></a>7.1 优势</h3><p>1、可配置需要缓存的资源</p>
+<p>2、网络无连接应用仍可用</p>
+<p>3、本地读取缓存资源，提升访问速度，增强用户体验</p>
+<p>4、减少请求，缓解服务器负担</p>
+<h3 id="7-2-缓存清单"><a href="#7-2-缓存清单" class="headerlink" title="7.2 缓存清单"></a>7.2 缓存清单</h3><p>一个普通文本文件，其中列出了浏览器应缓存以供离线访问的资源，推荐使用.appcache为后缀名</p>
+<p>例如我们创建了一个名为demo.appcache的文件，然后在需要应用缓存在页面的根元素(html)添加属性manifest=”demo.appcache”，路径要保证正确。</p>
+<h3 id="7-3-manifest文件格式"><a href="#7-3-manifest文件格式" class="headerlink" title="7.3 manifest文件格式*"></a>7.3 manifest文件格式*</h3><p>1、顶行写CACHE MANIFEST</p>
+<p>2、CACHE: 换行 指定我们需要缓存的静态资源，如.css、image、js等</p>
+<p>3、NETWORK: 换行 指定需要在线访问的资源，可使用通配符</p>
+<p>4、FALLBACK: 换行 当被缓存的文件找不到时的备用资源</p>
+<h3 id="7-4-其它"><a href="#7-4-其它" class="headerlink" title="7.4 其它"></a>7.4 其它</h3><p>1、CACHE: 可以省略，这种情况下将需要缓存的资源写在CACHE MANIFEST</p>
+<p>2、可以指定多个CACHE: NETWORK: FALLBACK:，无顺序限制</p>
+<p>3、#表示注释，只有当demo.appcache文件内容发生改变时或者手动清除缓存后，才会重新缓存。</p>
+<p>4、chrome 可以通过chrome://appcache-internals/工具和离线（offline）模式来调试管理应用缓存</p>
+<h2 id="8-多媒体"><a href="#8-多媒体" class="headerlink" title="8 多媒体"></a>8 多媒体</h2><p>方法：load()、play()、pause()</p>
+<p>属性：currentSrc、currentTime、duration</p>
+<p>事件：oncanplay，  ontimeupdate，onended 等</p>
+<p><a href="http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp" target="_blank" rel="noopener"><strong>参考文档</strong></a></p>
+<p><a href="http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp</a></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/25/H5%E6%96%B0API/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/20/Jquery/" class="archive-article-date">
-  	<time datetime="2020-02-20T10:56:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/20/Jquery/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Jquery</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/20/Jquery/">Jquery</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-网络状态"><span class="toc-number">1.</span> <span class="toc-text">1 网络状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-全屏"><span class="toc-number">2.</span> <span class="toc-text">2 全屏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-文件读取"><span class="toc-number">3.</span> <span class="toc-text">3 文件读取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Files对象"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 Files对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2FileReader对象"><span class="toc-number">3.2.</span> <span class="toc-text">3.2FileReader对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-地理定位"><span class="toc-number">4.</span> <span class="toc-text">4 地理定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-API详解"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 API详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-应用"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-拖拽"><span class="toc-number">5.</span> <span class="toc-text">5 拖拽</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-拖拽和释放"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 拖拽和释放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-设置元素为可拖放"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 设置元素为可拖放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-拖拽API的相关事件"><span class="toc-number">5.3.</span> <span class="toc-text">5.2 拖拽API的相关事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-DataTransfer"><span class="toc-number">5.4.</span> <span class="toc-text">5.3 DataTransfer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Web存储"><span class="toc-number">6.</span> <span class="toc-text">6 Web存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-特性"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-window-sessionStorage"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 window.sessionStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-window-localStorage"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 window.localStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-方法详解"><span class="toc-number">6.4.</span> <span class="toc-text">6.4 方法详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-其它"><span class="toc-number">6.5.</span> <span class="toc-text">6.5 其它</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-应用缓存"><span class="toc-number">7.</span> <span class="toc-text">7 应用缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-优势"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-缓存清单"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 缓存清单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-manifest文件格式"><span class="toc-number">7.3.</span> <span class="toc-text">7.3 manifest文件格式*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-其它"><span class="toc-number">7.4.</span> <span class="toc-text">7.4 其它</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-多媒体"><span class="toc-number">8.</span> <span class="toc-text">8 多媒体</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/15/DOM%E3%80%81BOM/" class="archive-article-date">
-  	<time datetime="2020-02-15T09:47:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/15/DOM%E3%80%81BOM/">DOM、BOM</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/05/JS%E6%8F%90%E5%8D%87/" class="archive-article-date">
-  	<time datetime="2020-02-05T04:43:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/05/JS%E6%8F%90%E5%8D%87/">JS提升</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/22/JavaScript/" class="archive-article-date">
-  	<time datetime="2020-01-22T09:23:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/22/JavaScript/">JavaScript</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/18/BFC/" class="archive-article-date">
-  	<time datetime="2020-01-18T08:18:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/18/BFC/">BFC</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/15/CSS/" class="archive-article-date">
-  	<time datetime="2020-01-15T08:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/15/CSS/">CSS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/05/HTML/" class="archive-article-date">
-  	<time datetime="2020-01-05T04:44:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/05/HTML/">HTML</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -418,8 +425,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

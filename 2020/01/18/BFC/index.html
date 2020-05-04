@@ -6,15 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | yezhibin的博客</title>
+  <title>BFC | yezhibin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="热爱生活，热爱编程。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yezhibin的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/05/index.html">
+  <meta name="description" content="理解BFC 了解渐进增强和优雅降级typora-copy-images-to: media">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BFC">
+<meta property="og:url" content="http://yoursite.com/2020/01/18/BFC/index.html">
 <meta property="og:site_name" content="yezhibin的博客">
-<meta property="og:description" content="热爱生活，热爱编程。">
+<meta property="og:description" content="理解BFC 了解渐进增强和优雅降级typora-copy-images-to: media">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/01/18/BFC/media/dis.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/18/BFC/media/box.gif">
+<meta property="og:image" content="http://yoursite.com/2020/01/18/BFC/media/gu.jpeg">
+<meta property="og:image" content="http://yoursite.com/2020/01/18/BFC/media/kuihua.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/18/BFC/media/xiong.jpeg">
+<meta property="og:image" content="http://yoursite.com/2020/01/18/BFC/media/fu.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/01/18/BFC/media/ma.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/18/BFC/media/you.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/18/BFC/media/pa.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/18/BFC/media/xia.jpg">
+<meta property="article:published_time" content="2020-01-18T08:18:23.000Z">
+<meta property="article:modified_time" content="2020-05-04T17:27:56.440Z">
 <meta property="article:author" content="ye zhibin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -29,6 +41,7 @@
 <meta property="article:tag" content="代码">
 <meta property="article:tag" content="开源">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/01/18/BFC/media/dis.png">
   
     <link rel="alternative" href="/atom.xml" title="yezhibin的博客" type="application/atom+xml">
   
@@ -164,130 +177,289 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-BFC" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BFC
+    </h1>
+  
+
+        
+        <a href="/2020/01/18/BFC/" class="archive-article-date">
+  	<time datetime="2020-01-18T08:18:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<ul>
+<li>理解BFC</li>
+<li>了解渐进增强和优雅降级<br>typora-copy-images-to: media</li>
+</ul>
+<hr>
+<a id="more"></a>
+<h2 id="BFC-块级格式化上下文"><a href="#BFC-块级格式化上下文" class="headerlink" title="BFC(块级格式化上下文)"></a>BFC(块级格式化上下文)</h2><p>BFC(Block formatting context)</p>
+<p>直译为”块级格式化上下文”。</p>
+<h3 id="元素的显示模式"><a href="#元素的显示模式" class="headerlink" title="元素的显示模式"></a>元素的显示模式</h3><p>我们前面讲过 元素的显示模式 display。 </p>
+<p>分为 块级元素   行内元素  行内块元素 ，其实，它还有很多其他显示模式。</p>
+<img src="media/dis.png"  style="border: 1px dashed #ccc; padding: 5px;" />
+
+<h3 id="那些元素会具有BFC的条件"><a href="#那些元素会具有BFC的条件" class="headerlink" title="那些元素会具有BFC的条件"></a>那些元素会具有BFC的条件</h3><p>不是所有的元素模式都能产生BFC，w3c 规范： </p>
+<p>display 属性为 block, list-item, table 的元素，会产生BFC.</p>
+<p>大家有么有发现这个三个都是用来布局最为合理的元素，因为他们就是用来可视化布局。</p>
+<p>注意其他的，display属性，比如 line 等等，他们创建的是 IFC ，我们暂且不研究。</p>
+<p>这个BFC 有着具体的布局特性： </p>
+<img src="media/box.gif" />
+
+<p>有宽度和高度 ， 有 外边距margin  有内边距padding 有边框 border。</p>
+<p>就好比，你有了练习武术的体格了。 有潜力，有资质。</p>
+<img src="media/gu.jpeg" width="400" />
+
+<h3 id="什么情况下可以让元素产生BFC"><a href="#什么情况下可以让元素产生BFC" class="headerlink" title="什么情况下可以让元素产生BFC"></a>什么情况下可以让元素产生BFC</h3><p>以上盒子具有BFC条件了，就是说有资质了，但是怎样触发才会产生BFC，从而创造这个封闭的环境呢？ </p>
+<p>在好比，你光有资质还不行，你需要一定额外效果才能出发的武学潜力，要么你掉到悬崖下面，捡到了一本九阴真经，要么你学习葵花宝典，欲练此功必先….</p>
+<img src="media/kuihua.png" />
+同样，要给这些元素添加如下属性就可以触发BFC。
+
+<p>-float属性不为none</p>
+<p>-position为absolute或fixed</p>
+<p>-display为inline-block, table-cell, table-caption, flex, inline-flex</p>
+<p>-overflow不为visible。</p>
+<h3 id="BFC元素所具有的特性"><a href="#BFC元素所具有的特性" class="headerlink" title="BFC元素所具有的特性"></a>BFC元素所具有的特性</h3><p>BFC布局规则特性：</p>
+<p>1.在BFC中，盒子从顶端开始垂直地一个接一个地排列.</p>
+<p>2.盒子垂直方向的距离由margin决定。属于同一个BFC的两个相邻盒子的margin会发生重叠</p>
+<p>3.在BFC中，每一个盒子的左外边缘（margin-left）会触碰到容器的左边缘(border-left)（对于从右到左的格式来说，则触碰到右边缘）。</p>
+<ol>
+<li>BFC的区域不会与浮动盒子产生交集，而是紧贴浮动边缘。</li>
+<li>计算BFC的高度时，自然也会检测浮动或者定位的盒子高度。</li>
+</ol>
+<p>它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。</p>
+<p>白话文： 孩子在家里愿意怎么折腾都行，但是出了家门口，你就的乖乖的，不能影响外面的任何人。</p>
+<img src="media/xiong.jpeg" width="400" />
+
+<h3 id="BFC的主要用途"><a href="#BFC的主要用途" class="headerlink" title="BFC的主要用途"></a>BFC的主要用途</h3><p>BFC能用来做什么？</p>
+<p>(1) 清除元素内部浮动</p>
+<p>只要把父元素设为BFC就可以清理子元素的浮动了，最常见的用法就是在父元素上设置overflow: hidden样式，对于IE6加上zoom:1就可以了。</p>
+<p>主要用到 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">计算BFC的高度时，自然也会检测浮动或者定位的盒子高度。</span><br></pre></td></tr></table></figure>
+
+<img src="media/fu.jpg" />
+(2) 解决外边距合并问题
+
+<p>外边距合并的问题。</p>
+<p>主要用到 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">盒子垂直方向的距离由margin决定。属于同一个BFC的两个相邻盒子的margin会发生重叠</span><br></pre></td></tr></table></figure>
+
+<p>属于同一个BFC的两个相邻盒子的margin会发生重叠，那么我们创建不属于同一个BFC，就不会发生margin重叠了。</p>
+<img src="media/ma.png" />
+
+<p>(3) 制作右侧自适应的盒子问题</p>
+<p>主要用到 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">普通流体元素BFC后，为了和浮动元素不产生任何交集，顺着浮动边缘形成自己的封闭上下文</span><br></pre></td></tr></table></figure>
+
+<img src="media/you.png" />
+
+<h3 id="BFC-总结"><a href="#BFC-总结" class="headerlink" title="BFC 总结"></a>BFC 总结</h3><p>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。包括浮动，和外边距合并等等，因此，有了这个特性，我们布局的时候就不会出现意外情况了。</p>
+<h2 id="优雅降级和渐进增强"><a href="#优雅降级和渐进增强" class="headerlink" title="优雅降级和渐进增强"></a>优雅降级和渐进增强</h2><p>什么是渐进增强（progressive enhancement）、优雅降级（graceful degradation）呢？</p>
+<p>渐进增强 progressive enhancement：</p>
+<p>针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</p>
+<p> 类似 爬山，由低出往高处爬</p>
+  <img src="media/pa.png" width="400" />
+
+<p>  <b>优雅降级 graceful degradation：</b></p>
+<p>一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</p>
+<p>类似蹦极，由高处往低处下落</p>
+<img src="media/xia.jpg" />
+
+<p>　　区别：渐进增强是向上兼容，优雅降级是向下兼容。</p>
+<p>个人建议： 现在互联网发展很快， 连微软公司都抛弃了ie浏览器，转而支持 edge这样的高版本浏览器，我们很多情况下没有必要再时刻想着低版本浏览器了，而是一开始就构建完整的效果，根据实际情况，修补低版本浏览器问题。</p>
+<h2 id="浏览器前缀"><a href="#浏览器前缀" class="headerlink" title="浏览器前缀"></a>浏览器前缀</h2><table>
+<thead>
+<tr>
+<th>浏览器前缀</th>
+<th>浏览器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-webkit-</td>
+<td>Google Chrome, Safari, Android Browser</td>
+</tr>
+<tr>
+<td>-moz-</td>
+<td>Firefox</td>
+</tr>
+<tr>
+<td>-o-</td>
+<td>Opera</td>
+</tr>
+<tr>
+<td>-ms-</td>
+<td>Internet Explorer, Edge</td>
+</tr>
+<tr>
+<td>-khtml-</td>
+<td>Konqueror</td>
+</tr>
+</tbody></table>
+<p>后面我们会有 常用的解决H5和C3 的兼容解决文件， 我们这里暂且不涉及。</p>
+<h2 id="背景渐变"><a href="#背景渐变" class="headerlink" title="背景渐变"></a>背景渐变</h2><p>在线性渐变过程中，颜色沿着一条直线过渡：从左侧到右侧、从右侧到左侧、从顶部到底部、从底部到顶部或着沿任何任意轴。如果你曾使用过制作图件，比如说Photoshop，你对线性渐变并不会陌生。</p>
+<p>兼容性问题很严重，我们这里之讲解线性渐变</p>
+<p>语法格式： </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span><span class="selector-pseudo">:-webkit-linear-gradient(</span>渐变的起始位置， 起始颜色， 结束颜色)；</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span><span class="selector-pseudo">:-webkit-linear-gradient(</span>渐变的起始位置， 颜色 位置， 颜色位置....)；</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="CSS-W3C-统一验证工具"><a href="#CSS-W3C-统一验证工具" class="headerlink" title="CSS W3C 统一验证工具"></a>CSS W3C 统一验证工具</h2><p>CssStats 是一个在线的 CSS 代码分析工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">网址是：  http:&#x2F;&#x2F;www.cssstats.com&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果你想要更全面的，这个神奇，你值得拥有：</p>
+<p>W3C 统一验证工具：    <a href="http://validator.w3.org/unicorn/" target="_blank" rel="noopener">http://validator.w3.org/unicorn/</a>  ☆☆☆☆☆</p>
+<p>因为它可以检测本地文件哦！！</p>
+<h2 id="CSS-压缩"><a href="#CSS-压缩" class="headerlink" title="CSS 压缩"></a>CSS 压缩</h2><p>通过上面的检测没有错误，为了提高加载速度和节约空间（相对来说，css量很少的情况下，几乎没啥区别），可以通过css压缩工具把css进行压缩。</p>
+<p> w3c css压缩   <a href="http://tool.chinaz.com/Tools/CssFormat.aspx" target="_blank" rel="noopener">http://tool.chinaz.com/Tools/CssFormat.aspx</a>   网速比较慢</p>
+<p> 还可以去站长之家进行快速压缩。</p>
+<p> <a href="http://tool.chinaz.com/Tools/CssFormat.aspx" target="_blank" rel="noopener">http://tool.chinaz.com/Tools/CssFormat.aspx</a>  </p>
+<h2 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h2><h3 id="transform-style"><a href="#transform-style" class="headerlink" title="transform-style"></a>transform-style</h3><p>transform-style属性是3D空间一个重要属性，指定嵌套元素如何在3D空间中呈现。他主要有两个属性值：flat和preserve-3d。</p>
+<p>其中flat值为默认值，表示所有子元素在2D平面呈现。preserve-3d表示所有子元素在3D空间中呈现。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/JavaScript/" class="archive-article-date">
-  	<time datetime="2020-05-04T17:23:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/JavaScript/">JavaScript</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/18/BFC/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/BFC/" class="archive-article-date">
-  	<time datetime="2020-05-04T17:18:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/01/22/JavaScript/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaScript
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/15/CSS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/BFC/">BFC</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BFC-块级格式化上下文"><span class="toc-number">1.</span> <span class="toc-text">BFC(块级格式化上下文)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#元素的显示模式"><span class="toc-number">1.1.</span> <span class="toc-text">元素的显示模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#那些元素会具有BFC的条件"><span class="toc-number">1.2.</span> <span class="toc-text">那些元素会具有BFC的条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么情况下可以让元素产生BFC"><span class="toc-number">1.3.</span> <span class="toc-text">什么情况下可以让元素产生BFC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC元素所具有的特性"><span class="toc-number">1.4.</span> <span class="toc-text">BFC元素所具有的特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC的主要用途"><span class="toc-number">1.5.</span> <span class="toc-text">BFC的主要用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC-总结"><span class="toc-number">1.6.</span> <span class="toc-text">BFC 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优雅降级和渐进增强"><span class="toc-number">2.</span> <span class="toc-text">优雅降级和渐进增强</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器前缀"><span class="toc-number">3.</span> <span class="toc-text">浏览器前缀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景渐变"><span class="toc-number">4.</span> <span class="toc-text">背景渐变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-W3C-统一验证工具"><span class="toc-number">5.</span> <span class="toc-text">CSS W3C 统一验证工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-压缩"><span class="toc-number">6.</span> <span class="toc-text">CSS 压缩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#轮播图"><span class="toc-number">7.</span> <span class="toc-text">轮播图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#transform-style"><span class="toc-number">7.1.</span> <span class="toc-text">transform-style</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/CSS/" class="archive-article-date">
-  	<time datetime="2020-05-04T17:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/CSS/">CSS</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/HTML/" class="archive-article-date">
-  	<time datetime="2020-05-04T16:44:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/HTML/">HTML</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -310,8 +482,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

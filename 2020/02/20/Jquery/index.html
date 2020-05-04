@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/2 | yezhibin的博客</title>
+  <title>Jquery | yezhibin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="热爱生活，热爱编程。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yezhibin的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/02/index.html">
+  <meta name="description" content="1.介绍1.1.JavaScript框架库:就是一个普通的js文件,封装了很多的函数,封装了很多兼容的代码jQuery是JavaScript框架库中的一种jQuery的好处:写的少,做的多,链式编程,隐式迭代等…jQuery可以解决js兼容的问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jquery">
+<meta property="og:url" content="http://yoursite.com/2020/02/20/Jquery/index.html">
 <meta property="og:site_name" content="yezhibin的博客">
-<meta property="og:description" content="热爱生活，热爱编程。">
+<meta property="og:description" content="1.介绍1.1.JavaScript框架库:就是一个普通的js文件,封装了很多的函数,封装了很多兼容的代码jQuery是JavaScript框架库中的一种jQuery的好处:写的少,做的多,链式编程,隐式迭代等…jQuery可以解决js兼容的问题">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-20T10:56:41.000Z">
+<meta property="article:modified_time" content="2020-05-04T17:59:12.741Z">
 <meta property="article:author" content="ye zhibin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -164,103 +166,245 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Jquery" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Jquery
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/20/Jquery/" class="archive-article-date">
+
+        
+        <a href="/2020/02/20/Jquery/" class="archive-article-date">
   	<time datetime="2020-02-20T10:56:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/20/Jquery/">Jquery</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.介绍<br>1.1.JavaScript框架库:就是一个普通的js文件,封装了很多的函数,封装了很多兼容的代码<br>jQuery是JavaScript框架库中的一种<br>jQuery的好处:写的少,做的多,链式编程,隐式迭代等…<br>jQuery可以解决js兼容的问题</p>
+<a id="more"></a>
+<p>2.jQuery中的顶级对象<br>2.1.DOM中的顶级对象:docuemnt—页面中的顶级对象<br>docuemnt点出来的是DOM中的属性和方法</p>
+<p>BOM中的顶级对象:window—-浏览器中的顶级对象<br>window点出来的是浏览器中的属性和方法<br>window.document</p>
+<p>jQuery的顶级对象:jQuery或$<br>$点出来的是jQuery中的方法<br>3.页面的加载事件<br>3.1.Window.onload只能写一次,重复会<br>被后面的干掉。<br>JQuery可以写多个。<br>3.2.//jQuery的代码—和DOM中的window.onload事件是相同的<br>//页面中所有的内容加载完毕后才触发,标签,图片,文字内容….<br>$(window).load(function () {<br>    console.log(“啊哈哈,我真的好帅1”);<br>});</p>
+<p>//第二种页面加载的事件的写法—都是方法了<br>//页面中的基本的标签加载完毕后就可以触发了<br>$(document).ready(function () {<br>    console.log(“我为什么这么帅1”);<br>});</p>
+<p>//页面中基本的标签加载后就执行<br>jQuery(function () {<br>    console.log(“纯洁的我就是这么帅的1”);<br>});<br>4.jQuery对象和DOM对象互转<br>4.1.DOM对象和jQuery对象可以互转<br>4.2.DOM对象转—-&gt;jQuery对象:<br>$(DOM的对象)—–&gt;jQuery对象</p>
+<p>jQuery对象—-&gt;DOM对象:<br>1.<br>$(“#btn”)[0]—-&gt;DOM对象<br>2.<br>$(“#btn”).get(0)—DOM对象<br>5.jQuery获取元素的方式<br>5.1.//页面加载的事件<br>$(function () {<br>    //获取按钮–根据id选择器获取,调用点击事件的方法<br>    $(“#btn”).click(function () {<br>        //设置div中的显示内容<br>        $(“#dv”).text(“这是一个有颜色的div”);//相当于DOM中的innerText或者是textContent<br>        $(“#dv”).css(“backgroundColor”,”yellow”);//设置元素的样式<br>    });</p>
+<pre><code>//获取按钮,调用点击事件,获取所有的p,设置内容
+$(&quot;#btn&quot;).click(function () {
+    //获取所有的p---&gt;标签选择器
+    $(&quot;p&quot;).text(&quot;我们都是p&quot;);
+});
 
-        <div class="article-info info-on-right">
-          
-          
+//获取按钮,调用点击事件,获取所有应用了cls类样式的元素
+$(&quot;#btn&quot;).click(function () {
+    //类选择器来获取元素
+    $(&quot;.cls&quot;).css(&quot;backgroundColor&quot;,&quot;green&quot;);
+});
 
+//获取按钮,注册点击事件
+$(&quot;#btn&quot;).click(function () {
+    //获取应用cls类样式的li标签
+    //标签+类样式的选择器
+    $(&quot;li.cls&quot;).css(&quot;backgroundColor&quot;,&quot;yellow&quot;);
+});</code></pre><p>});<br>5.1.1.   //点击按钮,设置页面中的span标签,li标签,div标签的背景颜色<br>    //通过多条件选择器获取元素,统一设置背景颜色<br>    $(“#btn”).click(function () {<br>        $(“span,p,li,div”).css(“backgroundColor”,”yellow”);<br>    });</p>
+<pre><code>//获取div中的相关元素
+$(&quot;#btn&quot;).click(function () {
+    //获取的是div中所有的p标签元素
+    $(&quot;#dv p&quot;).css(&quot;backgroundColor&quot;,&quot;red&quot;);
+    //获取的是div中直接的子元素
+    $(&quot;#dv&gt;p&quot;).css(&quot;backgroundColor&quot;,&quot;red&quot;);
+    //获取的是div后面的第一个p标签元素
+    $(&quot;#dv+p&quot;).css(&quot;backgroundColor&quot;,&quot;red&quot;);
+    //获取的是div后面所有直接的兄弟元素p标签元素
+    $(&quot;#dv~p&quot;).css(&quot;backgroundColor&quot;,&quot;red&quot;);
+    //*就是所有的元素
+    $(&quot;#dv *&quot;).css(&quot;backgroundColor&quot;,&quot;yellow&quot;);
+    //偶数的li
+    $(&quot;#uu&gt;li:even&quot;).css(&quot;backgroundColor&quot;,&quot;yellow&quot;);//偶数的li
+    $(&quot;#uu&gt;li:odd&quot;).css(&quot;backgroundColor&quot;,&quot;red&quot;);//奇数的li
+
+    //获取ul中的索引为4的li标签元素
+    $(&quot;#uu&gt;li:eq(4)&quot;).css(&quot;backgroundColor&quot;,&quot;red&quot;);
+    //获取ul中的索引大于4的所有的li标签元素
+    $(&quot;#uu&gt;li:gt(4)&quot;).css(&quot;backgroundColor&quot;,&quot;red&quot;);
+    //获取ul中的索引小于4的所有的li标签元素
+    $(&quot;#uu&gt;li:lt(4)&quot;).css(&quot;backgroundColor&quot;,&quot;red&quot;);
+});</code></pre><p>5.2.$(“div&gt;img”).first(“img”)<br>//获取div,最后一个图片<br>$(“div&gt;img”).last(“img”)<br>5.2.1.//获取所有的复选框的个数<br>var length1=$(“#j_tb”).find(“:checkbox”).length;<br>//获取所有选中的复选框的个数<br>var length2=$(“#j_tb”).find(“:checked”).length;<br>6.常见的方法<br>6.1..html()方法,设置标签中间显示其他标签及内容,类似于innerHTML<br>.text()方法,设置标签中间显示的文本内容,类似于innerText<br>.val()方法.设置input标签中value的值,类似于value<br>.css()方法,.设置元素的样式,类似于style<br>6.2..text()、.html()、.val()方法<br>如果小括号中写内容,就是设置文字内容<br>如果小括号什么也不写,表示的是获取这个元素中的文字内容<br>6.3.$(this).remove();//方法移除当前调用这个方法的元素—自杀<br>6.4.$(“#dv”).empty();//清空元素中的内容<br>6.5.$(“#dv”).clone();//克隆,复制了这个元素<br>6.6.自定义属性<br>6.6.1.//attr();可以写两个参数:1属性,2属性值<br>//attr();只写了一个参数,获取该元素的这个属性的值<br>var aObj=$(“<a></a>“);<br>aObj.attr(“title”,”hhhhh”);<br>console.log(aObj.attr(“title”));<br>6.7..each<br>6.7.1.//页面加载后,让每个li的透明度发生改变<br>//不同的元素不同的设置方式–each方法<br>$(“#uu&gt;li”).each(function (index,element) {<br>    //第一个参数是索引,第二个参数是对象<br>    //console.log(arguments[0]+”=====”+arguments[1]);<br>    $(element).css(“opacity”,(index+1)/10);<br>});<br>7.样式操作<br>7.1.//第一种设置元素样式的代码方式:<br>$(“ul&gt;li”).css(“backgroundColor”,”yellow”);<br>$(“ul&gt;li”).css(“fontSize”,”50px”);<br>$(“ul&gt;li”).css(“fontFamily”,”全新硬笔行书简”);<br>$(“ul&gt;li”).css(“color”,”blue”);</p>
+<p>//第二种设置元素样式的代码方式:链式编程<br>$(“ul&gt;li”).css(“backgroundColor”,”yellow”).css(“fontSize”,”50px”).css(“fontFamily”,”全新硬笔行书简”).css(“color”,”blue”);</p>
+<p>//第三种设置元素样式的代码方式:键值对<br>$(“ul&gt;li”).css({“backgroundColor”:”yellow”,”fontSize”:”50px”,”fontFamily”:”全新硬笔行书简”,”color”:”blue”});<br>7.2.添加、删除、判断、切换类样式<br>7.2.1.$(“#dv”).addClass(“cls”);//在addClass方法中类样式的名字前面没有点(.)<br>$(“#dv”).addClass(“cls”).addClass(“cls2”);<br>//另一种写法,addClass添加样式的时候.多个类样式的名字中间用空格隔开<br>$(“#dv”).addClass(“cls cls2”);  </p>
+<p>//移除一个元素的类样式<br>$(“#dv”).removeClass(“cls”);<br>//移除div的所有的类样式,removeClass方法中什么也不写移除的是当前元素的所有的类样式<br>$(“#dv”).removeClass();<br>7.2.2.var result=$(“#dv”).hasClass(“cls”);<br>console.log(result);<br>7.2.3.$(“body”).toggleClass(“cls”);//切换类样式<br>7.3.var width=parseInt($(“#dv”).css(“width”))<em>2;<br>var height=parseInt($(“#dv”).css(“height”))</em>2;<br>//获取宽和高的属性值—-&gt;数字类型<br>var width=$(“#dv”).width()<em>2;<br>var height=$(“#dv”).height()</em>2;<br>7.3.1.//获取left和top的值—&gt;都是数字类型<br>console.log($(“#dv”).offset().left);<br>console.log($(“#dv”).offset().top);<br>$(“#dv”).offset({“left”:200,”top”:200});<br>7.3.2.//获取的卷曲出去的距离—–&gt;数字类型<br>console.log($(this).scrollLeft()+”====”+$(this).scrollTop());<br>7.4.总结<br>7.4.1..css()<br>.css(“属性”,”属性值”);<br>.css(“属性”,”属性值”).css(“属性”,”属性值”);<br>.css({“属性”:”属性值”,”属性”:”属性值”});<br>addClass()<br>addClass(“类样式名字”);添加一个类样式<br>addClass(“类样式名字1 类样式名字2”);<br>removeClass()<br>removeClass(“类样式名字”);移除类样式<br>removeClass();移除的是当前元素中所有的类样式<br>hasClass();判断当前元素是否应用了某个类样式<br>toggleClass();切换元素的类样式的<br>8.链式编程<br>8.1.对象.方法().方法().方法();….<br>8.2.$(“#dv”).html(“<p>这是一个p</p>“).css(“backgroundColor”,”red”);<br>8.3.断链<br>8.3.1.var obj=$(“#dv”).html().css(“backgroundColor”,”red”);<br>console.log(obj);<br>9.获取兄弟元素的方法<br>9.1.//.next();获取的是当前元素的下一个兄弟元素<br>$(this).next().css(“backgroundColor”,”green”);</p>
+<p>//.nextAll();获取的是当前元素的后面的所有的兄弟元素<br>$(this).nextAll().css(“backgroundColor”,”green”);</p>
+<p>//.prev();获取的是当前元素的前一个兄弟元素<br>$(this).prev().css(“backgroundColor”,”green”);</p>
+<p>//.prevAll();获取的是当前元素的前面的所有的兄弟元素<br>$(this).prevAll().css(“backgroundColor”,”green”);</p>
+<p>//.siblings();获取的是当前元素的所有的兄弟元素(自己除外)<br>$(this).siblings().css(“backgroundColor”,”green”);<br>10.常见的动画方法<br>10.1..stop()方法用来停止动画<br>10.2.show、hide<br>10.2.1.$(“#dv”).hide();//隐藏<br>//hide方法中可以写参数:参数类型:1.数字类型,2字符串类型<br>//1数字类型:1000表示的是毫秒  —1秒<br>//2字符串类型: “slow”  “normal”  “fast”<br>$(“#dv”).hide(1000);<br>$(“#dv”).hide(“normal”);<br>//回调函数<br>$(“div&gt;img”).hide(1000,function () {<br>    alert(“结束了”);<br>});</p>
+<p>$(“#dv”).show();//显示<br>//show方法中可以写参数:参数类型:1.数字类型,2字符串类型<br>//1数字类型:1000表示的是毫秒  —1秒<br>//2字符串类型: “slow”  “normal”  “fast”<br>$(“#dv”).show(1000);<br>$(“#dv”).show(“fast”);<br>//回调函数<br>$(“div&gt;img”).show(1000,function () {<br>    alert(“结束了====”);<br>});<br>10.3.slideUp和slideDown和slideToggle<br>10.3.1.//滑入、滑出<br>//slideUp和slideDown和slideToggle方法中都可以写参数<br>//参数:可以写数字类型  1000毫秒—1秒<br>//参数:字符串:  slow   normal  fast<br>//点击第一个按钮<br>$(“#btn1”).click(function () {<br>    $(“#dv”).slideUp(1000);<br>});<br>//点击第二个按钮<br>$(“#btn2”).click(function () {<br>    $(“#dv”).slideDown(1000);<br>});<br>//点击第三个按钮<br>$(“#btn3”).click(function () {<br>    $(“#dv”).slideToggle(1000);<br>});<br>10.4.透明度<br>10.4.1.//slow  normal  fast<br>$(“#btn1”).click(function () {<br>    $(“#dv”).fadeIn(1000);<br>});<br>//点击第二个按钮<br>$(“#btn2”).click(function () {<br>    $(“#dv”).fadeOut(1000);<br>});<br>//点击第三个按钮<br>$(“#btn3”).click(function () {<br>    $(“#dv”).fadeToggle(1000);<br>});<br>$(“#btn4”).click(function () {<br>    //一秒钟 透明度达到0.3<br>    $(“#dv”).fadeTo(1000,0.3);<br>});<br>10.5.animate<br>10.5.1.//获取div,产生动画效果<br>//animate方法；<br>/*参数:</p>
+<ul>
+<li>1.是键值对—对象</li>
+<li>2.时间—1000毫秒—1秒</li>
+<li>3.匿名函数—回调函数*/<br>$(“#dv”).animate({“width”:”300px”,”height”:”300px”,”left”:”300px”},1000,function () {<br>  $(“#dv”).animate({“width”:”50px”,”height”:”30px”,”left”:”800px”,”top”:”300px”,”opacity”:0.2},2000);});</li>
+</ul>
+<p>11.Jquery中Promise<br>11.1.<script><br>$(function () {<br>  $('#btn').on('click', function () {<br>    $.ajax({<br>      url: './data.json',<br>      type: 'get',<br>      dataType: 'json'<br>    })<br>    .then(function (data) {<br>      console.log(data)<br>    })<br>  })<br>});<br></script><br>12.跨域jsonp<br>12.1.使用<br>12.1.1.$.ajax({<br>    type:’get’,<br>    url:’<a href="http://tom.com/jsonp.php&#39;" target="_blank" rel="noopener">http://tom.com/jsonp.php&#39;</a>,<br>    dataType:’jsonp’,<br>    jsonp:’cb’,//jsonp属性的作用就是自定义参数名字（callback=abc 这里的名字指的是等号前面的键，后端根据这个键获取方法名，jquery的默认参数名称是callback）<br>    jsonpCallback:’abc’,//这个属性的作用就是自定义回调函数的名字（callback=abc ，这里的名字指的是等号后面的值）<br>    data:{},<br>    success:function(data){<br>        console.log(data.username,data.password);<br>    },<br>    error:function(data){<br>        console.dir(data);<br>        console.log(‘error’);<br>    }<br>});<br>13.Ajax<br>13.1.使用<br>13.1.1.$.ajax({<br>    type: ‘post’,<br>    // url: ‘./11.php?code=’ + code,<br>    url: ‘./11.php’,<br>    data : {code:code},<br>    dataType: ‘json’,//xml json text html script jsonp<br>    success: function(data) {<br>        var info = document.getElementById(‘info’);<br>        if (data.flag == 0) {<br>            info.innerHTML = ‘没有这本书’;<br>        } else {<br>            var tag = ‘<ul><li>书名：’ + data.bookname;<br>            info.innerHTML = tag;<br>        }<br>    },<br>    error:function(data){<br>        console.dir(data);<br>        $(“#info”).html(“服务器发生错误，请与管理员联系”);<br>    }<br>});<br>var data = $.ajax({<br>    type:’post’,<br>    url:’./11.php’,<br>    async:false,<br>    data:{code:code},<br>    dataType:’json’<br>});<br>// console.dir(data);<br>data = data.responseJSON;<br>if(data.flag == 0){<br>    $(“#info”).html(“该图书不存在”);<br>}else{<br>    var tag = ‘<ul><li>书名：’ + data.bookname + ‘</li></ul>‘;<br>    $(“#info”).html(tag);<br>}<br>14.jQueryUI的使用<br>14.1.见官网<br>15.自己做插件<br>15.1.$.fn.changeBackgrounColor=function (color) {<br>    $(“.cls”).css(“backgroundColor”,color);<br>};<br>$(function () {<br>    //点击每个按钮改变每个div的背景颜色<br>    $(“input[type=button]”).click(function () {<br>        $(“.cls”).changeBackgrounColor($(this).val());<br>    });<br>});<br>16.多库共存问题<br>16.1.同一个页面不仅引入了jQuery的外部文件,也引入了其他的库文件<br>如果此时其他的库文件中也使用了$符号<br>那么就使用:$.noConflict()解决<br>其他语言中:这个方式叫解决命名空间的冲突<br>16.2.//让jQuery释放对$的控制权<br>$.noConflict();<br>var $=”哦买噶”;<br>console.log($);<br>jQuery(function () {<br>    jQuery(“#btn”).click(function () {<br>    alert(“正常的执行”);<br>    });<br>});<br>16.3.var itcast=$.noConflict();<br>var $=”哦买噶”;<br>console.log($);<br>itcast(function () {<br>    itcast(“#btn”).click(function () {<br>    alert(“正常的执行”);<br>    });<br>});<br>17.事件<br>17.1.绑定<br>17.1.1.绑定多个事件<br>//鼠标进入<br>$(“#btn”).mouseover(function () {<br>    $(this).css(“backgroundColor”,”red”);<br>});<br>//鼠标离开<br>$(“#btn”).mouseout(function () {<br>    $(this).css(“backgroundColor”,””);<br>});<br>//点击事件<br>$(“#btn”).click(function () {<br>    alert(“哈哈,我又变帅了”);<br>});<br>//链式编程<br>$(“#btn”).mouseover(function () {<br>    $(this).css(“backgroundColor”,”red”);<br>}).mouseout(function () {<br>    $(this).css(“backgroundColor”,””);<br>}).click(function () {<br>    alert(“哈哈,我又变帅了”);<br>});<br>//bind()方法:第一个参数是事件名字,第二个参数是事件处理函数-匿名函数<br>$(“#btn”).bind(“click”,function () {<br>    alert(“我被点了”);<br>});<br>//bind()方法可以为元素同时绑定多个事件<br>$(“#btn”).bind({“click”:function(){<br>    alert(“我被点了”);<br>},”mouseover”:function(){<br>    $(this).css(“backgroundColor”,”red”);<br>},”mouseout”:function(){<br>    $(this).css(“backgroundColor”,””);<br>}});<br>//为按钮注册鼠标进入和离开的事件–绑定–bind<br>var i=0;<br>$(“#btn”).bind(“mouseover mouseout”,function () {<br>    i++;<br>    console.log(i);<br>});<br>17.1.2.delegate<br>/*delegate:</p>
+<ul>
+<li>参数:3个</li>
+<li>1.要绑定事件的元素—p</li>
+<li>2.要绑定的事件的名字—click</li>
+<li>3.绑定事件的处理函数—匿名函数*/<br>$(“#dv”).delegate(“p”,”click”,function () {<br>  alert(“我被点了”);<br>});<br>delegate()方法为父级元素绑定事件,子元素来触发.</li>
+</ul>
+<p>17.1.3.on<br>$(“#btn”).on(“click”,function () {<br>    //创建p添加到div中<br>    $(“#dv”).append($(“<p>这是一个p</p>“));<br>    //为div中的p标签绑定事件<br>    /<em>on方法： 两个参数:1事件的名字,2事件处理函数<br>    * on方法:三个参数: 1,事件的名字, 2.要绑定事件的元素–p,3事件处理函数<br>    * on是父级元素调用,目的:为子级元素去绑定事件</em>/<br>    $(“#dv”).on(“click”,”p”,function () {<br>        alert(“我被点了”);<br>    });<br>});<br>$(“&lt;a href=’javascrip:;’ class=’get’”);<br>//获取tbody中应用.get类样式的元素,绑定点击事件<br>//如果元素是动态添加的,那么非常推荐用on的方式为动态添加的元素绑定事件<br>$(“#j_tb”).on(“click”,”.get”,function () {<br>});<br>delegate()方法内部也是调用的on方法来绑定事件的<br>手机开发中也是使用on的方式绑定事件<br>17.1.4.总结<br>bind:<br>绑定多个事件<br>参数:{“事件的类型”:事件处理函数,….}</p>
+<p>delegate:<br>参数:父级元素.delegate(“子级元素”,”事件类型”,事件处理函数)</p>
+<p>on:<br>参数:父级元素.on(“事件类型”,”子级元素”,事件处理函数);<br>17.2.解绑<br>17.2.1.//第一个按钮通过on的方式绑定点击事件<br>$(“#btn1”).on(“click”,function () {<br>    alert(“我被点了”);<br>});<br>//第二个按钮把第一个按钮的点击事件解绑<br>$(“#btn2”).on(“click”,function () {<br>    //off()参数:要解绑的事件的名字<br>    $(“#btn1”).off(“click”);//解绑事件<br>});</p>
+<p>//第一个按钮bind绑定事件<br>$(“#btn1”).bind(“click”,function () {<br>    alert(“我又被点了”);<br>});<br>//第二个按钮unbind解绑事件<br>$(“#btn2”).bind(“click”,function () {<br>    $(“#btn1”).unbind(“click”);//解绑事件的方法<br>});</p>
+<p>//点击第一个按钮为div中p绑定点击事件<br>$(“#btn1”).click(function () {<br>    $(“#dv”).delegate(“p”,”click”,function () {<br>        alert(“我被点了”);<br>    });<br>});<br>//点击第二个按钮为div中p解除绑定事件<br>$(“#btn2”).click(function () {<br>    $(“#dv”).undelegate(“p”,”click”);//解绑<br>});<br>17.2.2.细节问题<br>$(“#dv”).delegate(“p”,”click”,function () {<br>    alert(“p被点了”);<br>});<br>$(“#dv”).click(function () {<br>    alert(“div被点了”);<br>});<br>$(“#btn1”).click(function () {<br>   // $(“#dv”).off(“click”);<br>    //下面的代码是把子级元素的点击事件解绑了,父级元素的点击事件还存在<br>    //$(“#dv”).off(“click”,”**”);<br>    $(“#dv”).off();//移除父级元素和子级元素的所有的事件<br>});<br>//如果说父级元素和子级元素都是通过正常的方式绑定事件,如果通过off解绑的时候,父级元素的事件解绑了,子级元素的事件没有解绑<br>//但是:如果子级元素是通过父级元素调用delegate的方式绑定的事件,父级元素使用off方式解绑事件,这个时候父级元素和子级元素的相同的事件都会被解绑<br>17.2.3.bind<br>unbind</p>
+<p>on<br>off</p>
+<p>delegate<br>undelegate<br>17.3.事件触发<br>17.3.1.//点击第二个按钮调用第一个按钮的点击事件—触发第一个按钮的点击事件<br>$(“#btn2”).click(function () {<br>    //触发事件–3三种方式<br>    //$(“#btn1”).click();<br>    //trigget()方法中需要写上触发事件的名字<br>    //$(“#btn1”).trigger(“click”);//触发事件<br>    $(“#btn1”).triggerHandler(“click”);//触发事件<br>});<br>17.3.2..trigger()和.triggerHandler()区别<br>前者会触发浏览器的默认行为,并执行事件<br>后者不会触发浏览器默认行为,但是会执行事件<br>获得焦点属于浏览器的默认行为<br>//触发文本框的获取焦点的事件<br>//$(“#txt”).focus();<br>//$(“#txt”).trigger(“focus”);<br>// $(“#txt”).triggerHandler(“focus”);<br>$(“#sp”).text(“文本框获取到焦点了”);<br>//第一种触发事件的方式和第二种触发事件的方式是相同的,都会触发浏览器默认的事件(光标在文本框中闪烁)<br>//第三种触发事件的方式不会触发浏览器的默认事件<br>17.4.事件对象<br>17.4.1.//为div中的按钮绑定事件,获取事件对象中内容<br>$(“#dv”).on(“click”,”input”,function (event) {<br>    //获取函数在调用的时候,有几个参数<br>    //console.log(arguments[0]);<br>    console.log(event);<br>    //event.delegateTarget—–&gt;div—&gt;谁代替元素绑定的事件–div<br>    //event.currentTarget—–&gt;input—&gt;真正是谁绑定的事件<br>    //event.target—-&gt;input—-触发的事件<br>});<br>17.5.键盘事件<br>17.5.1.$(document).keydown(function (e) {<br>    var keyCode=e.keyCode;//键盘按下后的键对应的键值<br>    switch (keyCode){<br>        case 65:$(“#dv”).css(“backgroundColor”,”red”);break;<br>        case 66:$(“#dv”).css(“backgroundColor”,”green”);break;<br>        case 67:$(“#dv”).css(“backgroundColor”,”blue”);break;<br>        case 68:$(“#dv”).css(“backgroundColor”,”yellow”);break;<br>        case 69:$(“#dv”).css(“backgroundColor”,”black”);break;<br>    }<br>});<br>17.6.事件冒泡及取消<br>17.6.1.<div id="dv1"><br>    <div id="dv2"><br>        <div id="dv3"></div><br>    </div></p>
+</div>
+
+<script>
+//事件冒泡:元素中有元素,这些元素都有相同的事件,一旦最里面的元素的事件触发了,外面的所有的元素的相同的事件都会被触发
+//元素A中有一个元素B,A和B都有点击事件,B点击事件触发,A点击事件自动触发
+//取消事件冒泡
+//jQuery中  return false
+$(function () {
+    $("#dv1").click(function () {
+        alert("dv1被点了"+$(this).attr("id"));
+    });
+    $("#dv2").click(function () {
+        alert("dv2被点了"+$(this).attr("id"));
+        //$("body").css("backgroundColor","black");
+    });
+    $("#dv3").click(function () {
+        alert("dv3被点了"+$(this).attr("id"));
+        return false;//取消事件冒泡
+    });
+});
+</script>
+<p>17.7.取消浏览器默认事件<br>17.7.1.$(“#ak”).click(function () {<br>    alert(“超链接被点了”);<br>    //取消超链接的默认的点击事件<br>    return false;<br>});<br>18.复选框选中问题<br>18.1.//prop()可以真正的获取元素是否选中的状态<br>//console.log($(“#ck”).prop(“checked”));<br>//点击按钮让复选框选中,再点按钮让复选框不选中<br>var flag=$(“#ck”).prop(“checked”);//获取选中状态<br>if(flag){<br>    //选中了<br>    $(“#ck”).prop(“checked”,false);<br>}else{<br>    //没有选中<br>    $(“#ck”).prop(“checked”,true);<br>}<br>19.动态创建元素<br>19.1.jQuery中创建元素的方式:<br>1.$(“标签的代码”)<br>2.对象.html(“标签的代码”);<br>19.2.$(“标签的代码”)<br>19.2.1.//创建元素<br>var aObj=$(“<a href='http://www.baidu.com' target="_blank" rel="noopener">百度”+i+”</a>“);<br>//把元素添加到div中<br>$(“#dv”).append(aObj);//把超链接追加到div中<br>//把元素插入到某个元素的前面<br>$(“#dv”).prepend(aObj);<br>//把元素添加到当前元素的后面(兄弟元素来添加)<br>$(“#dv”).after(aObj);<br>//把元素添加到当前元素的前面(兄弟元素来添加)<br>$(“#dv”).before(aObj);<br>19.2.2.//append方法把元素添加到另一个元素中的时候,有点剪切的效果<br>$(“#dv2”).append($(“#dv1&gt;p”));<br>19.2.3.//创建p标签<br>var pObj= $(“<p></p>“);<br>pObj.text(“哈哈哈,我又变帅了”);<br>//$(“#dv”).append(pObj);<br>//把pObj对象主动的加到div中<br>pObj.appendTo($(“#dv”));<br>19.3..html<br>19.3.1.$(“#dv”).html(“<p>这是一个p标签</p>“);</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/20/Jquery/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/15/DOM%E3%80%81BOM/" class="archive-article-date">
-  	<time datetime="2020-02-15T09:47:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/15/DOM%E3%80%81BOM/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DOM、BOM</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/15/DOM%E3%80%81BOM/">DOM、BOM</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/05/JS%E6%8F%90%E5%8D%87/" class="archive-article-date">
-  	<time datetime="2020-02-05T04:43:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/05/JS%E6%8F%90%E5%8D%87/">JS提升</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -283,8 +427,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

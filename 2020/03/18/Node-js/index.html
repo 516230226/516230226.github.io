@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Node.js | yezhibin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="热爱生活，热爱编程。">
+  <meta name="description" content="1.Node.js可以用来做什么？1.1.- 具有复杂逻辑的动态网站   WebSocket服务器  命令行工具  带有图形界面的本地应用程序  ……  2.多版本安装方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js">
 <meta property="og:url" content="http://yoursite.com/2020/03/18/Node-js/index.html">
 <meta property="og:site_name" content="yezhibin的博客">
-<meta property="og:description" content="热爱生活，热爱编程。">
+<meta property="og:description" content="1.Node.js可以用来做什么？1.1.- 具有复杂逻辑的动态网站   WebSocket服务器  命令行工具  带有图形界面的本地应用程序  ……  2.多版本安装方式">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-18T03:31:06.000Z">
-<meta property="article:modified_time" content="2020-05-05T03:36:22.298Z">
+<meta property="article:modified_time" content="2020-05-05T03:54:25.230Z">
 <meta property="article:author" content="ye zhibin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -186,7 +186,532 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>1.Node.js可以用来做什么？<br>1.1.- 具有复杂逻辑的动态网站 </p>
+<ul>
+<li>WebSocket服务器 </li>
+<li>命令行工具 </li>
+<li>带有图形界面的本地应用程序 </li>
+<li>……</li>
+</ul>
+<p>2.多版本安装方式</p>
+<a id="more"></a>
+<p>2.1.- 卸载已有的Node.js</p>
+<ul>
+<li>下载nvm</li>
+<li>在C盘创建目录dev</li>
+<li>在dev目中中创建两个子目录nvm和nodejs</li>
+<li>并且把nvm包解压进去nvm目录中</li>
+<li>在install.cmd文件上面右键选择【以管理员身份运行】</li>
+<li>打开的cmd窗口直接回车会生成一个settings.txt文件，修改文件中配置信息<br>  root:  D:\WebWork\nvm-noinstall<br>  path: C:\Program Files\nodejs<br>  加入下面两行指定下载源：<br>  node_mirror: <a href="https://npm.taobao.org/mirrors/node/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node/</a><br>  npm_mirror: <a href="https://npm.taobao.org/mirrors/npm/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/npm/</a></li>
+<li>配置nvm和Node.js环境变量<ul>
+<li>NVM_HOME:C:\dev\nvm</li>
+<li>NVM_SYMLINK:C:\dev\nodejs</li>
+</ul>
+</li>
+<li>把配置好的两个环境变量加到Path中(%NVM_SYMLINK%;%NVM_HOME%)</li>
+</ul>
+<p>2.2.<a href="https://github.com/coreybutler/nvm-windows" target="_blank" rel="noopener">https://github.com/coreybutler/nvm-windows</a><br>2.3.nvm常用的命令<br>2.3.1.- nvm list 查看当前安装的Node.js所有版本</p>
+<ul>
+<li>nvm install 版本号 安装指定版本的Node.js</li>
+<li>nvm uninstall 版本号 卸载指定版本的Node.js</li>
+<li>nvm use 版本号 选择指定版本的Node.js</li>
+</ul>
+<p>3.运行<br>3.1.命令行<br>3.1.1.cmd直接输入node进入交互模式<br>3.1.2..exit退出交互模式<br>3.2.运行文件方式<br>3.2.1.node 文件名.js<br>4.Node.js使用<br>4.1.全局对象<br>4.1.1./*<br>    全局成员概述<br>*/</p>
+<p>// 包含文件名称的全路径<br>console.log(<strong>filename);<br>// 文件的路径（不包含文件名称）<br>console.log(</strong>dirname);</p>
+<p>// 定时函数，用法与浏览器中的定时函数类似<br>var timer = setTimeout(function(){<br>    console.log(123);<br>},1000);</p>
+<p>setTimeout(function(){<br>    clearTimeout(timer);<br>},2000);</p>
+<p>// 在Node.js中没有window对象，但是有一个类似的对象global，访问全局成员的时候可以省略global<br>global.console.log(123456);</p>
+<p>// argv是一个数组，默认情况下，前两项数据分别是：Node.js环境的路径；当前执行的js文件的全路径<br>// 从第三个参数开始表示命令行参数<br>console.log(process.argv);<br>// 打印当前系统的架构（64位或者32位）<br>console.log(process.arch);<br>4.2.服务器端模块化<br>4.2.1.导出、导入<br>/*<br>    模块化开发</p>
+<pre><code>传统非模块化开发有如下的缺点：
+1、命名冲突
+2、文件依赖
+
+前端标准的模块化规范：
+1、AMD - requirejs
+2、CMD - seajs
+
+服务器端的模块化规范：
+1、CommonJS - Node.js
+
+模块化相关的规则：
+1、如何定义模块：一个js文件就是一个模块，模块内部的成员都是相互独立
+2、模块成员的导出和引入
+
+模块成员的导出最终以module.exports为准
+
+如果要导出单个的成员或者比较少的成员，一般我们使用exports导出；
+如果要导出的成员比较多，一般我们使用module.exports的方式
+这两种方式不能同时使用
+
+exports与module的关系：
+module.exports = exports = {};</code></pre><p>*/</p>
+<p>var sum = function(a,b){<br>    return parseInt(a) + parseInt(b);<br>}</p>
+<p>// 导出模块成员<br>exports.sum = sum;</p>
+<p>// 导出成员的另一种方式<br>module.exports = function(){<br>    console.log(‘hello’);<br>};<br>/*<br>    引入模块<br>*/</p>
+<p>var module = require(‘./xxx.js’);</p>
+<p>// var ret = module.sum(12,13);<br>// console.log(ret);</p>
+<p>// var ret = module(12,15);<br>// console.log(ret);   </p>
+<p>// console.log(typeof module);<br>module();<br>4.2.2.例子<br>/*<br>    四则运算-成员导出方式分析<br>*/<br>var sum = function(a,b){<br>    return parseInt(a) + parseInt(b);<br>}<br>var subtract = function(a,b){<br>    return parseInt(a) - parseInt(b);<br>}<br>var multiply = function(a,b){<br>    return parseInt(a) * parseInt(b);<br>}<br>var divide = function(a,b){<br>    return parseInt(a) / parseInt(b);<br>}</p>
+<p>// 导出成员<br>// exports.sum = sum;<br>// exports.subtract = subtract;</p>
+<p>// module.exports = {<br>//     sum : sum,<br>//     subtract : subtract,<br>//     multiply : multiply,<br>//     divide : divide<br>// }</p>
+<p>// module.exports = [1,2,3];</p>
+<p>/*<br>    测试导出<br><em>/<br>var m = require(‘./05.js’);<br>console.log(m);<br>// var ret = m.sum(1,2);<br>// var ret1 = m.subtract(1,2);<br>// console.log(ret,ret1);<br>4.2.3.另一种导出方式<br>/</em><br>    模块成员导出：global<br>    已经加载的模块会缓存<br>*/<br>// var flag = 123;<br>// global.flag = flag;</p>
+<p>//导入<br>require(‘./07’);<br>console.log(global.flag);<br>4.2.4.加载优先级<br>/*<br>    模块文件的后缀3种情况：.js .json .node<br>    上述三种模块的加载优先级(不加文件后缀时的优先级)：.js -&gt; .json -&gt; .node<br>*/<br>// var m = require(‘./data.json’);<br>// console.log(m.username);</p>
+<p>// var m = require(‘./addon.node’);<br>// // console.log(typeof m);<br>// var ret = m.hello();<br>// console.log(ret);</p>
+<p>var m = require(‘./data’);<br>// console.log(m);<br>var ret = m.hello();<br>console.log(ret);<br>4.3.Buffer<br>4.3.1.Buffer对象是Node处理二进制数据的一个接口。它是Node原生提供的全局对象，可以直接使用，不需要require(‘buffer’)。<br>4.3.2.- 实例化</p>
+<ul>
+<li>Buffer.from(array)</li>
+<li>Buffer.from(string)</li>
+<li>Buffer.alloc(size)<ul>
+<li>功能方法</li>
+</ul>
+</li>
+<li>Buffer.isEncoding() 判断是否支持该编码</li>
+<li>Buffer.isBuffer() 判断是否为Buffer</li>
+<li>Buffer.byteLength() 返回指定编码的字节长度，默认utf8</li>
+<li>Buffer.concat() 将一组Buffer对象合并为一个Buffer对象<ul>
+<li>实例方法</li>
+</ul>
+</li>
+<li>write() 向buffer对象中写入内容</li>
+<li>slice() 截取新的buffer对象</li>
+<li>toString() 把buf对象转成字符串</li>
+<li>toJson() 把buf对象转成json形式的字符串<br>/*<br>Buffer的基本操作<br>Buffer本质上就是字节数组<br>1、构造方法（类）<br>2、静态方法<br>3、实例方法<br>*/</li>
+</ul>
+<p>// 实例化buf对象<br>// let buf = new Buffer(5);<br>// let buf = Buffer.alloc(5);<br>// console.log(buf);</p>
+<p>// let buf = Buffer.from(‘hello’,’utf8’);<br>// console.log(buf);</p>
+<p>// let buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);<br>// console.log(buf.toString());</p>
+<p>// ——————————————-<br>// 静态方法<br>// console.log(Buffer.isEncoding(‘utf8’));<br>// console.log(Buffer.isEncoding(‘gbk’));</p>
+<p>// let buf = Buffer.from(‘hello’);<br>// console.log(Buffer.isBuffer(buf));<br>// console.log(Buffer.isBuffer({}));</p>
+<p>// let buf = Buffer.from(‘中国’,’ascii’);<br>// console.log(Buffer.byteLength(buf));<br>// console.log(buf.toString());</p>
+<p>// let buf1 = Buffer.alloc(3);<br>// let buf2 = Buffer.alloc(5);<br>// let buf3 = Buffer.concat([buf1,buf2]);<br>// console.log(Buffer.byteLength(buf3));</p>
+<p>// let buf1 = Buffer.from(‘tom’);<br>// let buf2 = Buffer.from(‘jerry’);<br>// let buf3 = Buffer.concat([buf1,buf2]);<br>// console.log(Buffer.byteLength(buf3));<br>// console.log(buf3.toString());</p>
+<p>// —————————————<br>// 实例方法<br>// let buf = Buffer.alloc(5);<br>// buf.write(‘hello’,2,2);<br>// console.log(buf);</p>
+<p>// let buf = Buffer.from(‘hello’);<br>// let buf1 = buf.slice(2,3);<br>// console.log(buf === buf1);//false<br>// console.log(buf1.toString());</p>
+<p>// toJSON方法不需要显式调用，当JSON.stringify方法调用的时候会自动调用toJSON方法<br>// const buf = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5]);<br>const buf = Buffer.from(‘hello’);<br>const json = JSON.stringify(buf);<br>console.log(json);<br>4.4.核心模块API<br>4.4.1.路径操作<br>const path = require(‘path’);</p>
+<p>// 获取路径的最后一部分<br>// console.log(path.basename(‘/foo/bar/baz/asdf/quux.html’));<br>// console.log(path.basename(‘/foo/bar/baz/asdf/quux.html’, ‘.html’));</p>
+<p>// 获取路径<br>// console.log(__dirname);<br>// console.log(path.dirname(‘/abc/qqq/www/abc’));</p>
+<p>// 获取扩展名称<br>// console.log(path.extname(‘index.html’));</p>
+<p>// 路径的格式化处理<br>// path.format() obj-&gt;string<br>// path.parse()  string-&gt;obj</p>
+<p>// let obj = path.parse(__filename);<br>// console.log(obj.base);<br>/*<br>{ root: ‘E:\‘, 文件的跟路径<br>  dir: ‘E:\node\day02\02-code’,文件的全路径<br>  base: ‘02.js’,文件的名称<br>  ext: ‘.js’,扩展名<br>  name: ‘02’ 文件名称<br>}<br>*/<br>// let objpath = {<br>//     root : ‘d:\‘,<br>//     dir : ‘d:\qqq\www’,<br>//     base : ‘abc.txt’,<br>//     ext : ‘.txt’,<br>//     name : ‘abc’<br>// };<br>// let strpath = path.format(objpath);<br>// console.log(strpath);</p>
+<p>// 判断是否为绝对路径<br>// console.log(path.isAbsolute(‘/foo/bar’));<br>// console.log(path.isAbsolute(‘C:/foo/..’));</p>
+<p>// 拼接路径（..表示上层路径；.表示当前路径）,在连接路径的时候会格式化路径<br>// console.log(path.join(‘/foo’, ‘bar’, ‘baz/asdf’, ‘quux’, ‘../../‘));</p>
+<p>// 规范化路径<br>// console.log(path.normalize(‘/foo/bar//baz/asdf/quux/..’));<br>// console.log(path.normalize(‘C:\temp\\foo\bar\..\‘));</p>
+<p>// 计算相对路径<br>// console.log(path.relative(‘/data/orandea/test/aaa’, ‘/data/orandea/impl/bbb’));<br>// console.log(path.relative(‘C:\orandea\test\aaa’, ‘C:\orandea\impl\bbb’));</p>
+<p>// 解析路径<br>// console.log(path.resolve(‘wwwroot’, ‘static_files/png/‘, ‘../gif/image.gif’));</p>
+<p>// 两个特殊属性<br>console.log(path.delimiter);//表示路径分隔符（windows是\ Linux是/）<br>console.log(path.sep);//环境变量分隔符(windows中使用; linux中使用:)<br>4.4.2.文件操作<br>异步I/O input/output<br>1、文件操作<br>2、网络操作</p>
+<p>在浏览器中也存在异步操作：<br>1、定时任务<br>2、事件处理<br>3、Ajax回调处理</p>
+<p>js的运行时单线程的<br>引入事件队列机制</p>
+<p>Node.js中的事件模型与浏览器中的事件模型类似<br>单线程+事件队列</p>
+<p>Node.js中异步执行的任务：<br>1、文件I/O<br>2、网络I/O</p>
+<p>基于回调函数的编码风格<br>文件信息获取<br>const fs = require(‘fs’);<br>fs.stat(‘./abc’,(err,stat) =&gt; {<br>    // 一般回调函数的第一个参数是错误对象，如果err为null,表示没有错误，否则表示报错了<br>    if(err) return;<br>    // if(stat.isFile()){<br>    //     console.log(‘文件’);<br>    // }else if(stat.isDirectory()){<br>    //     console.log(‘目录’);<br>    // }<br>    // console.log(stat);<br>    /*<br>    atime 文件访问时间<br>    ctime 文件的状态信息发生变化的时间（比如文件的权限）<br>    mtime 文件数据发生变化的时间<br>    birthtime 文件创建的时间<br>    */<br>});</p>
+<p>// 同步操作<br>// let ret = fs.statSync(‘./data.txt’);<br>// console.log(ret);<br>读文件操作<br>const fs = require(‘fs’);<br>const path = require(‘path’);</p>
+<p>let strpath = path.join(__dirname,’data.txt’);<br>// fs.readFile(strpath,(err,data)=&gt;{<br>//     if(err) return;<br>//     console.log(data.toString());<br>// });</p>
+<p>// 如果有第二个参数并且是编码，那么回调函数获取到的数据就是字符串<br>// 如果没有第二个参数，那么得到的就是Buffer实例对象<br>// fs.readFile(strpath,’utf8’,(err,data)=&gt;{<br>//     if(err) return;<br>//     // console.log(data.toString());<br>//     console.log(data);<br>// });</p>
+<p>// 同步操作<br>let ret = fs.readFileSync(strpath,’utf8’);<br>console.log(ret);<br>写文件操作<br>const fs = require(‘fs’);<br>const path = require(‘path’);</p>
+<p>let strpath = path.join(__dirname,’data.txt’);<br>// fs.writeFile(strpath,’hello nihao’,’utf8’,(err)=&gt;{<br>//     if(!err){<br>//         console.log(‘文件写入成功’);<br>//     }<br>// });</p>
+<p>// let buf = Buffer.from(‘hi’);<br>// fs.writeFile(strpath,buf,’utf8’,(err)=&gt;{<br>//     if(!err){<br>//         console.log(‘文件写入成功’);<br>//     }<br>// });</p>
+<p>// 同步操作<br>fs.writeFileSync(strpath,’tom and jerry’);<br>大文件操作（流式操作）<br>/*<br>    大文件操作（流式操作）<br>    fs.createReadStream(path[, options])<br>    fs.createWriteStream(path[, options])<br>*/</p>
+<p>const path = require(‘path’);<br>const fs = require(‘fs’);</p>
+<p>let spath = path.join(__dirname,’../03-source’,’file.zip’);<br>let dpath = path.join(‘C:\Users\www\Desktop’,’file.zip’);</p>
+<p>// let readStream = fs.createReadStream(spath);<br>// let writeStream = fs.createWriteStream(dpath);</p>
+<p>// 基于事件的处理方式<br>// $(‘input[type=button]’).on(‘click’,function(){<br>//     console.log(‘hello’);<br>// });<br>// let num = 1;<br>// readStream.on(‘data’,(chunk)=&gt;{<br>//     num++;<br>//     writeStream.write(chunk);<br>// });</p>
+<p>// readStream.on(‘end’,()=&gt;{<br>//     console.log(‘文件处理完成’+num);<br>// });<br>// ———————————–</p>
+<p>// pipe的作用直接把输入流和输出流<br>// readStream.pipe(writeStream);</p>
+<p>// ———————————-<br>fs.createReadStream(spath).pipe(fs.createWriteStream(dpath));<br>目录操作<br>/*<br>    目录操作<br>    1、创建目录<br>    fs.mkdir(path[, mode], callback)<br>    fs.mkdirSync(path[, mode])<br>    2、读取目录<br>    fs.readdir(path[, options], callback)<br>    fs.readdirSync(path[, options])<br>    3、删除目录<br>    fs.rmdir(path, callback)<br>    fs.rmdirSync(path)<br>*/</p>
+<p>const path = require(‘path’);<br>const fs = require(‘fs’);<br>// 创建目录<br>// fs.mkdir(path.join(__dirname,’abc’),(err)=&gt;{<br>//     console.log(err);<br>// });</p>
+<p>// fs.mkdirSync(path.join(<strong>dirname,’hello’));<br>// ——————————–<br>// 读取目录<br>// fs.readdir(</strong>dirname,(err,files)=&gt;{<br>//     files.forEach((item,index)=&gt;{<br>//         fs.stat(path.join(__dirname,item),(err,stat)=&gt;{<br>//             if(stat.isFile()){<br>//                 console.log(item,’文件’);<br>//             }else if(stat.isDirectory()){<br>//                 console.log(item,’目录’);<br>//             }<br>//         });<br>//     });<br>// });</p>
+<p>// let files = fs.readdirSync(<strong>dirname);<br>// files.forEach((item,index)=&gt;{<br>//     fs.stat(path.join(</strong>dirname,item),(err,stat)=&gt;{<br>//         if(stat.isFile()){<br>//             console.log(item,’文件’);<br>//         }else if(stat.isDirectory()){<br>//             console.log(item,’目录’);<br>//         }<br>//     });<br>// });<br>// ——————————<br>// 删除目录<br>// fs.rmdir(path.join(__dirname,’abc’),(err)=&gt;{<br>//     console.log(err);<br>// });</p>
+<p>fs.rmdirSync(path.join(__dirname,’qqq’));<br>4.5.包<br>4.5.1.多个模块可以形成包，不过要满足特定的规则才能形成规范的包<br>4.5.2.NPM （node.js package management）<br>全球最大的模块生态系统，里面所有的模块都是开源免费的；也是Node.js的包管理工具。</p>
+<ul>
+<li><p>node package manager</p>
+</li>
+<li><p>管理项目的依赖包</p>
+</li>
+<li><p>可以用来下载我们需要使用的东西</p>
+</li>
+<li><p>安装后可以通过<code>npm -v</code> 查看版本<br><a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a><br>解决npm安装包被墙的问题</p>
+</li>
+<li><p>–registry</p>
+<ul>
+<li>npm config set registry=https//registry.npm.taobao.org </li>
+</ul>
+</li>
+<li><p>cnpm</p>
+<ul>
+<li>淘宝NPM镜像,与官方NPM的同步频率目前为10分钟一次 </li>
+<li>官网: <a href="http://npm.taobao.org/" target="_blank" rel="noopener">http://npm.taobao.org/</a> </li>
+<li>npm install -g cnpm –registry=https//registry.npm.taobao.org </li>
+<li>使用cnpm安装包: cnpm install 包名</li>
+</ul>
+</li>
+<li><p>nrm</p>
+<ul>
+<li>作用：修改镜像源(nrm(npm registry manager )是npm的镜像源管理工具，有时候国外资源太慢，使用这个就可以快速地在 npm 源间切换)</li>
+<li>项目地址：<a href="https://www.npmjs.com/package/nrm" target="_blank" rel="noopener">https://www.npmjs.com/package/nrm</a> </li>
+<li>安装：npm install -g nrm<br>npm包安装方式<br>全局安装 -g：<br>全局安装的包位于Node.js环境的node_modules目录下，全局安装的包一般用于命令行工具</li>
+</ul>
+</li>
+</ul>
+<p>本地安装：<br>本地安装的包在当前目录下的node_modules里面，本地安装的包一般用于实际的开发工作</p>
+<hr>
+<p>npm常用的命令：<br>1、安装包（如果没有指定版本号，那么安装最新版本）<br>npm install -g 包名称 (全局安装)<br>npm install 包名称 (本地安装)</p>
+<p>2、安装包的时候可以指定版本<br>npm install -g 包名称@版本号</p>
+<p>3、卸载包<br>npm uninstall -g 包名</p>
+<p>4、更新包（更新到最新版本）<br>npm update -g 包名</p>
+<p>开发环境（平时开发使用的环境）<br>生产环境（项目部署上线之后的服务器环境）<br>–save 向生产环境添加依赖 dependencies<br>–save-dev 向开发环境添加依赖 DevDependencies<br>npm install  这个命令会安装package.json中所有的dependencies和DevDependencies<br>npm 使用</p>
+<ul>
+<li>1.初始化操作<ul>
+<li><code>npm init</code> 会生成一个package.json文件</li>
+</ul>
+</li>
+<li>2.下载所需要的包<ul>
+<li><code>npm install jquery</code>  下载jquery</li>
+<li>会去 registry.npmjs.org 这个地址下载jquery</li>
+<li>会生成一个node_modules目录，下载的内容就放在这个目录</li>
+</ul>
+</li>
+<li>3.下载包时，可以加上 <code>--save</code> 参数<ul>
+<li><code>npm install jquery --save</code>, 下载之后会在package.json中添加<br>当前下载的包的版本信息。</li>
+</ul>
+</li>
+</ul>
+<p>4.5.3.yarn<br>和npm类似，不过性能比npm好。npm有时更新时会失败。<br>yarn工具基本使用</p>
+<p>安装yarn工具：npm install -g yarn</p>
+<p>1、初始化包<br>npm init<br>yarn init<br>2、安装包<br>npm install xxx –save<br>yarn add xxx<br>3、移除包<br>npm uninstall xxx<br>yarn remove xxx<br>4、更新包<br>npm update xxx<br>yarn upgrade xxx<br>5、安装开发依赖的包<br>npm install xxx –save-dev<br>yarn add xxx –dev<br>6、全局安装<br>npm install -g xxx<br>yarn global add xxx<br>7、设置下载镜像的地址<br>npm config set registry url<br>yarn config set registry url<br>8、安装所有依赖<br>npm install<br>yarn install<br>9、执行包<br>npm run<br>yarn run<br>yarn config set registry <a href="https://registry.npm.taobao.org/" target="_blank" rel="noopener">https://registry.npm.taobao.org/</a><br>4.5.4.自定义包<br>包的规范</p>
+<ul>
+<li>package.json必须在包的顶层目录下</li>
+<li>二进制文件应该在bin目录下</li>
+<li>JavaScript代码应该在lib目录下</li>
+<li>文档应该在doc目录下</li>
+<li>单元测试应该在test目录下<br>package.json字段分析</li>
+<li>name：包的名称，必须是唯一的，由小写英文字母、数字和下划线组成，不能包含空格</li>
+<li>description：包的简要说明</li>
+<li>version：符合语义化版本识别规范的版本字符串</li>
+<li>keywords：关键字数组，通常用于搜索</li>
+<li>maintainers：维护者数组，每个元素要包含name、email（可选）、web（可选）字段</li>
+<li>contributors：贡献者数组，格式与maintainers相同。包的作者应该是贡献者数组的第一- 个元素</li>
+<li>bugs：提交bug的地址，可以是网站或者电子邮件地址</li>
+<li>licenses：许可证数组，每个元素要包含type（许可证名称）和url（链接到许可证文本的- 地址）字段</li>
+<li>repositories：仓库托管地址数组，每个元素要包含type（仓库类型，如git）、url（仓- 库的地址）和path（相对于仓库的路径，可选）字段</li>
+<li>dependencies：生产环境包的依赖，一个关联数组，由包的名称和版本号组成</li>
+<li>devDependencies：开发环境包的依赖，一个关联数组，由包的名称和版本号组成<br>例子：见-node介绍和环境配置</li>
+</ul>
+<p>5.Web服务器开发<br>5.1.传统的动态网站开发需要应用软件<br>PHP ： Apache + php模块<br>java ：Tomcat 、Weblogic<br>Node.js  : 不需要应用软件（可以自己实现）<br>5.1.1.    Node.js的Web开发相关的内容：<br>    1、Node.js不需要依赖第三方应用软件（Apache），可以基于api自己实现<br>    2、实现静态资源服务器<br>    3、路由处理<br>    4、动态网站<br>    5、模板引擎<br>    6、get和post参数传递和处理</p>
+<pre><code>Web开发框架：express</code></pre><p>5.2.基本使用<br>5.2.1./*<br>    处理请求路径的分发<br>    1、req对象是Class: http.IncomingMessage的实例对象<br>    2、res对象是Class: http.ServerResponse的实例对象<br>*/</p>
+<p>// // 创建服务器实例对象<br>// let server = http.createServer();<br>// // 绑定请求事件<br>// server.on(‘request’,(req,res)=&gt;{<br>//     res.end(‘hello’);<br>// });<br>// // 监听端口<br>// server.listen(3000);<br>// —————————–</p>
+<p>const http = require(‘http’);<br>http.createServer((req,res)=&gt;{<br>    // req.url可以获取URL中的路径（端口之后部分）<br>    // res.end(req.url);<br>    if(req.url.startsWith(‘/index’)){<br>        // write向客户端响应内容,可以写多次<br>        res.write(‘hello’);<br>        res.write(‘nihao’);<br>        // end方法用来完成响应，只能执行一次<br>        res.end();<br>    }else if(req.url.startsWith(‘/about’)){<br>        res.end(‘about’);<br>    }else{<br>        res.end(‘no content’);<br>    }<br>}).listen(3000,’192.168.0.106’,()=&gt;{<br>    console.log(‘running…’);<br>});<br>5.3.Node.js实现静态网站功能<br>5.3.1.const path = require(‘path’);<br>const fs = require(‘fs’);<br>const mime = require(‘./mime.json’);</p>
+<p>exports.staticServer = (req,res,root) =&gt; {<br>    fs.readFile(path.join(root,req.url),(err,fileContent)=&gt;{<br>        if(err){<br>            // 没有找到对应文件<br>            res.writeHead(404,{<br>                ‘Content-Type’:’text/plain; charset=utf8’<br>            });<br>            res.end(‘页面被狗狗叼走了’);<br>        }else{<br>            let dtype = ‘text/html’;<br>            // 获取请求文件的后缀<br>            let ext = path.extname(req.url);<br>            // 如果请求的文件后缀合理，就获取到标准的响应格式<br>            if(mime[ext]){<br>                dtype = mime[ext];<br>            }<br>            // 如果响应的内容是文本，就设置成utf8编码<br>            if(dtype.startsWith(‘text’)){<br>                dtype += ‘; charset=utf8’<br>            }<br>            // 设置响应头信息<br>            res.writeHead(200,{<br>                ‘Content-Type’:dtype<br>            });<br>            res.end(fileContent);<br>        }<br>    });<br>}</p>
+<p>//使用<br>const http = require(‘http’);<br>const ss = require(‘./06.js’);<br>const path = require(‘path’);</p>
+<p>http.createServer((req,res)=&gt;{<br>    // ss.staticServer(req,res,path.join(__dirname,’www’));<br>    ss.staticServer(req,res,path.join(‘C:\Users\www\Desktop’,’test’));<br>}).listen(3000,()=&gt;{<br>    console.log(‘running….’);<br>})<br>5.4.参数传递与获取<br>5.4.1.get参数获取<br>/*<br>    get参数处理-url核心模块<br>*/<br>// const url = require(‘url’);<br>// parse方法的作用就是把URL字符串转化为对象<br>// let str = ‘<a href="http://www.baidu.com/abc/qqq?flag=123&amp;keyword=java&#39;" target="_blank" rel="noopener">http://www.baidu.com/abc/qqq?flag=123&amp;keyword=java&#39;</a>;<br>// let ret = url.parse(str,true);<br>// console.log(ret.query.keyword);</p>
+<p>// format的作用就是把对象转化为标准的URL字符串<br>// let obj = {<br>//   protocol: ‘http:’,<br>//   slashes: true,<br>//   auth: null,<br>//   host: ‘<a href="http://www.baidu.com&#39;" target="_blank" rel="noopener">www.baidu.com&#39;</a>,<br>//   port: null,<br>//   hostname: ‘<a href="http://www.baidu.com&#39;" target="_blank" rel="noopener">www.baidu.com&#39;</a>,<br>//   hash: null,<br>//   search: ‘?flag=123&amp;keyword=java’,<br>//   query: ‘flag=123&amp;keyword=java’,<br>//   pathname: ‘/abc/qqq’,<br>//   path: ‘/abc/qqq?flag=123&amp;keyword=java’,<br>//   href: ‘<a href="http://www.baidu.com/abc/qqq?flag=123&amp;keyword=java&#39;" target="_blank" rel="noopener">http://www.baidu.com/abc/qqq?flag=123&amp;keyword=java&#39;</a><br>// };<br>// let ret1 = url.format(obj);<br>// console.log(ret1);<br>/*<br>    get参数解析<br>*/<br>const http = require(‘http’);<br>const path = require(‘path’);<br>const url = require(‘url’);</p>
+<p>http.createServer((req,res)=&gt;{<br>    let obj = url.parse(req.url,true);<br>    res.end(obj.query.username + ‘=========’ + obj.query.password);<br>}).listen(3000,()=&gt;{<br>    console.log(‘running….’);<br>})<br>5.4.2.post参数获取<br>const querystring = require(‘querystring’);<br>const http = require(‘http’);</p>
+<p>// parse方法的作用就是把字符串转成对象<br>// let param = ‘username=lisi&amp;password=123’;<br>// let param = ‘foo=bar&amp;abc=xyz&amp;abc=123’;<br>// let obj = querystring.parse(param);<br>// console.log(obj);<br>// // stringify的作用就是把对象转成字符串<br>// let obj1 = {<br>//     flag : ‘123’,<br>//     abc : [‘hello’,’hi’]<br>// }<br>// let str1 = querystring.stringify(obj1);<br>// console.log(str1);</p>
+<p>http.createServer((req,res)=&gt;{<br>    if(req.url.startsWith(‘/login’)){<br>        let pdata = ‘’;<br>        req.on(‘data’,(chunk)=&gt;{<br>            // 每次获取一部分数据<br>            pdata += chunk;<br>        });</p>
+<pre><code>    req.on(&apos;end&apos;,()=&gt;{
+        // 这里才能得到完整的数据
+        console.log(pdata);
+        let obj = querystring.parse(pdata);
+        res.end(obj.username+&apos;-----&apos;+obj.password);
+    });
+}</code></pre><p>}).listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>})<br>/*<br>    登录验证功能<br>*/<br>const http = require(‘http’);<br>const url = require(‘url’);<br>const querystring = require(‘querystring’);<br>const ss = require(‘./06.js’);</p>
+<p>http.createServer((req,res)=&gt;{<br>    // 启动静态资源服务<br>    if(req.url.startsWith(‘/www’)){<br>        ss.staticServer(req,res,__dirname);<br>    }<br>    console.log(req.url);<br>    // 动态资源<br>    if(req.url.startsWith(‘/login’)){<br>        // get请求<br>        if(req.method == ‘GET’){<br>            let param = url.parse(req.url,true).query;<br>            if(param.username == ‘admin’ &amp;&amp; param.password == ‘123’){<br>                res.end(‘get success’);<br>            }else{<br>                res.end(‘get failure’);<br>            }<br>        }<br>        // post请求<br>        if(req.method == ‘POST’){<br>            let pdata = ‘’;<br>            req.on(‘data’,(chunk)=&gt;{<br>                pdata += chunk;<br>            });<br>            req.on(‘end’,()=&gt;{<br>                let obj = querystring.parse(pdata);<br>                if(obj.username == ‘admin’ &amp;&amp; obj.password == ‘123’){<br>                    res.end(‘post success’);<br>                }else{<br>                    res.end(‘post failure’);<br>                }<br>            });<br>        }<br>    }</p>
+<p>}).listen(3000,()=&gt;{<br>    console.log(‘running….’);<br>});<br>5.5.服务端模板引擎<br>5.5.1.art-template<br>npm install art-template –save<br>例子<br>let template = require(‘art-template’);</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//mytpl.art</span></span><br><span class="line"><span class="comment">//&#123;&#123;if user&#125;&#125;</span></span><br><span class="line"><span class="comment">//  &lt;h2&gt;&#123;&#123;user.name&#125;&#125;&lt;/h2&gt;</span></span><br><span class="line"><span class="comment">//&#123;&#123;/if&#125;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// let html = template(__dirname + '/mytpl.art', &#123;</span></span><br><span class="line"><span class="comment">//     user: &#123;</span></span><br><span class="line"><span class="comment">//         name: 'lisi'</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"><span class="comment">// console.log(html);</span></span><br><span class="line"><span class="comment">// ----------------------------------</span></span><br><span class="line"><span class="comment">// let tpl = '&lt;ul&gt;&#123;&#123;each list as value&#125;&#125;&lt;li&gt;&#123;&#123;value&#125;&#125;&lt;/li&gt;&#123;&#123;/each&#125;&#125;&lt;/ul&gt;';</span></span><br><span class="line"><span class="comment">// let render = template.compile(tpl);</span></span><br><span class="line"><span class="comment">// let ret = render(&#123;</span></span><br><span class="line"><span class="comment">//     list : ['apple','orange','banana']</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"><span class="comment">// console.log(ret);</span></span><br><span class="line"><span class="comment">// -----------------------------------</span></span><br><span class="line"><span class="comment">// let tpl = '&lt;ul&gt;&#123;&#123;each list as value&#125;&#125;&lt;li&gt;&#123;&#123;value&#125;&#125;&lt;/li&gt;&#123;&#123;/each&#125;&#125;&lt;/ul&gt;';</span></span><br><span class="line"><span class="comment">// let tpl = '&lt;ul&gt;&#123;&#123;each list&#125;&#125;&lt;li&gt;&#123;&#123;$index&#125;&#125;-------------&#123;&#123;$value&#125;&#125;&lt;/li&gt;&#123;&#123;/each&#125;&#125;&lt;/ul&gt;';</span></span><br><span class="line"><span class="comment">// let ret = template.render(tpl,&#123;</span></span><br><span class="line"><span class="comment">//     list : ['apple','orange','banana','pineapple']</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"><span class="comment">// console.log(ret);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* &lt;ul&gt;</span></span><br><span class="line"><span class="comment">&lt;li&gt;语文：&#123;&#123;chinese&#125;&#125;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">&lt;li&gt;数学：&#123;&#123;math&#125;&#125;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">&lt;li&gt;外语：&#123;&#123;english&#125;&#125;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">&lt;li&gt;综合：&#123;&#123;summary&#125;&#125;&lt;/li&gt;</span></span><br><span class="line"><span class="comment">&lt;/ul&gt; */</span></span><br><span class="line"><span class="keyword">let</span> html = template(__dirname + <span class="string">'/score.art'</span>, &#123;</span><br><span class="line">    chinese : <span class="string">'120'</span>,</span><br><span class="line">    math : <span class="string">'130'</span>,</span><br><span class="line">    english : <span class="string">'146'</span>,</span><br><span class="line">    summary : <span class="string">'268'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(html);</span><br></pre></td></tr></table></figure>
+<p>5.6.Express<br>5.6.1.基于 Node.js 平台，快速、开放、极简的 Web 开发框架。<br>就是对上面的功能进行了封装。</p>
+<ul>
+<li>静态服务器</li>
+<li>路由</li>
+<li>中间件</li>
+<li>模板引擎整合</li>
+<li>常用API基本使用</li>
+</ul>
+<p>5.6.2.<a href="https://www.expressjs.com.cn/" target="_blank" rel="noopener">https://www.expressjs.com.cn/</a><br>5.6.3.npm install express –save<br>5.6.4.例子<br>Express之HelloWorld<br>var express = require(‘express’);<br>var app = express();</p>
+<p>// 绑定路由<br>app.get(‘/‘, function(req, res) {<br>    // 响应请求<br>    res.send(‘Hello World!’);<br>});</p>
+<p>var server = app.listen(3000, “localhost”, function() {<br>    // 监听的域名或者IP<br>    var host = server.address().address;<br>    // 监听的端口<br>    var port = server.address().port;<br>    console.log(‘http://%s:%s’, host, port);<br>});<br>// const express = require(‘express’);<br>// const app = express();<br>// 上面两行与下面一行代码等效<br>const app = require(‘express’)();</p>
+<p>// app.get(‘/‘,(req,res)=&gt;{<br>//     res.send(‘ok’);<br>// }).listen(3000,()=&gt;{<br>//     console.log(‘running…’);<br>// });<br>// ———————————-<br>let server = app.get(‘/‘,(req,res)=&gt;{<br>    res.send(‘abc’);<br>});<br>server.listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>});<br>res.redirect(‘/‘); //重定向<br>5.6.5.静态资源获取<br>/*<br>    托管静态文件</p>
+<pre><code>可以指定虚拟目录
+可以指定多个目录作为静态资源目录</code></pre><p>*/<br>const express = require(‘express’);<br>const app = express();<br>// 实现静态资源服务<br>//<a href="http://localhost:3000/资源名字" target="_blank" rel="noopener">http://localhost:3000/资源名字</a><br>//访问的是当前pulbic目录下的资源<br>//app.use(express.static(‘public’));</p>
+<p>// use方法的第一个参数可以指定一个虚拟路径<br>//<a href="http://localhost:3000/abc/资源名字" target="_blank" rel="noopener">http://localhost:3000/abc/资源名字</a><br>// let server = app.use(‘/abc’,express.static(‘public’));<br>// app.use(‘/nihao’,express.static(‘hello’));<br>// server.listen(3000,()=&gt;{<br>//     console.log(‘running…’);<br>// });<br>// ———————————–<br>app.use(‘/abc’,express.static(‘public’));<br>app.use(‘/nihao’,express.static(‘hello’));<br>app.listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>});<br>5.6.6.路由<br>/*<br>    路由（根据请求路径和请求方式进行路径分发处理）<br>    http的常用请求方式：<br>    post   添加<br>    get    查询<br>    put    更新<br>    delete 删除</p>
+<pre><code>restful api (一种URL的格式)</code></pre><p>*/</p>
+<p>const express = require(‘express’);<br>const app = express();<br>const router = require(‘./myrouter.js’);</p>
+<p>// 直接使用use分发可以处理所有的路由请求<br>// app.use((req,res)=&gt;{<br>//     res.send(‘ok’);<br>// });</p>
+<p>// all方法绑定的路由与请求方式无关<br>// app.all(‘/abc’,(req,res)=&gt;{<br>//     res.end(‘test router’);<br>// });</p>
+<p>// 基本的路由处理<br>// app.get(‘/‘,(req,res)=&gt;{<br>//     res.send(‘get data’);<br>// });</p>
+<p>// app.post(‘/‘,(req,res)=&gt;{<br>//     res.send(‘post data’);<br>// });</p>
+<p>// app.put(‘/‘,(req,res)=&gt;{<br>//     res.send(‘put data’);<br>// });</p>
+<p>// app.delete(‘/‘,(req,res)=&gt;{<br>//     res.send(‘delete data’);<br>// });</p>
+<p>// —————————-<br>// route方法可以指定特定的请求方式<br>// app.route(‘/hello’)<br>//    .get((req,res)=&gt;{<br>//        res.send(‘get data’);<br>//    }).post((req,res)=&gt;{<br>//        res.send(‘post data’);<br>//    });</p>
+<p>app.use(‘/admin’,router);</p>
+<p>app.listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>});<br>//myrouter.js<br>const express = require(‘express’);<br>const router = express.Router();</p>
+<p>//<a href="http://localhost:3000/admin/hi" target="_blank" rel="noopener">http://localhost:3000/admin/hi</a><br>router.get(‘/hi’,(req,res)=&gt;{<br>    res.send(‘hi router’);<br>});</p>
+<p>router.get(‘/hello’,(req,res)=&gt;{<br>    res.send(‘hello router’);<br>});</p>
+<p>router.post(‘/abc’,(req,res)=&gt;{<br>    res.send(‘abc router’);<br>});</p>
+<p>module.exports = router;<br>5.6.7.中间件<br>就是处理过程中的一个环节（本质上就是一个函数）<br>例子<br>基本使用<br>const express = require(‘express’);<br>const app = express();</p>
+<p>app.use((req,res,next)=&gt;{<br>    console.log(‘有人访问’);<br>    // next方法的作用就是把请求传递到下一个中间件<br>    next()<br>});</p>
+<p>app.use(‘/user’,(req,res,next)=&gt;{<br>    // 记录访问时间<br>    console.log(Date.now());<br>    // next方法的作用就是把请求传递到下一个中间件<br>    next()<br>});</p>
+<p>app.use(‘/user’,(req,res)=&gt;{<br>    console.log(total);<br>    res.send(‘result’);<br>});</p>
+<p>app.listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>});<br>中间件的挂载方式和执行流程<br>const express = require(‘express’);<br>const app = express();</p>
+<p>// app.get(‘/abc’,(req,res,next)=&gt;{<br>//     console.log(1);<br>//     // 跳转到下一个路由<br>//     next(‘route’);<br>// },(req,res)=&gt;{<br>//     //要调用next()才会执行此方法,不能带参数<br>//     console.log(2);<br>//     res.send(‘abc’);<br>// });</p>
+<p>// app.get(‘/abc’,(req,res)=&gt;{<br>//     console.log(3);<br>//     res.send(‘hello’);<br>// });<br>// ——————————–<br>var cb0 = function (req, res, next) {<br>  console.log(‘CB0’);<br>  next();<br>}</p>
+<p>var cb1 = function (req, res, next) {<br>  console.log(‘CB1’);<br>  next();<br>}</p>
+<p>var cb2 = function (req, res) {<br>  res.send(‘Hello from C!’);<br>}</p>
+<p>app.get(‘/example’, [cb0, cb1, cb2]);</p>
+<p>app.listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>});<br>5.6.8.第三方中间件使用<br>npm install body-parser –save<br>用来获取表单提交的post请求参数。get请求没必要使用这个中间件。<br>例子<br>const express = require(‘express’);<br>const app = express();<br>const bodyParser = require(‘body-parser’)<br>// 挂载内置中间件<br>app.use(express.static(‘public’));</p>
+<p>// 挂载参数处理中间件（post）<br>app.use(bodyParser.urlencoded({ extended: false }));</p>
+<p>// 处理get提交参数<br>app.get(‘/login’,(req,res)=&gt;{<br>    let data = req.query;<br>    console.log(data);<br>    res.send(‘get data’);<br>});</p>
+<p>// 处理post提交参数<br>app.post(‘/login’,(req,res)=&gt;{<br>    //这个body是body-parser挂载上去的<br>    let data = req.body;<br>    // console.log(data);<br>    if(data.username == ‘admin’ &amp;&amp; data.password == ‘123’){<br>        res.send(‘success’);<br>    }else{<br>        res.send(‘failure’);<br>    }<br>});</p>
+<p>app.listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>});<br>处理json格式的参数(用ajax发送过来)<br>/* var obj = {<br>    username : $(‘#username’).val(),<br>    password : $(‘#password’).val()<br>}<br>$.ajax({<br>    type : ‘delete’,<br>    url : ‘<a href="http://localhost:3000/login&#39;" target="_blank" rel="noopener">http://localhost:3000/login&#39;</a>,<br>    contentType : ‘application/json’,<br>    dataType : ‘text’,<br>    // data : $(‘form:eq(0)’).serialize(),<br>    data : JSON.stringify(obj),<br>    success : function(data){<br>        console.log(data);<br>    }<br>}); */</p>
+<p>const express = require(‘express’);<br>const app = express();<br>const bodyParser = require(‘body-parser’)<br>// 挂载内置中间件<br>app.use(express.static(‘public’));</p>
+<p>// 挂载参数处理中间件（post）<br>app.use(bodyParser.urlencoded({ extended: false }));<br>// 处理json格式的参数(用ajax发送过来)<br>app.use(bodyParser.json());</p>
+<p>// 处理get提交参数<br>app.get(‘/login’,(req,res)=&gt;{<br>    let data = req.query;<br>    console.log(data);<br>    res.send(‘get data’);<br>});</p>
+<p>// 处理post提交参数<br>app.post(‘/login’,(req,res)=&gt;{<br>    let data = req.body;<br>    // console.log(data);<br>    if(data.username == ‘admin’ &amp;&amp; data.password == ‘123’){<br>        res.send(‘success’);<br>    }else{<br>        res.send(‘failure’);<br>    }<br>});</p>
+<p>app.put(‘/login’,(req,res)=&gt;{<br>    res.end(‘put data’);<br>});</p>
+<p>app.delete(‘/login’,(req,res)=&gt;{<br>    res.end(‘delete data’);<br>});</p>
+<p>app.listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>});<br>5.6.9.模板引擎整合<br>为了使express兼容art-template模板引擎，需要安装express-art-template<br>npm install –save express-art-template<br>例子<br>const express = require(‘express’);<br>const path = require(‘path’);<br>const template = require(‘art-template’);<br>const app = express();</p>
+<p>// 设置模板的路径<br>app.set(‘views’,path.join(__dirname,’views’));<br>// 设置模板引擎，art是模板文件的后缀<br>app.set(‘view engine’,’art’);</p>
+<p>// 使express兼容art-template模板引擎<br>app.engine(‘art’, require(‘express-art-template’));</p>
+<p>/* <div>{{title}}</div></p>
+<div>
+    <ul>
+        {{each list}}
+            <li>{{$value}}</li>
+        {{/each}}
+    </ul>
+</div> */
+app.get('/list',(req,res)=>{
+    let data = {
+        title : '水果',
+        list : ['apple','orange','banana']
+    }
+    // 参数一：模板名称；参数二：渲染模板的数据
+    res.render('list',data);
+});
+
+<p>app.listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>});<br>5.7.mysql<br>5.7.1.npm install mysqljs/mysql<br>5.7.2.操作数据库基本步骤<br>// 加载数据库驱动<br>const mysql = require(‘mysql’);<br>// 创建数据库连接<br>const connection = mysql.createConnection({<br>    host: ‘localhost’, // 数据库所在的服务器的域名或者IP地址<br>    user: ‘root’, // 登录数据库的账号<br>    password: ‘’, // 登录数据库的密码<br>    database: ‘book’ // 数据库名称<br>});<br>// 执行连接操作<br>connection.connect();<br>// 操作数据库<br>connection.query(‘select count(*) as total from book’, function(error, results, fields) {<br>    if (error) throw error;<br>    console.log(‘表book中共有’, results[0].total + ‘条数据’);<br>});<br>// 关闭数据库<br>connection.end();<br>5.7.3.insert<br>let sql = ‘insert into book set ?’<br>let data = {<br>    name : ‘明朝那些事’,<br>    author : ‘当年明月’,<br>    category : ‘文学’,<br>    description : ‘明朝的历史’<br>}<br>// 操作数据库<br>connection.query(sql,data, function(error, results, fields) {<br>    if (error) throw error;<br>    // console.log(results);<br>    if(results.affectedRows == 1){<br>        console.log(‘数据插入成功’);<br>    }<br>});<br>5.7.4.update<br>let sql = ‘update book set name=?,author=?,category=?,description=? where id=?’;<br>let data = [‘浪潮之巅’,’吴军’,’计算机’,’IT巨头的兴衰史’,8];</p>
+<p>// 操作数据库<br>connection.query(sql,data, function(error, results, fields) {<br>    if (error) throw error;<br>    // console.log(results);<br>    if(results.affectedRows == 1){<br>        console.log(‘更新成功’);<br>    }<br>});<br>5.7.5.delete<br>let sql = ‘delete from book where id = ?’;<br>let data = [9];</p>
+<p>// 操作数据库<br>connection.query(sql,data, function(error, results, fields) {<br>    if (error) throw error;<br>    // console.log(results);<br>    if(results.affectedRows == 1){<br>        console.log(‘删除成功’);<br>    }<br>});<br>5.7.6.select<br>let sql = ‘select * from book where id = ?’;<br>let data = [6];</p>
+<p>// 操作数据库<br>connection.query(sql,data, function(error, results, fields) {<br>    if (error) throw error;<br>    console.log(results[0].name);<br>    // console.log(results);<br>});<br>5.7.7.封装<br>exports.base = (sql,data,callback) =&gt; {<br>    // 创建数据库连接<br>    const connection = mysql.createConnection({<br>        host: ‘localhost’, // 数据库所在的服务器的域名或者IP地址<br>        user: ‘root’, // 登录数据库的账号<br>        password: ‘’, // 登录数据库的密码<br>        database: ‘book’ // 数据库名称<br>    });<br>    // 执行连接操作<br>    connection.connect();</p>
+<pre><code>// 操作数据库(数据库操作也是异步的)
+connection.query(sql,data, function(error, results, fields) {
+    if (error) throw error;
+    callback(results);
+});
+// 关闭数据库
+connection.end();</code></pre><p>}<br>5.8.后台接口开发<br>5.8.1.const express = require(‘express’);<br>const db = require(‘./db.js’);<br>const app = express();</p>
+<p>// 指定api路径 allBooks (json接口)<br>// app.get(‘/allBooks’,(req,res)=&gt;{<br>//     let sql = ‘select * from book’;<br>//     db.base(sql,null,(result)=&gt;{<br>//         res.json(result);<br>//     });<br>// });</p>
+<p>// 修改jsonp回调函数传递参数的key<br>//默认：localhost:3000/allBooks?callback=foo<br>//localhost:3000/allBooks?cb=foo<br>app.set(‘jsonp callback name’, ‘cb’);<br>// 指定api路径 allBooks （jsonp接口）<br>app.get(‘/allBooks’,(req,res)=&gt;{<br>    let sql = ‘select * from book’;<br>    db.base(sql,null,(result)=&gt;{<br>        res.jsonp(result);<br>    });<br>});</p>
+<p>app.listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>});<br>5.8.2.restful<br>/*<br>    restful api  是从URL的格式来表述的<br>    get     <a href="http://localhost:3000/books" target="_blank" rel="noopener">http://localhost:3000/books</a><br>    get     <a href="http://localhost:3000/books/book" target="_blank" rel="noopener">http://localhost:3000/books/book</a><br>    post    <a href="http://localhost:3000/books/book" target="_blank" rel="noopener">http://localhost:3000/books/book</a><br>    get     <a href="http://localhost:3000/books/book/1" target="_blank" rel="noopener">http://localhost:3000/books/book/1</a><br>    put     <a href="http://localhost:3000/books/book" target="_blank" rel="noopener">http://localhost:3000/books/book</a><br>    delete  <a href="http://localhost:3000/books/book/2" target="_blank" rel="noopener">http://localhost:3000/books/book/2</a></p>
+<pre><code>传统的URL风格
+http://localhost:3000/
+http://localhost:3000/toAddBook
+http://localhost:3000/addBook
+http://localhost:3000/toEditBook?id=1
+http://localhost:3000/editBook
+http://localhost:3000/deleteBook?id=2</code></pre><p>*/<br>const express = require(‘express’);<br>const db = require(‘./db.js’);<br>const app = express();</p>
+<p>// app.get(‘/books’,(req,res)=&gt;{<br>//     let sql = ‘select * from book’;<br>//     db.base(sql,null,(result)=&gt;{<br>//         res.json(result);<br>//     });<br>// });</p>
+<p>// <a href="http://localhost:3000/books/book/1" target="_blank" rel="noopener">http://localhost:3000/books/book/1</a><br>app.get(‘/books/book/:id’,(req,res)=&gt;{<br>    let id = req.params.id;<br>    let sql = ‘select * from book where id=?’;<br>    let data = [id];<br>    db.base(sql,data,(result)=&gt;{<br>        res.json(result[0]);<br>    });<br>});</p>
+<p>app.listen(3000,()=&gt;{<br>    console.log(‘running…’);<br>});<br>5.9.从服务器主动发送请求<br>5.9.1.例子<br>/*<br>    从服务器主动发送请求<br>    http.request(options[, callback])<br>*/</p>
+<p>const http = require(‘http’);<br>const path = require(‘path’);<br>const fs = require(‘fs’);</p>
+<p>let options = {<br>    hostname : ‘<a href="http://www.baidu.com&#39;" target="_blank" rel="noopener">www.baidu.com&#39;</a>,<br>    port : 80<br>}</p>
+<p>let req = http.request(options,(res)=&gt;{<br>    let info = ‘’;</p>
+<pre><code>res.on(&apos;data&apos;,(chunk)=&gt;{
+    info += chunk;
+});
+res.on(&apos;end&apos;,()=&gt;{
+    fs.writeFile(path.join(__dirname,&apos;baidu.html&apos;),info,(err)=&gt;{
+        console.log(&apos;已经获取到百度主页的内容&apos;);
+    });
+});</code></pre><p>});</p>
+<p>req.end();<br>从服务器主动发送请求调用接口-添加数据<br>const http = require(‘http’);<br>const querystring = require(‘querystring’);</p>
+<p>let options = {<br>    protocol : ‘http:’,<br>    hostname : ‘localhost’,<br>    port : 3000,<br>    path : ‘/books/book’,<br>    method : ‘post’,<br>    headers : {<br>        ‘Content-Type’: ‘application/x-www-form-urlencoded’,<br>    }<br>}</p>
+<p>let req = http.request(options,(res)=&gt;{<br>    let info = ‘’;</p>
+<pre><code>res.on(&apos;data&apos;,(chunk)=&gt;{
+    info += chunk;
+});
+res.on(&apos;end&apos;,()=&gt;{
+    console.log(info);
+});</code></pre><p>});</p>
+<p>let data = querystring.stringify({<br>    name : ‘adafa’,<br>    author : ‘asdfa’,<br>    category : ‘afdasf’,<br>    description : ‘adsfa’<br>});<br>req.write(data);<br>req.end();<br>调用第三方接口-获取天气信息<br>const http = require(‘http’);<br>const querystring = require(‘querystring’);</p>
+<p>let cityCode = ‘101280601’;<br>let options = {<br>    protocol : ‘http:’,<br>    hostname : ‘<a href="http://www.weather.com.cn&#39;" target="_blank" rel="noopener">www.weather.com.cn&#39;</a>,<br>    port : 80,<br>    path : ‘/data/sk/‘+cityCode+’.html’,<br>    method : ‘get’<br>}</p>
+<p>let req = http.request(options,(res)=&gt;{<br>    let info = ‘’;</p>
+<pre><code>res.on(&apos;data&apos;,(chunk)=&gt;{
+    info += chunk;
+});
+res.on(&apos;end&apos;,()=&gt;{
+    console.log(info);
+});</code></pre><p>});</p>
+<p>req.end();<br>5.9.2.通过第三方包superagent发送服务器请求<br>const request = require(‘superagent’);</p>
+<p>// request.get(‘<a href="http://localhost:3000/books&#39;" target="_blank" rel="noopener">http://localhost:3000/books&#39;</a>)<br>//        .end((err,res) =&gt; {<br>//            // console.log(res.body);//有数据格式<br>//            console.log(res.text);//字符串<br>//        });</p>
+<p>// request.post(‘<a href="http://localhost:3000/books/book&#39;" target="_blank" rel="noopener">http://localhost:3000/books/book&#39;</a>)<br>//        .set(‘Content-Type’, ‘application/x-www-form-urlencoded’)<br>//        .send({name:’abadf’,author:’adfads’,category:’adsfads’,description:’asdfads’})<br>//        .end((err,res) =&gt; {<br>//            console.log(res.body);//有数据格式<br>//        });</p>
+<p>// request.get(‘<a href="http://localhost:3000/books/book/2&#39;" target="_blank" rel="noopener">http://localhost:3000/books/book/2&#39;</a>)<br>//        .end((err,res) =&gt; {<br>//            console.log(res.body);//有数据格式<br>//        });</p>
+<p>// request.put(‘<a href="http://localhost:3000/books/book&#39;" target="_blank" rel="noopener">http://localhost:3000/books/book&#39;</a>)<br>//        .set(‘Content-Type’, ‘application/x-www-form-urlencoded’)<br>//        .send({id:’39’,name:’dddd’,author:’fff’,category:’ccc’,description:’ggg’})<br>//        .end((err,res) =&gt; {<br>//            console.log(res.body);//有数据格式<br>//        });</p>
+<p>// request.delete(‘<a href="http://localhost:3000/books/book/39&#39;" target="_blank" rel="noopener">http://localhost:3000/books/book/39&#39;</a>)<br>//        .end((err,res) =&gt; {<br>//            console.log(res.body);//有数据格式<br>//        });</p>
+<p>request.get(‘<a href="http://www.weather.com.cn/data/sk/101010100.html&#39;" target="_blank" rel="noopener">http://www.weather.com.cn/data/sk/101010100.html&#39;</a>)<br>       .end((err,res) =&gt; {<br>           // console.log(res.body);//有数据格式<br>           console.log(res.text);<br>       });<br>6.gulp<br>6.1.- 前端自动化构建工具</p>
+<ul>
+<li>js: function(){//},代码压缩,混淆 : var name = 123,var x = 123</li>
+<li>css, </li>
+<li>合并: 1个js 1kb ,有10个js.</li>
+</ul>
+<p>6.2.<a href="https://www.gulpjs.com.cn/" target="_blank" rel="noopener">https://www.gulpjs.com.cn/</a><br>6.3.### 5个核心方法</p>
+<ul>
+<li>gulp.task(‘任务名’,function(){}) // 创建任务。</li>
+<li>gulp.src(‘./*.css’) 指定想要处理的文件</li>
+<li>gulp.dest() // 指定最终处理后的文件的存放路径</li>
+<li>gulp.watch() // 自动的监视文件的变化，然后执行相应任务。</li>
+<li>gulp.run(‘任务名’)，直接执行相应的任务。</li>
+</ul>
+<p>6.4.### 安装gulp</p>
+<ul>
+<li>通过npm安装:<code>npm install gulp-cli -g</code></li>
+</ul>
+<p>6.5.### gulp使用</p>
+<ul>
+<li>1.在当前项目中也要安装gulp: <code>npm install gulp --save</code></li>
+<li>2.还需要在当前项目中新建一个文件: gulpfile.js</li>
+</ul>
+<p>6.5.1. var gulp =  require(‘gulp’);</p>
+<pre><code>// 创建任务
+// 第一个参数: 任务名
+// 第二个参数: 回调函数,当我们执行任务时就会执行这个函数
+gulp.task(&apos;test&apos;, function(){
+  console.log(123)</code></pre><p>})<br>6.6.3.执行任务: <code>gulp 任务名</code></p>
+<ul>
+<li>示例: <code>gulp test</code></li>
+</ul>
+<p>6.7.### 对js进行压缩</p>
+<ul>
+<li><code>npm install gulp-uglify --save</code></li>
+</ul>
+<p>6.8.### 对js进行合并操作</p>
+<ul>
+<li><code>npm install gulp-concat --save</code></li>
+</ul>
+<p>6.8.1.  gulp.task(‘script’, function(){<br>  // 1.要匹配到要处理的文件<br>  // 指定指定的文件:参数是匹配的规则<br>  // 参数也可以是数组，数组中的元素就是匹配的规则<br>  gulp.src([‘./app.js’,’./sign.js’])<br>  // concat 的参数是合并之后的文件名字<br>  .pipe(concat(‘index.js’))<br>  .pipe(uglify())<br>  // dest方法参数，指定输出文件的路径<br>  .pipe(gulp.dest(‘./dist’))<br>})<br>6.9.### 对css进行压缩操作</p>
+<ul>
+<li><code>npm install gulp-cssnano --save</code></li>
+</ul>
+<p>6.9.1.// 新建一个任务，对css进行处理<br>gulp.task(‘style’, function(){<br>  // 对项目中的2个css文件进行合并，压缩操作<br>  // 1.匹配到要处理的文件<br>  gulp.src([‘./*.css’])<br>  // 2.合并文件<br>  .pipe(concat(‘index.css’))<br>  // 3.压缩操作<br>  .pipe(cssnano())<br>  // 4.输出到指定目录<br>  .pipe(gulp.dest(‘./dist’))<br>  })<br>6.10.### 对html进行压缩</p>
+<ul>
+<li><code>npm install gulp-htmlmin --save</code></li>
+<li><a href="https://github.com/kangax/html-minifier" target="_blank" rel="noopener">https://github.com/kangax/html-minifier</a></li>
+</ul>
+<p>6.10.1.    // 新建一个任务，对html进行压缩<br>gulp.task(‘html’, function(){<br> // 1.匹配到要处理的文件<br> gulp.src([‘./index.html’])<br> // 2.压缩操作<br> .pipe(htmlmin({collapseWhitespace:true}))<br> // 3.指定输出目录<br> .pipe(gulp.dest(‘./dist’))<br>})<br>6.11.### gulp.watch</p>
+<ul>
+<li>监视文件的变化，然后执行相应的任务</li>
+<li>gulp.run, 直接执行指定的任务</li>
+</ul>
+<p>6.11.1.// gulp.watch 监视文件变化，执行相应任务<br>  gulp.task(‘mywatch’, function(){<br>  // 执行指定的任务<br>  gulp.run(‘script’)<br>  // 1.监视js文件的变化，然后执行script任务<br>  // 第一个参数：要监视的文件的规则<br>  // 第二个参数：是要执行的任务<br>  gulp.watch([‘./app.js’,’sign.js’],[‘script’])<br>})<br>6.12.例子见：git安装和使用<br>7.webpack<br>7.1.webpack 是前端的一个项目构建工具，它是基于 Node.js 开发出来的一个前端工具<br>7.1.1.<a href="http://webpack.github.io/" target="_blank" rel="noopener">http://webpack.github.io/</a><br>7.2.1. 使用Gulp， 是基于 task 任务的；<br>2. 使用Webpack， 是基于整个项目进行构建的；<br>7.3.借助于webpack这个前端自动化构建工具，可以完美实现资源的合并、打包、压缩、混淆等诸多功能。<br>7.4.1. webpack 能够处理 JS 文件的互相依赖关系；<br>2. webpack 能够处理JS的兼容问题，把 高级的、浏览器不识别的语法，转为 低级的，浏览器能正常识别的语法<br>7.5.webpack安装的两种方式<br>7.5.1.1. 运行<code>npm i webpack -g</code>全局安装webpack，这样就能在全局使用webpack的命令<br>2. 在项目根目录中运行<code>npm i webpack --save-dev</code>安装到项目依赖中<br>7.6.基本webpack打包构建<br>7.6.1.使用命令<br>webpack  要打包的文件的路径  打包好的输出文件的路径<br>7.6.2.使用webpack.config.js<br>const path = require(‘path’)<br>// 这个配置文件，起始就是一个 JS 文件，通过 Node 中的模块操作，向外暴露了一个 配置对象<br>module.exports = {<br>    entry: path.join(<strong>dirname, ‘./src/main.js’),// 入口，表示，要使用 webpack 打包哪个文件<br>    output: { // 输出文件相关的配置<br>      path: path.join(</strong>dirname, ‘./dist’), // 指定 打包好的文件，输出到哪个目录中去<br>      filename: ‘bundle.js’ // 这是指定 输出的文件的名称<br>    }<br>}<br>当我们在 控制台，直接输入 webpack 命令执行的时候，webpack 做了以下几步：</p>
+<ol>
+<li>首先，webpack 发现，我们并没有通过命令的形式，给它指定入口和出口</li>
+<li>webpack 就会去 项目的 根目录中，查找一个叫做 <code>webpack.config.js</code> 的配置文件</li>
+<li>当找到配置文件后，webpack 会去解析执行这个 配置文件，当解析执行完配置文件后，就得到了 配置文件中，导出的配置对象</li>
+<li>当 webpack 拿到 配置对象后，就拿到了 配置对象中，指定的 入口  和 出口，然后进行打包构建；<br>7.7.webpack的实时打包构建<br>7.7.1.使用 webpack-dev-server 这个工具，来实现自动打包编译的功能<br>7.7.2.1. 运行 npm i webpack-dev-server -D 把这个工具安装到项目的本地开发依赖<ol start="2">
+<li>安装完毕后，这个工具的用法， 和 webpack 命令的用法，完全一样</li>
+<li>由于，我们是在项目中，本地安装的 webpack-dev-server ， 所以，无法把它当作 脚本命令，在powershell 终端中直接运行；（只有那些 安装到 全局 -g 的工具，才能在 终端中正常执行）</li>
+<li>注意： webpack-dev-server 这个工具，如果想要正常运行，要求，在本地项目中，必须安装 webpack (npm i webpack -D)</li>
+<li>webpack-dev-server 帮我们打包生成的 bundle.js 文件，并没有存放到 实际的 物理磁盘上；而是，直接托管到了 电脑的内存中，所以，我们在 项目根目录中，根本找不到 这个打包好的 bundle.js;</li>
+<li>我们可以认为， webpack-dev-server 把打包好的 文件，以一种虚拟的形式，托管到了 咱们项目的 根目录中，虽然我们看不到它，但是，可以认为， 和 dist  src   node_modules  平级，有一个看不见的文件，叫做 bundle.js</li>
+<li>7.3.启动webpack-dev-server<br>方式1：配置package.json<br>“scripts”: {<br>“dev”: “webpack-dev-server –open –port 3000 –contentBase src –hot”,<br>},<br>使用npm run dev启动</li>
+</ol>
+–open表示启动后自动打开浏览器<br>–contentBase src  指定托管的根目录<br>–hot 热更新，表示浏览器无刷新更新，局部更新。不会再重新生成一个文件，只会局部刷新。提高性能。<br>方式2<br>“scripts”: {<br>“dev”: “webpack-dev-server”,<br>},<br>webpack.config.js<br>// 启用热更新的 第2步<br>const webpack = require(‘webpack’)</li>
+</ol>
+<p>module.exports = {<br>    devServer: { // 这是配置 dev-server 命令参数的第二种形式，相对来说，这种方式麻烦一些<br>      //  –open –port 3000 –contentBase src –hot<br>      open: true, // 自动打开浏览器<br>      port: 3000, // 设置启动时候的运行端口<br>      contentBase: ‘src’, // 指定托管的根目录<br>      hot: true // 启用热更新 的 第1步<br>    },<br>    plugins: [ // 配置插件的节点<br>      new webpack.HotModuleReplacementPlugin(), // new 一个热更新的 模块对象， 这是 启用热更新的第 3 步<br>    ]<br>}<br>7.8.html-webpack-plugin<br>7.8.1.内存中生成 HTML 页面的插件<br>cnpm i html-webpack-plugin –save-dev<br>7.8.2.// 导入在内存中生成 HTML 页面的 插件<br>// 只要是插件，都一定要 放到 plugins 节点中去<br>// 这个插件的两个作用：<br>//  1. 自动在内存中根据指定页面生成一个内存的页面<br>//  2. 自动，把打包好的 bundle.js 追加到页面中去<br>const htmlWebpackPlugin = require(‘html-webpack-plugin’)</p>
+<p>module.exports = {<br>    plugins: [ // 配置插件的节点<br>        new htmlWebpackPlugin({ // 创建一个 在内存中 生成 HTML  页面的插件<br>          template: path.join(__dirname, ‘./src/index.html’), // 指定模板页面，将来会根据指定的页面路径，去生成内存中的页面<br>          filename: ‘index.html’ // 指定生成的页面的名称,要和磁盘中的名字一样。否则浏览器打开的是磁盘中的文件<br>        })<br>      ]<br>}<br>7.8.3.  <!-- 当使用html-webpack-plugin之后，我们不再需要手动处理 bundle.js 的引用路径了，因为这个插件，已经帮我们自动创建了一个合适的script , 并且，引用了正确的路径 --><br>  <!-- <script src="/bundle.js"></script> --><br>7.9.webpack打包css文件<br>7.9.1.main.js<br>// 使用 import 语法，导入 CSS样式表<br>import ‘./css/index.css’<br>import ‘./css/index.less’<br>import ‘./css/index.scss’<br>// 注意： webpack, 默认只能打包处理 JS 类型的文件，无法处理 其它的非 JS 类型的文件；<br>// 如果要处理 非JS类型的文件，我们需要手动安装一些 合适 第三方 loader 加载器；<br>// 1. 如果想要打包处理 css、less、scss 文件，需要安装 cnpm i style-loader css-loader less-loader sass-loader less node-sass -D<br>// 2. 打开 webpack.config.js 这个配置文件，在 里面，新增一个 配置节点，叫做 module, 它是一个对象；在 这个 module 对象身上，有个 rules 属性，这个 rules 属性是个 数组；这个数组中，存放了，所有第三方文件的 匹配和 处理规则；<br>7.9.2.webpack.config.js<br>module.exports = {<br>    module: { // 这个节点，用于配置 所有 第三方模块 加载器<br>        rules: [ // 所有第三方模块的 匹配规则<br>          { test: /.css$/, use: [‘style-loader’, ‘css-loader’] }, //  配置处理 .css 文件的第三方loader 规则<br>          { test: /.less$/, use: [‘style-loader’, ‘css-loader’, ‘less-loader’] }, //配置处理 .less 文件的第三方 loader 规则<br>          { test: /.scss$/, use: [‘style-loader’, ‘css-loader’, ‘sass-loader’] }, // 配置处理 .scss 文件的 第三方 loader 规则<br>        ]<br>      }<br>}<br>7.9.3.// 注意： webpack 处理第三方文件类型的过程：<br>// 1. 发现这个 要处理的文件不是JS文件，然后就去 配置文件中，查找有没有对应的第三方 loader 规则<br>// 2. 如果能找到对应的规则， 就会调用 对应的 loader 处理 这种文件类型；<br>// 3. 在调用loader 的时候，是从后往前调用的；[‘style-loader’, ‘css-loader’]<br>// 4. 当最后的一个 loader 调用完毕，会把 处理的结果，直接交给 webpack 进行 打包合并，最终输出到  bundle.js 中去<br>7.10.webpack处理css中的url路径<br>7.10.1.// 默认情况下，webpack 无法 处理 CSS 文件中的 url 地址，不管是图片还是 字体库， 只要是 URL 地址，都处理不了<br>background: url(‘../images/生小孩.jpg’);<br>7.10.2.cnpm i url-loader file-loader –save-dev<br>7.10.3.在<code>webpack.config.js</code>中添加处理url路径的loader模块<br>module.exports = {<br>    module: { // 这个节点，用于配置 所有 第三方模块 加载器<br>        // { test: /.(png|jpg|gif)$/, use: ‘url-loader’ }<br>        { test: /.(jpg|png|gif|bmp|jpeg)$/, use: ‘url-loader?limit=7631&amp;name=[hash:8]-[name].[ext]’ }, // 处理 图片路径的 loader<br>      // limit 给定的值，是图片的大小，单位是 byte， 如果我们引用的图片，大于或等于给定的 limit值，则不会被转为base64格式的字符串，如果图片小于给定的limit值，则会被转为 base64的字符串<br>    }<br>}<br>7.10.4.为什么要名字中要加hash值？因为同名的话打包时会覆盖。打包时是打包在同一个目录下的。所以引入不同目录下的同名图片最终会覆盖。<br>7.11.webpack处理字体的url路径<br>7.11.1.// 注意： 如果要通过路径的形式，去引入 node_modules 中相关的文件，可以直接省略 路径前面的 node_modules 这一层目录，直接写 包的名称，然后后面跟上具体的文件路径<br>// 不写 node_modules 这一层目录 ，默认 就会去 node_modules 中查找<br>import ‘bootstrap/dist/css/bootstrap.css’<br>7.11.2.{ test: /.(ttf|eot|svg|woff|woff2)$/, use: ‘url-loader’ }, // 处理 字体文件的 loader<br>7.12.Babel处理转换ES6语法<br>7.12.1.在 webpack 中，默认只能处理 一部分 ES6 的新语法，一些更高级的ES6语法或者 ES7 语法，webpack 是处理不了的；这时候，就需要 借助于第三方的 loader，来帮助webpack 处理这些高级的语法，当第三方loader 把 高级语法转为 低级的语法之后，会把结果交给 webpack 去打包到 bundle.js 中<br>通过 Babel ，可以帮我们将 高级的语法转换为 低级的语法<br>7.12.2.1. 在 webpack 中，可以运行如下两套 命令，安装两套包，去安装 Babel 相关的loader功能：<br>1.1 第一套包： cnpm i babel-core babel-loader babel-plugin-transform-runtime -D<br>1.2 第二套包： cnpm i babel-preset-env babel-preset-stage-0 -D<br>2. 打开 webpack 的配置文件，在 module 节点下的 rules 数组中，添加一个 新的 匹配规则：<br>2.1 { test:/.js$/, use: ‘babel-loader’, exclude:/node_modules/ }<br>2.2 注意： 在配置 babel 的 loader规则的时候，必须 把 node_modules 目录，通过 exclude 选项排除掉：原因有俩：<br>2.2.1 如果 不排除 node_modules， 则Babel 会把 node_modules 中所有的 第三方 JS 文件，都打包编译，这样，会非常消耗CPU，同时，打包速度非常慢；<br>2.2.2 哪怕，最终，Babel 把 所有 node_modules 中的JS转换完毕了，但是，项目也无法正常运行！<br>3. 在项目的 根目录中，新建一个 叫做 .babelrc  的Babel 配置文件，这个配置文件，属于JSON格式，所以，在写 .babelrc 配置的时候，必须符合JSON语法规范： 不能写注释，字符串必须用双引号<br>3.1 在 .babelrc 写如下的配置：  大家可以把 preset 翻译成 【语法】 的意思<br>     // {<br>     //   “presets”: [“env”, “stage-0”],<br>     //   “plugins”: [“transform-runtime”]<br>     // }<br>4. 了解： 目前，我们安装的 babel-preset-env, 是比较新的ES语法， 之前， 我们安装的是 babel-preset-es2015, 现在，出了一个更新的 语法插件，叫做 babel-preset-env ，它包含了 所有的 和 es相关的语法<br>7.12.3..babelrc<br>{<br>  “presets”: [“env”, “stage-0”],<br>  “plugins”: [“transform-runtime”]<br>}<br>7.13.webpack中使用vue<br>7.13.1.注意<br>在 webpack 中， 使用 import Vue from ‘vue’ 导入的 Vue 构造函数，功能不完整，只提供了 runtime-only 的方式，并没有提供 像网页中那样的使用方式<br>7.13.2.包的查找规则</p>
+<ol>
+<li>找 项目根目录中有没有 node_modules 的文件夹</li>
+<li>在 node_modules 中 根据包名，找对应的 vue 文件夹</li>
+<li>在 vue 文件夹中，找 一个叫做 package.json 的包配置文件</li>
+<li>在 package.json 文件中，查找 一个 main 属性【main属性指定了这个包在被加载时候，的入口文件】<br>module.exports = {<br> resolve: {<pre><code>alias: { // 修改 Vue 被导入时候的包的路径
+    // &quot;vue$&quot;: &quot;vue/dist/vue.js&quot;
+}
+}</code></pre>}</li>
+<li>13.3.总结梳理：webpack 中如何使用 vue</li>
+<li>安装vue的包：  cnpm i vue -S</li>
+<li>由于 在 webpack 中，推荐使用 .vue 这个组件模板文件定义组件，所以，需要安装能解析这种文件的 loader    cnpm i vue-loader vue-template-complier -D</li>
+<li>在 main.js 中，导入 vue 模块  import Vue from ‘vue’</li>
+<li>定义一个 .vue 结尾的组件，其中，组件有三部分组成： template script style</li>
+<li>使用 import login from ‘./login.vue’ 导入这个组件</li>
+<li>创建 vm 的实例 var vm = new Vue({ el: ‘#app’, render: c =&gt; c(login) })</li>
+<li>在页面中创建一个 id 为 app 的 div 元素，作为我们 vm 实例要控制的区域；</li>
+<li>在配置文件中，新增loader哦配置项 { test:/.vue$/, use: ‘vue-loader’ }<br>例子<br>//index.html<!-- 这是容器 -->
+<div id="app">
+<p></p>
+<login></login>
+</div>
+
+</li>
+</ol>
+<p>//login.vue<br><template><br>  <div><br>    <h1>这是登录组件，使用 .vue 文件定义出来的 — </h1><br>  </div><br></template></p>
+<script>
+export default {
+  data() {
+    // 注意：组件中的 data 必须是 function
+    return {
+      msg: "123"
+    };
+  },
+  methods: {
+    show() {
+      console.log("调用了 login.vue 中的 show 方法");
+    }
+  }
+};
+</script>
+
+<style>
+</style>
+
+<p>//main.js<br>import Vue from ‘vue’<br>// 1. 导入 login 组件<br>import login from ‘./login.vue’</p>
+<p>var vm = new Vue({<br>    el: ‘#app’,<br>    data: {<br>      msg: ‘123’<br>    },<br>    /* render: function (createElements) { // 在 webpack 中，如果想要通过 vue， 把一个组件放到页面中去展示，vm 实例中的 render 函数可以实现<br>      return createElements(login)<br>    } */<br>    render: c =&gt; c(login)<br>  })<br>7.14.webpack中使用vue-router<br>7.14.1.例子<br>//index.js</p>
+<body>
+  <!-- 这是容器 -->
+  <div id="app">
+  </div>
+</body>
+
+<p>//App.vue<br><template><br>  <div><br>    <h1>这是 App 组件</h1><br>    <router-link to="/account">Account</router-link><br>    <router-link to="/goodslist">Goodslist</router-link><br>    <router-view></router-view><br>  </div><br></template></p>
+<script>
+</script>
+<style>
+</style>
+
+<p>//Account.vue<br><template><br>  <div><br>    <h1>这是 Account 组件</h1><br>    <router-link to="/account/login">登录</router-link><br>    <router-link to="/account/register">注册</router-link><br>    <router-view></router-view><br>  </div><br></template></p>
+<script>
+</script>
+<style>
+</style>
+
+<p>//GoodsList.vue<br><template><br>  <div><br>    <h1>这是 GoodsList 组件</h1><br>  </div><br></template></p>
+<script>
+</script>
+<style>
+</style>
+
+<p>//login.vue<br><template><br>  <div><br>    <h3>这是Account的登录子组件</h3><br>  </div><br></template></p>
+<script>
+</script>
+<style scoped>
+div {
+  color: red;
+}
+</style>
+
+<p>//register.vue<br><template><br>  <div><br>    <h3>这是Account的注册子组件</h3><br>  </div><br></template></p>
+<script>
+</script>
+<style>
+</style>
+
+<p>//main.js<br>import Vue from ‘vue’<br>// 1. 导入 vue-router 包<br>import VueRouter from ‘vue-router’<br>// 2. 手动安装 VueRouter<br>Vue.use(VueRouter)</p>
+<p>// 导入 app 组件<br>import app from ‘./App.vue’<br>// 导入 Account 组件<br>import account from ‘./main/Account.vue’<br>import goodslist from ‘./main/GoodsList.vue’<br>// 导入Account的两个子组件<br>import login from ‘./subcom/login.vue’<br>import register from ‘./subcom/register.vue’</p>
+<p>// 3. 创建路由对象<br>var router = new VueRouter({<br>  routes: [<br>    // account  goodslist<br>    {<br>        path: ‘/account’,<br>        component: account,<br>        children: [<br>            { path: ‘login’, component: login },<br>            { path: ‘register’, component: register }<br>    },<br>    { path: ‘/goodslist’, component: goodslist }<br>  ]<br>})</p>
+<p>var vm = new Vue({<br>  el: ‘#app’,<br>  render: c =&gt; c(app), // render 会把 el 指定的容器中，所有的内容都清空覆盖，所以 不要 把 路由的 router-view 和 router-link 直接写到 el 所控制的元素中<br>  router // 4. 将路由对象挂载到 vm 上<br>})<br>// 注意： App 这个组件，是通过 VM 实例的 render 函数，渲染出来的， render 函数如果要渲染 组件， 渲染出来的组件，只能放到 el: ‘#app’ 所指定的 元素中；<br>// Account 和 GoodsList 组件， 是通过 路由匹配监听到的，所以， 这两个组件，只能展示到 属于 路由的 <router-view></router-view> 中去；<br>7.15.组件中的css作用域问题<br>7.15.1.<style lang="scss" scoped><br>/* 样式的 scoped 是通过 CSS 的属性选择器实现的(调试查看) <em>/<br>{/</em> scoped表示样式只在此组件(会传递给子组件)中生效，而不是全局的。不加就是全局的 <em>/}<br>/</em> 普通的 style 标签只支持 普通的 样式，如果想要启用 scss 或 less ，需要为 style 元素，设置 lang 属性 */<br>// 只要 咱们的 style 标签， 是在 .vue 组件中定义的，那么，推荐都为 style 开启 scoped 属性<br>body {<br>  div {<br>    font-style: italic;  //会传递给子组件<br>  }<br>}<br></style><br>7.16.使用<code>vue-resource</code>获取数据<br>7.16.1.1. 运行<code>cnpm i vue-resource -S</code>安装模块<br>2. 导入 vue-resource 组件<br>    import VueResource from ‘vue-resource’<br>3.在vue中使用 vue-resource 组件<br>    Vue.use(VueResource);<br>7.17.webpack的发布策略<br>7.17.1.为了满足我们的发布策略，需要新建一个配置文件，命名为<code>webpack.publish.config.js</code><br>7.17.2.在<code>package.json</code>中的script节点下新增<code>dev</code>命令，通过<code>--config</code>指定webpack启动时要读取的配置文件：<br>“pub”: “webpack –config webpack.publish.config.js”<br>7.17.3.bundle.js 中只存放 自己的代码， 第三方包的代码，全部抽离到 另外的JS中<br>7.17.4.webpack.publish.config.js<br>const path = require(‘path’)<br>const htmlWebpackPlugin = require(‘html-webpack-plugin’)<br>// 每次重新构建时候删除dist目录<br>// cnpm i clean-webpack-plugin –save-dev<br>//导入每次删除文件夹的插件<br>const cleanWebpackPlugin = require(‘clean-webpack-plugin’)<br>const webpack = require(‘webpack’)<br>// npm install –save-dev extract-text-webpack-plugin<code>安装抽取CSS文件的插件
+// 导入抽取CSS的插件
+const ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;)
+// cnpm i optimize-css-assets-webpack-plugin --save-dev</code>安装插件到开发依赖<br>// 导入压缩CSS的插件<br>const OptimizeCssAssetsPlugin = require(‘optimize-css-assets-webpack-plugin’)</p>
+<p>module.exports = {<br>  entry: { // 配置入口节点<br>    app: path.join(<strong>dirname, ‘./src/main.js’),<br>    vendors1: [‘jquery’] // 把要抽离的第三方包的名称，放到这个数组中<br>  },<br>  output: {<br>    path: path.join(</strong>dirname, ‘./dist’),<br>    filename: ‘js/bundle.js’  //表示生成的文件放到js目录下<br>  },<br>  plugins: [ // 插件<br>    new htmlWebpackPlugin({<br>      template: path.join(__dirname, ‘./src/index.html’),<br>      filename: ‘index.html’,<br>      minify: { // 压缩HTML代码。其他优化项请参考：<a href="https://github.com/kangax/html-minifier#options-quick-reference" target="_blank" rel="noopener">https://github.com/kangax/html-minifier#options-quick-reference</a><br>        collapseWhitespace: true, // 合并多余的空格<br>        removeComments: true, // 移除注释<br>        removeAttributeQuotes: true // 移除 属性上的双引号<br>      }<br>    }),<br>    new cleanWebpackPlugin([‘dist’]),// 删除dist目录<br>    new webpack.optimize.CommonsChunkPlugin({<br>      name: ‘vendors1’, // 指定要抽离的入口名称<br>      filename: ‘js/vendors.js’ // 将来再发布的时候，除了会有一个 bundle.js ，还会多一个 vendors.js 的文件，里面存放了所有的第三方包<br>    }),<br>    new webpack.optimize.UglifyJsPlugin({  // 优化压缩JS<br>      compress: { // 配置压缩选项<br>        warnings: false // 移除警告<br>      }<br>    }),<br>    new webpack.optimize.DedupePlugin({ // 设置为产品上线环境，进一步压缩JS代码<br>      ‘process.env.NODE_ENV’: ‘“production”‘<br>    }),<br>    new ExtractTextPlugin(“css/styles.css”), // 抽取CSS文件，把生成的文件放在css目录下，并命名为styles.css<br>    new OptimizeCssAssetsPlugin()// 压缩CSS的插件<br>  ],<br>  module: {<br>    rules: [<br>      {<br>        test: /.css$/, use: ExtractTextPlugin.extract({<br>          fallback: “style-loader”,<br>          use: “css-loader”,<br>          publicPath: ‘../‘ // 指定抽取的时候，自动为里面的资源路径加上 ../ 前缀<br>        })<br>      },<br>      {<br>        test: /.scss$/, use: ExtractTextPlugin.extract({<br>          fallback: ‘style-loader’,<br>          use: [‘css-loader’, ‘sass-loader’],<br>          publicPath: ‘../‘ // 指定抽取的时候，自动为里面的资源路径加上 ../ 前缀<br>        })<br>      },<br>      //将图片放入统一的images文件夹之下<br>      { test: /.(png|gif|bmp|jpg)$/, use: ‘url-loader?limit=5000&amp;name=images/[hash:8]-[name].[ext]’ },<br>      { test: /.js$/, use: ‘babel-loader’, exclude: /node_modules/ }<br>    ]<br>  }<br>}<br>8.Json中不能写注释</p>
+
       
 
       
@@ -287,7 +812,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">这是登录组件，使用 .vue 文件定义出来的 — </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">这是 App 组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text">这是 Account 组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">4.</span> <span class="toc-text">这是 GoodsList 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">4.0.1.</span> <span class="toc-text">这是Account的登录子组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">4.0.2.</span> <span class="toc-text">这是Account的注册子组件</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

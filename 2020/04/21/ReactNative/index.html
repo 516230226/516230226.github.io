@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | yezhibin的博客</title>
+  <title>ReactNative | yezhibin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="热爱生活，热爱编程。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yezhibin的博客">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="RN学习说明 ReactNative是基于React这门框架的语法来进行开发的； RN中，提供了 移动端 专用的一些组件，这时候，我们在网页中使用的一些 元素，div, p, img 都不能用了，只能使用RN固有的组件； 最终，开发出来的项目，是要运行到手机上的，那么，如何把一个 RN 的项目，完整的发布到手机上去运行呢，这里，需要结合 安卓的 签名打包步骤，并使用 RN 提供的打包命令，进行完整">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactNative">
+<meta property="og:url" content="http://yoursite.com/2020/04/21/ReactNative/index.html">
 <meta property="og:site_name" content="yezhibin的博客">
-<meta property="og:description" content="热爱生活，热爱编程。">
+<meta property="og:description" content="RN学习说明 ReactNative是基于React这门框架的语法来进行开发的； RN中，提供了 移动端 专用的一些组件，这时候，我们在网页中使用的一些 元素，div, p, img 都不能用了，只能使用RN固有的组件； 最终，开发出来的项目，是要运行到手机上的，那么，如何把一个 RN 的项目，完整的发布到手机上去运行呢，这里，需要结合 安卓的 签名打包步骤，并使用 RN 提供的打包命令，进行完整">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/04/21/ReactNative/images/01.%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AE%8C%E6%AF%95%E4%B9%8B%E5%90%8E%E6%88%AA%E5%9B%BE%E5%B9%B6%E8%AF%B4%E6%98%8E.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/21/ReactNative/images/02.%E6%89%93%E5%8C%85%E5%AE%8C%E6%88%90%E4%B9%8B%E5%90%8E%E7%9A%84%E6%88%AA%E5%9B%BE.png">
+<meta property="article:published_time" content="2020-04-21T04:58:52.000Z">
+<meta property="article:modified_time" content="2020-05-05T05:00:45.374Z">
 <meta property="article:author" content="ye zhibin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -29,6 +33,7 @@
 <meta property="article:tag" content="代码">
 <meta property="article:tag" content="开源">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/21/ReactNative/images/01.%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AE%8C%E6%AF%95%E4%B9%8B%E5%90%8E%E6%88%AA%E5%9B%BE%E5%B9%B6%E8%AF%B4%E6%98%8E.png">
   
     <link rel="alternative" href="/atom.xml" title="yezhibin的博客" type="application/atom+xml">
   
@@ -164,106 +169,258 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ReactNative" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ReactNative
+    </h1>
+  
+
+        
+        <a href="/2020/04/21/ReactNative/" class="archive-article-date">
+  	<time datetime="2020-04-21T04:58:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="RN学习说明"><a href="#RN学习说明" class="headerlink" title="RN学习说明"></a>RN学习说明</h2><ol>
+<li>ReactNative是基于React这门框架的语法来进行开发的；</li>
+<li>RN中，提供了 移动端 专用的一些组件，这时候，我们在网页中使用的一些 元素，div, p, img 都不能用了，只能使用RN固有的组件；</li>
+<li>最终，开发出来的项目，是要运行到手机上的，那么，如何把一个 RN 的项目，完整的发布到手机上去运行呢，这里，需要结合 安卓的 签名打包步骤，并使用 RN 提供的打包命令，进行完整 apk 文件的发布；最终发布出来的就是 Release 版本的项目，可以上传到应用商店；<a id="more"></a>
+
+</li>
+</ol>
+<h2 id="配置ReactNative基本开发环境"><a href="#配置ReactNative基本开发环境" class="headerlink" title="配置ReactNative基本开发环境"></a>配置ReactNative基本开发环境</h2><p><a href="http://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="noopener">搭建基本的开发环境 - 英文官网</a><br/><br><a href="http://reactnative.cn/docs/0.42/getting-started.html#content" target="_blank" rel="noopener">搭建基本的开发环境 - 中文</a><br>这两篇文档对比着进行参考，进行相关的安装；</p>
+<h2 id="手机的相关配置"><a href="#手机的相关配置" class="headerlink" title="手机的相关配置"></a>手机的相关配置</h2><ol>
+<li>使用数据线，把手机链接到电脑上；</li>
+<li>运行 <code>adb devices</code> 的命令，这个命令，是安卓开发环境提供的；</li>
+<li>需要先开启手机的<code>开发者模式</code></li>
+<li>如果开启开发者模式之后，还是看不到设备，则尝试安装 <code>豌豆荚</code> 这样的工具，让这些工具帮助你在电脑上安装手机的驱动；</li>
+</ol>
+<h2 id="搭建RN的项目"><a href="#搭建RN的项目" class="headerlink" title="搭建RN的项目"></a>搭建RN的项目</h2><ol>
+<li>运行<code>react-native init 项目名称</code>来初始化一个react native项目；<br><img src="images/01.%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AE%8C%E6%AF%95%E4%B9%8B%E5%90%8E%E6%88%AA%E5%9B%BE%E5%B9%B6%E8%AF%B4%E6%98%8E.png" alt="01.项目初始化完毕之后截图并说明"></li>
+<li>打包运行项目，把打包好的项目部署到手机中！<ul>
+<li>确保手机已经正确的链接到了当前电脑上，同时手机开启了<code>开发者调试模式</code>；可以使用<code>adb devices</code>来查看当前链接到电脑上的手机设备列表！</li>
+<li>当确认手机正确链接到电脑上之后，可以运行<code>react-native run-android</code>来打包当前项目，并把打包好的项目以调试的模式安装到手机中！</li>
+<li>打包完成之后的截图<br><img src="images/02.%E6%89%93%E5%8C%85%E5%AE%8C%E6%88%90%E4%B9%8B%E5%90%8E%E7%9A%84%E6%88%AA%E5%9B%BE.png" alt="02.打包完成之后的截图"></li>
+<li>React Package窗口的作用<br>![03.React Package窗口的作用](images/03.React Package窗口的作用.png)</li>
+<li>04.React  Packager打包编译代码截图<br>![04.React  Packager打包编译代码截图](images/04.React  Packager打包编译代码截图.png)</li>
+<li>当第一打包编译项目部署到手机上之后 - 如何设置开发服务器的地址<br>![05.当第一打包编译项目部署到手机上之后 - 如何设置开发服务器的地址.png](images/05.当第一打包编译项目部署到手机上之后 - 如何设置开发服务器的地址.png)</li>
+</ul>
+</li>
+</ol>
+<h2 id="基本组件的使用介绍"><a href="#基本组件的使用介绍" class="headerlink" title="基本组件的使用介绍"></a>基本组件的使用介绍</h2><ul>
+<li>View：</li>
+<li>Text：</li>
+<li>TextInput：</li>
+<li>Image：</li>
+<li>Button：</li>
+<li>ActivityIndicator：</li>
+<li>ScrollView：这是一个列表滚动的组件</li>
+<li>ListView：也是一个列表滚动的组件，但是，这个组件已经过时了，官方推荐使用 FlatList 来代替它</li>
+</ul>
+<h2 id="判断组件是否被卸载"><a href="#判断组件是否被卸载" class="headerlink" title="判断组件是否被卸载"></a>判断组件是否被卸载</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (this._reactInternalInstance)&#123;</span><br><span class="line">    &#x2F;&#x2F; 组件没有被卸载</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置Tab栏"><a href="#配置Tab栏" class="headerlink" title="配置Tab栏"></a><a href="https://github.com/happypancake/react-native-tab-navigator" target="_blank" rel="noopener">配置Tab栏</a></h2><h2 id="配置Tab栏的图标"><a href="#配置Tab栏的图标" class="headerlink" title="配置Tab栏的图标"></a><a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="noopener">配置Tab栏的图标</a></h2><blockquote>
+<p>注意：使用图标，需要使用 <code>Android SDK Manager</code> 安装 <code>Android SDK Build-tools 26.0.1</code> 并接收其 license;</p>
+</blockquote>
+<h2 id="案例：豆瓣电影列表"><a href="#案例：豆瓣电影列表" class="headerlink" title="案例：豆瓣电影列表"></a>案例：豆瓣电影列表</h2><ul>
+<li>电影列表数据：<code>https://api.douban.com/v2/movie/in_theaters</code></li>
+<li>电影详细数据：<code>https://api.douban.com/v2/movie/subject/26309788</code></li>
+</ul>
+<h2 id="安装路由"><a href="#安装路由" class="headerlink" title="安装路由"></a>安装路由</h2><ol>
+<li>运行<code>npm i react-native-router-flux --save</code></li>
+<li>路由官网：<code>https://github.com/aksonov/react-native-router-flux</code></li>
+<li>路由相关配置：<code>https://github.com/aksonov/react-native-router-flux/blob/master/docs/API.md</code></li>
+<li>路由简单的DEMO：<code>https://github.com/aksonov/react-native-router-flux/blob/v3/docs/MINI_TUTORIAL.md</code></li>
+</ol>
+<h2 id="路由的一些基本使用方法"><a href="#路由的一些基本使用方法" class="headerlink" title="路由的一些基本使用方法"></a>路由的一些基本使用方法</h2><h2 id="配置首页的轮播图"><a href="#配置首页的轮播图" class="headerlink" title="配置首页的轮播图"></a>配置首页的轮播图</h2><ol>
+<li>轮播图官网：<code>https://github.com/leecade/react-native-swiper?utm_source=tuicool&amp;utm_medium=referral</code></li>
+<li>运行<code>npm i react-native-swiper --save</code>安装轮播图组件</li>
+<li>导入轮播图组件<code>import Swiper from &#39;react-native-swiper&#39;;</code></li>
+<li>其中，在Swiper身上，<code>showsPagination={false}</code>是用来控制页码的；<code>showsButtons={false}</code>是用来控制左右箭头显示与隐藏；<code>height={160}</code>是用来控制轮播图区域的高度的！</li>
+<li>设置轮播图的样式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var styles &#x3D; StyleSheet.create(&#123;</span><br><span class="line">    wrapper: &#123;&#125;,</span><br><span class="line">    slide1: &#123;</span><br><span class="line">        flex: 1,</span><br><span class="line">        justifyContent: &#39;center&#39;,</span><br><span class="line">        alignItems: &#39;center&#39;,</span><br><span class="line">        backgroundColor: &#39;#9DD6EB&#39;,</span><br><span class="line">    &#125;,</span><br><span class="line">    slide2: &#123;</span><br><span class="line">        flex: 1,</span><br><span class="line">        justifyContent: &#39;center&#39;,</span><br><span class="line">        alignItems: &#39;center&#39;,</span><br><span class="line">        backgroundColor: &#39;#97CAE5&#39;,</span><br><span class="line">    &#125;,</span><br><span class="line">    slide3: &#123;</span><br><span class="line">        flex: 1,</span><br><span class="line">        justifyContent: &#39;center&#39;,</span><br><span class="line">        alignItems: &#39;center&#39;,</span><br><span class="line">        backgroundColor: &#39;#92BBD9&#39;,</span><br><span class="line">    &#125;,</span><br><span class="line">    image:&#123;</span><br><span class="line">        width:&#39;100%&#39;,</span><br><span class="line">        height:&#39;100%&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>将组件的代码结构引入到页面上：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;Swiper style&#x3D;&#123;styles.wrapper&#125; showsButtons&#x3D;&#123;true&#125; height&#x3D;&#123;160&#125; autoplay&#x3D;&#123;true&#125;&gt;</span><br><span class="line">                &lt;View style&#x3D;&#123;styles.slide1&#125;&gt;</span><br><span class="line">                    &lt;Image source&#x3D;&#123;&#123;uri:&#39;http:&#x2F;&#x2F;www.itcast.cn&#x2F;images&#x2F;slidead&#x2F;BEIJING&#x2F;2017410109413000.jpg&#39;&#125;&#125; style&#x3D;&#123;styles.image&#125;&gt;&lt;&#x2F;Image&gt;</span><br><span class="line">                &lt;&#x2F;View&gt;</span><br><span class="line">                &lt;View style&#x3D;&#123;styles.slide2&#125;&gt;</span><br><span class="line">                    &lt;Image source&#x3D;&#123;&#123;uri:&#39;http:&#x2F;&#x2F;www.itcast.cn&#x2F;images&#x2F;slidead&#x2F;BEIJING&#x2F;2017440109442800.jpg&#39;&#125;&#125; style&#x3D;&#123;styles.image&#125;&gt;&lt;&#x2F;Image&gt;</span><br><span class="line">                &lt;&#x2F;View&gt;</span><br><span class="line">                &lt;View style&#x3D;&#123;styles.slide3&#125;&gt;</span><br><span class="line">                    &lt;Image source&#x3D;&#123;&#123;uri:&#39;http:&#x2F;&#x2F;www.itcast.cn&#x2F;images&#x2F;slidead&#x2F;BEIJING&#x2F;2017441409442800.jpg&#39;&#125;&#125; style&#x3D;&#123;styles.image&#125;&gt;&lt;&#x2F;Image&gt;</span><br><span class="line">                &lt;&#x2F;View&gt;</span><br><span class="line">            &lt;&#x2F;Swiper&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="首页轮播图片URL地址："><a href="#首页轮播图片URL地址：" class="headerlink" title="首页轮播图片URL地址："></a>首页轮播图片URL地址：</h4><ul>
+<li>图片地址1：<a href="http://www.itcast.cn/images/slidead/BEIJING/2017410109413000.jpg" target="_blank" rel="noopener">http://www.itcast.cn/images/slidead/BEIJING/2017410109413000.jpg</a></li>
+<li>图片地址2：<a href="http://www.itcast.cn/images/slidead/BEIJING/2017440109442800.jpg" target="_blank" rel="noopener">http://www.itcast.cn/images/slidead/BEIJING/2017440109442800.jpg</a></li>
+<li>图片地址3：<a href="http://www.itcast.cn/images/slidead/BEIJING/2017441409442800.jpg" target="_blank" rel="noopener">http://www.itcast.cn/images/slidead/BEIJING/2017441409442800.jpg</a></li>
+</ul>
+<h2 id="渲染电影列表数据"><a href="#渲染电影列表数据" class="headerlink" title="渲染电影列表数据"></a>渲染电影列表数据</h2><h2 id="渲染电影详情页面"><a href="#渲染电影详情页面" class="headerlink" title="渲染电影详情页面"></a>渲染电影详情页面</h2><h2 id="调用摄像头拍照"><a href="#调用摄像头拍照" class="headerlink" title="调用摄像头拍照"></a>调用摄像头拍照</h2><p><a href="https://github.com/marcshilling/react-native-image-picker" target="_blank" rel="noopener">react-native-image-picker的github官网</a><br><a href="http://www.cnblogs.com/shaoting/p/6148085.html" target="_blank" rel="noopener">react native 之 react-native-image-picke的详细使用图解</a></p>
+<ol>
+<li>运行<code>yarn add react-native-image-picker</code>安装到项目运行依赖，此时调试<strong>可能会报错</strong>，如果报错，需要使用下面的步骤解决：<ul>
+<li>先删除<code>node_modules</code>文件夹</li>
+<li>运行<code>npm i</code></li>
+<li>运行<code>npm start --reset-cache</code></li>
+</ul>
+</li>
+<li>运行<code>react-native link</code>自动注册相关的组件到原生配置中</li>
+<li>打开项目中的<code>android</code>-&gt;<code>app</code>-&gt;<code>src</code>-&gt;<code>main</code>-&gt;<code>AndroidManifest.xml</code>文件，在第8行添加如下配置：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name&#x3D;&quot;android.permission.CAMERA&quot; &#x2F;&gt;</span><br><span class="line">&lt;uses-permission android:name&#x3D;&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;&#x2F;&gt;</span><br></pre></td></tr></table></figure></li>
+<li>打开项目中的<code>android</code>-&gt;<code>app</code>-&gt;<code>src</code>-&gt;<code>main</code>-&gt;<code>java</code>-&gt;<code>com</code>-&gt;<code>当前项目名称文件夹</code>-&gt;<code>MainActivity.java</code>文件，修改配置如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package com.native_camera;</span><br><span class="line">import com.facebook.react.ReactActivity;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 1. 添加以下两行：</span><br><span class="line">import com.imagepicker.permissions.OnImagePickerPermissionsCallback; &#x2F;&#x2F; &lt;- add this import</span><br><span class="line">import com.facebook.react.modules.core.PermissionListener; &#x2F;&#x2F; &lt;- add this import</span><br><span class="line"></span><br><span class="line">public class MainActivity extends ReactActivity &#123;</span><br><span class="line">    &#x2F;&#x2F; 2. 添加如下一行：</span><br><span class="line">    private PermissionListener listener; &#x2F;&#x2F; &lt;- add this attribute</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns the name of the main component registered from JavaScript.</span><br><span class="line">     * This is used to schedule rendering of the component.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    protected String getMainComponentName() &#123;</span><br><span class="line">        return &quot;native_camera&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在项目中添加如下代码： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F; 第1步：</span><br><span class="line">    import &#123;View, Button, Image&#125; from &#39;react-native&#39;</span><br><span class="line">    &#x2F;&#x2F;导入拍照的包</span><br><span class="line">    import ImagePicker from &#39;react-native-image-picker&#39;</span><br><span class="line">    &#x2F;&#x2F;创建拍照时候的配置对象</span><br><span class="line">    var photoOptions &#x3D; &#123;</span><br><span class="line">      &#x2F;&#x2F;底部弹出框选项</span><br><span class="line">      title: &#39;请选择&#39;,</span><br><span class="line">      cancelButtonTitle: &#39;取消&#39;,</span><br><span class="line">      takePhotoButtonTitle: &#39;拍照&#39;,</span><br><span class="line">      chooseFromLibraryButtonTitle: &#39;选择相册&#39;,</span><br><span class="line">      quality: 0.75,&#x2F;&#x2F;照片的质量</span><br><span class="line">      allowsEditing: true, &#x2F;&#x2F;允许被编辑</span><br><span class="line">      noData: false,&#x2F;&#x2F; 拍照时候不附带日期</span><br><span class="line">      storageOptions: &#123;&#x2F;&#x2F; 存储选项</span><br><span class="line">        skipBackup: true,&#x2F;&#x2F; 在IOS平台中，会自动把 照片同步到 云端的存储，如果此项为 true，表示跳过 备份，不会把照片上传到 云端</span><br><span class="line">        path: &#39;images&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 第2步：</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">        this.state &#x3D; &#123;</span><br><span class="line">          imgURL: &#39;&#39; &#x2F;&#x2F; 将来，拍摄的照片路径，会存到这里</span><br><span class="line">    &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 第3步：</span><br><span class="line">&lt;Image source&#x3D;&#123;&#123; uri: this.state.imgURL &#125;&#125; style&#x3D;&#123;&#123; width: 200, height: 200 &#125;&#125;&gt;&lt;&#x2F;Image&gt;</span><br><span class="line">    &lt;Button title&#x3D;&quot;拍照&quot; onPress&#x3D;&#123;this.cameraAction&#125;&gt;&lt;&#x2F;Button&gt;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 第4步：</span><br><span class="line">    cameraAction &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    ImagePicker.showImagePicker(photoOptions, (response) &#x3D;&gt; &#123;</span><br><span class="line">      console.log(&#39;response&#39; + response);</span><br><span class="line">      if (response.didCancel) &#123; &#x2F;&#x2F; 点击了取消按钮，此时，用户没有拍照</span><br><span class="line">        return</span><br><span class="line">      &#125;</span><br><span class="line">      &#x2F;&#x2F; 用户已经拍摄了一张照片了</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">      imgURL: response.uri</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></li>
+<li><strong>一定要退出之前调试的App</strong>，并重新运行<code>react-native run-android</code>进行打包部署；这次打包期间会下载一些jar的包，需要耐心等待！期间打包可能会报错几次，报错后再执行react-native run-android，直到打包成功。</li>
+</ol>
+<h2 id="签名打包发布Release版本的apk安装包"><a href="#签名打包发布Release版本的apk安装包" class="headerlink" title="签名打包发布Release版本的apk安装包"></a>签名打包发布Release版本的apk安装包</h2><ul>
+<li>请参考以下两篇文章：<ul>
+<li><a href="http://www.jianshu.com/p/1380d4c8b596" target="_blank" rel="noopener">ReactNative之Android打包APK方法（趟坑过程）</a></li>
+<li><a href="http://blog.csdn.net/fengyuzhengfan/article/details/51958848" target="_blank" rel="noopener">React Native发布APP之签名打包APK</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="如何发布一个apk"><a href="#如何发布一个apk" class="headerlink" title="如何发布一个apk"></a>如何发布一个apk</h3><ol>
+<li>先保证自己正确配置了所有的 RN 环境</li>
+<li>在 cmd 命令行中，运行这一句话<code>keytool -genkey -v -keystore my-release-key2.keystore -alias my-key-alias2 -keyalg RSA -keysize 2048 -validity 10000</code><ul>
+<li>其中： <code>my-release-key.keystore</code> 表示你一会儿要生成的那个 签名文件的 名称【很重要，包找个小本本记下来】</li>
+<li><code>-alias</code> 后面的东西，也很重要，需要找个小本本记下来，这个名称可以根据自己的需求改动<code>my-key-alias</code></li>
+<li>当运行找个命令的时候，需要输入一系列的参数，这个口令的密码，【一定要找个小本本记下来】</li>
+</ul>
+</li>
+<li>当生成了签名之后，这个签名，默认保存到了自己的用户目录下<code>C:\Users\liulongbin\my-release-key2.keystore</code></li>
+<li>将你的签名证书copy到 android/app目录下。</li>
+<li>编辑 <code>android</code> -&gt; <code>gradle.properties</code>文件，在最后，添加如下代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MYAPP_RELEASE_STORE_FILE&#x3D;my-release-key2.keystore</span><br><span class="line">MYAPP_RELEASE_KEY_ALIAS&#x3D;my-key-alias2</span><br><span class="line">MYAPP_RELEASE_STORE_PASSWORD&#x3D;*****</span><br><span class="line">MYAPP_RELEASE_KEY_PASSWORD&#x3D;*****</span><br></pre></td></tr></table></figure></li>
+<li>编辑 android/app/build.gradle文件添加如下代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    defaultConfig &#123; ... &#125;</span><br><span class="line">    + signingConfigs &#123;</span><br><span class="line">    +    release &#123;</span><br><span class="line">    +        storeFile file(MYAPP_RELEASE_STORE_FILE)</span><br><span class="line">    +        storePassword MYAPP_RELEASE_STORE_PASSWORD</span><br><span class="line">    +        keyAlias MYAPP_RELEASE_KEY_ALIAS</span><br><span class="line">    +        keyPassword MYAPP_RELEASE_KEY_PASSWORD</span><br><span class="line">    +    &#125;</span><br><span class="line">    +&#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            ...</span><br><span class="line">    +        signingConfig signingConfigs.release</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></li>
+<li>进入项目根目录下的<code>android</code>文件夹，在当前目录打开终端，然后输入<code>./gradlew assembleRelease</code>开始发布APK的Release版；</li>
+<li>当发行完毕后，进入自己项目的<code>android\app\build\outputs\apk</code>目录中，找到<code>app-release.apk</code>，这就是我们发布完毕之后的完整安装包；就可以上传到各大应用商店供用户使用啦；</li>
+</ol>
+<blockquote>
+<p>注意：请记得妥善地保管好你的密钥库文件，不要上传到版本库或者其它的地方。</p>
+</blockquote>
+<h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><ul>
+<li><a href="http://blog.csdn.net/u011240877/article/details/51983262" target="_blank" rel="noopener">React Native 小米（红米）手机安装失败、白屏 Failed to establish session 解决方案</a></li>
+<li><a href="http://lib.csdn.net/article/reactnative/48721" target="_blank" rel="noopener">React Native Android 初次试用遇到的各种坑</a></li>
+<li><a href="http://www.redux.org.cn/" target="_blank" rel="noopener">Redux 中文文档</a></li>
+<li><a href="http://blog.csdn.net/u014038534/article/details/53943862" target="_blank" rel="noopener">react-native 在使用require加载本地图片时报Unexcepted character</a></li>
+<li><a href="http://blog.csdn.net/u013531824/article/details/51003775" target="_blank" rel="noopener">React Native for Android 发布独立的安装包</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/18/BFC/" class="archive-article-date">
-  	<time datetime="2020-01-18T08:18:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/18/BFC/">BFC</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/21/ReactNative/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/15/CSS/" class="archive-article-date">
-  	<time datetime="2020-01-15T08:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/16/React03/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React03</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/15/CSS/">CSS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RN学习说明"><span class="toc-number">1.</span> <span class="toc-text">RN学习说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置ReactNative基本开发环境"><span class="toc-number">2.</span> <span class="toc-text">配置ReactNative基本开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手机的相关配置"><span class="toc-number">3.</span> <span class="toc-text">手机的相关配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建RN的项目"><span class="toc-number">4.</span> <span class="toc-text">搭建RN的项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本组件的使用介绍"><span class="toc-number">5.</span> <span class="toc-text">基本组件的使用介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断组件是否被卸载"><span class="toc-number">6.</span> <span class="toc-text">判断组件是否被卸载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Tab栏"><span class="toc-number">7.</span> <span class="toc-text">配置Tab栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Tab栏的图标"><span class="toc-number">8.</span> <span class="toc-text">配置Tab栏的图标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#案例：豆瓣电影列表"><span class="toc-number">9.</span> <span class="toc-text">案例：豆瓣电影列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装路由"><span class="toc-number">10.</span> <span class="toc-text">安装路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由的一些基本使用方法"><span class="toc-number">11.</span> <span class="toc-text">路由的一些基本使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置首页的轮播图"><span class="toc-number">12.</span> <span class="toc-text">配置首页的轮播图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首页轮播图片URL地址："><span class="toc-number">12.0.1.</span> <span class="toc-text">首页轮播图片URL地址：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渲染电影列表数据"><span class="toc-number">13.</span> <span class="toc-text">渲染电影列表数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渲染电影详情页面"><span class="toc-number">14.</span> <span class="toc-text">渲染电影详情页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调用摄像头拍照"><span class="toc-number">15.</span> <span class="toc-text">调用摄像头拍照</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#签名打包发布Release版本的apk安装包"><span class="toc-number">16.</span> <span class="toc-text">签名打包发布Release版本的apk安装包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何发布一个apk"><span class="toc-number">16.1.</span> <span class="toc-text">如何发布一个apk</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关文章"><span class="toc-number">17.</span> <span class="toc-text">相关文章</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/05/HTML/" class="archive-article-date">
-  	<time datetime="2020-01-05T04:44:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/05/HTML/">HTML</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+  
+
   
 
 
@@ -287,8 +444,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

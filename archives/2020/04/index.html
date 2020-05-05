@@ -6,17 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>gulp | yezhibin的博客</title>
+  <title>Archives: 2020/4 | yezhibin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="gulp官网中文网  前端自动化构建工具 js: function(){&#x2F;&#x2F;},代码压缩,混淆 : var name &#x3D; 123,var x &#x3D; 123 css,  合并: 1个js 1kb ,有10个js.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="gulp">
-<meta property="og:url" content="http://yoursite.com/2020/03/31/gulp/index.html">
+  <meta name="description" content="热爱生活，热爱编程。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yezhibin的博客">
+<meta property="og:url" content="http://yoursite.com/archives/2020/04/index.html">
 <meta property="og:site_name" content="yezhibin的博客">
-<meta property="og:description" content="gulp官网中文网  前端自动化构建工具 js: function(){&#x2F;&#x2F;},代码压缩,混淆 : var name &#x3D; 123,var x &#x3D; 123 css,  合并: 1个js 1kb ,有10个js.">
+<meta property="og:description" content="热爱生活，热爱编程。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-31T10:06:36.000Z">
-<meta property="article:modified_time" content="2020-05-05T04:07:27.036Z">
 <meta property="article:author" content="ye zhibin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -166,209 +164,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-gulp" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      gulp
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/04/07/Vue03/" class="archive-article-date">
+  	<time datetime="2020-04-07T07:25:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/04/07/Vue03/">Vue03</a>
     </h1>
   
 
-        
-        <a href="/2020/03/31/gulp/" class="archive-article-date">
-  	<time datetime="2020-03-31T10:06:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><p><a href="http://www.gulpjs.com" target="_blank" rel="noopener">官网</a><br><a href="http://www.gulpjs.com.cn" target="_blank" rel="noopener">中文网</a></p>
-<ul>
-<li>前端自动化构建工具</li>
-<li>js: function(){//},代码压缩,混淆 : var name = 123,var x = 123</li>
-<li>css, </li>
-<li>合并: 1个js 1kb ,有10个js.<a id="more"></a>
-<h3 id="5个核心方法"><a href="#5个核心方法" class="headerlink" title="5个核心方法"></a>5个核心方法</h3><ul>
-<li>gulp.task(‘任务名’,function(){}) // 创建任务。</li>
-<li>gulp.src(‘./*.css’) 指定想要处理的文件</li>
-<li>gulp.dest() // 指定最终处理后的文件的存放路径</li>
-<li>gulp.watch() // 自动的监视文件的变化，然后执行相应任务。</li>
-<li>gulp.run(‘任务名’)，直接执行相应的任务。</li>
-</ul>
-</li>
-</ul>
-<h3 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h3><ul>
-<li>通过npm安装:<code>npm install gulp-cli -g</code></li>
-</ul>
-<h3 id="gulp使用"><a href="#gulp使用" class="headerlink" title="gulp使用"></a>gulp使用</h3><ul>
-<li>1.在当前项目中也要安装gulp: <code>npm install gulp --save</code></li>
-<li>2.还需要在当前项目中新建一个文件: gulpfile.js</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> gulp =  <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建任务</span></span><br><span class="line">    <span class="comment">// 第一个参数: 任务名</span></span><br><span class="line">    <span class="comment">// 第二个参数: 回调函数,当我们执行任务时就会执行这个函数</span></span><br><span class="line">    gulp.task(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>3.执行任务: <code>gulp 任务名</code><ul>
-<li>示例: <code>gulp test</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="对js进行压缩"><a href="#对js进行压缩" class="headerlink" title="对js进行压缩"></a>对js进行压缩</h3><ul>
-<li><code>npm install gulp-uglify --save</code></li>
-</ul>
-<h3 id="对js进行合并操作"><a href="#对js进行合并操作" class="headerlink" title="对js进行合并操作"></a>对js进行合并操作</h3><ul>
-<li><code>npm install gulp-concat --save</code></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    gulp.task(<span class="string">'script'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 1.要匹配到要处理的文件</span></span><br><span class="line">  <span class="comment">// 指定指定的文件:参数是匹配的规则</span></span><br><span class="line">  <span class="comment">// 参数也可以是数组，数组中的元素就是匹配的规则</span></span><br><span class="line">  gulp.src([<span class="string">'./app.js'</span>,<span class="string">'./sign.js'</span>])</span><br><span class="line">  <span class="comment">// concat 的参数是合并之后的文件名字</span></span><br><span class="line">  .pipe(concat(<span class="string">'index.js'</span>))</span><br><span class="line">  .pipe(uglify())</span><br><span class="line">  <span class="comment">// dest方法参数，指定输出文件的路径</span></span><br><span class="line">  .pipe(gulp.dest(<span class="string">'./dist'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        <div class="article-info info-on-right">
+          
+          
 
-<h3 id="对css进行压缩操作"><a href="#对css进行压缩操作" class="headerlink" title="对css进行压缩操作"></a>对css进行压缩操作</h3><ul>
-<li><code>npm install gulp-cssnano --save</code></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 新建一个任务，对css进行处理</span></span><br><span class="line">gulp.task(<span class="string">'style'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 对项目中的2个css文件进行合并，压缩操作</span></span><br><span class="line">  <span class="comment">// 1.匹配到要处理的文件</span></span><br><span class="line">  gulp.src([<span class="string">'./*.css'</span>])</span><br><span class="line">  <span class="comment">// 2.合并文件</span></span><br><span class="line">  .pipe(concat(<span class="string">'index.css'</span>))</span><br><span class="line">  <span class="comment">// 3.压缩操作</span></span><br><span class="line">  .pipe(cssnano())</span><br><span class="line">  <span class="comment">// 4.输出到指定目录</span></span><br><span class="line">  .pipe(gulp.dest(<span class="string">'./dist'</span>))</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="对html进行压缩"><a href="#对html进行压缩" class="headerlink" title="对html进行压缩"></a>对html进行压缩</h3><ul>
-<li><code>npm install gulp-htmlmin --save</code></li>
-<li><a href="https://github.com/kangax/html-minifier" target="_blank" rel="noopener">https://github.com/kangax/html-minifier</a></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 新建一个任务，对html进行压缩</span></span><br><span class="line">gulp.task(<span class="string">'html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="comment">// 1.匹配到要处理的文件</span></span><br><span class="line"> gulp.src([<span class="string">'./index.html'</span>])</span><br><span class="line"> <span class="comment">// 2.压缩操作</span></span><br><span class="line"> .pipe(htmlmin(&#123;<span class="attr">collapseWhitespace</span>:<span class="literal">true</span>&#125;))</span><br><span class="line"> <span class="comment">// 3.指定输出目录</span></span><br><span class="line"> .pipe(gulp.dest(<span class="string">'./dist'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="gulp-watch"><a href="#gulp-watch" class="headerlink" title="gulp.watch"></a>gulp.watch</h3><ul>
-<li>监视文件的变化，然后执行相应的任务</li>
-<li>gulp.run, 直接执行指定的任务</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F; gulp.watch 监视文件变化，执行相应任务</span><br><span class="line">  gulp.task(&#39;mywatch&#39;, function()&#123;</span><br><span class="line">  &#x2F;&#x2F; 执行指定的任务</span><br><span class="line">  gulp.run(&#39;script&#39;)</span><br><span class="line">  &#x2F;&#x2F; 1.监视js文件的变化，然后执行script任务</span><br><span class="line">  &#x2F;&#x2F; 第一个参数：要监视的文件的规则</span><br><span class="line">  &#x2F;&#x2F; 第二个参数：是要执行的任务</span><br><span class="line">  gulp.watch([&#39;.&#x2F;app.js&#39;,&#39;sign.js&#39;],[&#39;script&#39;])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/31/gulp/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2020/04/03/Vue-js/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Vue.js
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/03/30/git%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git使用</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/04/05/Vue02/" class="archive-article-date">
+  	<time datetime="2020-04-05T06:22:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#gulp"><span class="toc-number">1.</span> <span class="toc-text">gulp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5个核心方法"><span class="toc-number">1.1.</span> <span class="toc-text">5个核心方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装gulp"><span class="toc-number">1.2.</span> <span class="toc-text">安装gulp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp使用"><span class="toc-number">1.3.</span> <span class="toc-text">gulp使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对js进行压缩"><span class="toc-number">1.4.</span> <span class="toc-text">对js进行压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对js进行合并操作"><span class="toc-number">1.5.</span> <span class="toc-text">对js进行合并操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对css进行压缩操作"><span class="toc-number">1.6.</span> <span class="toc-text">对css进行压缩操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对html进行压缩"><span class="toc-number">1.7.</span> <span class="toc-text">对html进行压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp-watch"><span class="toc-number">1.8.</span> <span class="toc-text">gulp.watch</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/04/05/Vue02/">Vue02</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+          
+
         </div>
-        
-    </div>
-</aside>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/04/03/Vue-js/" class="archive-article-date">
+  	<time datetime="2020-04-03T04:17:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/04/03/Vue-js/">Vue.js</a>
+    </h1>
+  
 
+        <div class="article-info info-on-right">
+          
+          
 
-
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -391,8 +283,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

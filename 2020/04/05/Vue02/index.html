@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>gulp | yezhibin的博客</title>
+  <title>Vue02 | yezhibin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="gulp官网中文网  前端自动化构建工具 js: function(){&#x2F;&#x2F;},代码压缩,混淆 : var name &#x3D; 123,var x &#x3D; 123 css,  合并: 1个js 1kb ,有10个js.">
+  <meta name="description" content="Vue调试工具vue-devtools的安装步骤和使用Vue.js devtools - 翻墙安装方式 - 推荐 过滤器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gulp">
-<meta property="og:url" content="http://yoursite.com/2020/03/31/gulp/index.html">
+<meta property="og:title" content="Vue02">
+<meta property="og:url" content="http://yoursite.com/2020/04/05/Vue02/index.html">
 <meta property="og:site_name" content="yezhibin的博客">
-<meta property="og:description" content="gulp官网中文网  前端自动化构建工具 js: function(){&#x2F;&#x2F;},代码压缩,混淆 : var name &#x3D; 123,var x &#x3D; 123 css,  合并: 1个js 1kb ,有10个js.">
+<meta property="og:description" content="Vue调试工具vue-devtools的安装步骤和使用Vue.js devtools - 翻墙安装方式 - 推荐 过滤器">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-31T10:06:36.000Z">
-<meta property="article:modified_time" content="2020-05-05T04:07:27.036Z">
+<meta property="article:published_time" content="2020-04-05T06:22:04.000Z">
+<meta property="article:modified_time" content="2020-05-05T04:24:33.993Z">
 <meta property="article:author" content="ye zhibin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -166,79 +166,199 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-gulp" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Vue02" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      gulp
+      Vue02
     </h1>
   
 
         
-        <a href="/2020/03/31/gulp/" class="archive-article-date">
-  	<time datetime="2020-03-31T10:06:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
+        <a href="/2020/04/05/Vue02/" class="archive-article-date">
+  	<time datetime="2020-04-05T06:22:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><p><a href="http://www.gulpjs.com" target="_blank" rel="noopener">官网</a><br><a href="http://www.gulpjs.com.cn" target="_blank" rel="noopener">中文网</a></p>
-<ul>
-<li>前端自动化构建工具</li>
-<li>js: function(){//},代码压缩,混淆 : var name = 123,var x = 123</li>
-<li>css, </li>
-<li>合并: 1个js 1kb ,有10个js.<a id="more"></a>
-<h3 id="5个核心方法"><a href="#5个核心方法" class="headerlink" title="5个核心方法"></a>5个核心方法</h3><ul>
-<li>gulp.task(‘任务名’,function(){}) // 创建任务。</li>
-<li>gulp.src(‘./*.css’) 指定想要处理的文件</li>
-<li>gulp.dest() // 指定最终处理后的文件的存放路径</li>
-<li>gulp.watch() // 自动的监视文件的变化，然后执行相应任务。</li>
-<li>gulp.run(‘任务名’)，直接执行相应的任务。</li>
+        <h2 id="Vue调试工具vue-devtools的安装步骤和使用"><a href="#Vue调试工具vue-devtools的安装步骤和使用" class="headerlink" title="Vue调试工具vue-devtools的安装步骤和使用"></a>Vue调试工具<code>vue-devtools</code>的安装步骤和使用</h2><p><a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=zh-CN" target="_blank" rel="noopener">Vue.js devtools - 翻墙安装方式 - 推荐</a></p>
+<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><a id="more"></a>
+<p>概念：Vue.js 允许你自定义过滤器，<strong>可被用作一些常见的文本格式化</strong>。过滤器可以用在两个地方：<strong>mustache 插值和 v-bind 表达式</strong>。过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符指示；</p>
+<h3 id="私有过滤器"><a href="#私有过滤器" class="headerlink" title="私有过滤器"></a>私有过滤器</h3><ol>
+<li>HTML元素：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;td&gt;&#123;&#123;item.ctime | dataFormat(&#39;yyyy-mm-dd&#39;)&#125;&#125;&lt;&#x2F;td&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>私有 <code>filters</code> 定义方式：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">filters: &#123; &#x2F;&#x2F; 私有局部过滤器，只能在 当前 VM 对象所控制的 View 区域进行使用</span><br><span class="line"></span><br><span class="line">    dataFormat(input, pattern &#x3D; &quot;&quot;) &#123; &#x2F;&#x2F; 在参数列表中 通过 pattern&#x3D;&quot;&quot; 来指定形参默认值，防止报错</span><br><span class="line"></span><br><span class="line">      var dt &#x3D; new Date(input);</span><br><span class="line"></span><br><span class="line">      &#x2F;&#x2F; 获取年月日</span><br><span class="line"></span><br><span class="line">      var y &#x3D; dt.getFullYear();</span><br><span class="line"></span><br><span class="line">      var m &#x3D; (dt.getMonth() + 1).toString().padStart(2, &#39;0&#39;);</span><br><span class="line"></span><br><span class="line">      var d &#x3D; dt.getDate().toString().padStart(2, &#39;0&#39;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      &#x2F;&#x2F; 如果 传递进来的字符串类型，转为小写之后，等于 yyyy-mm-dd，那么就返回 年-月-日</span><br><span class="line"></span><br><span class="line">      &#x2F;&#x2F; 否则，就返回  年-月-日 时：分：秒</span><br><span class="line"></span><br><span class="line">      if (pattern.toLowerCase() &#x3D;&#x3D;&#x3D; &#39;yyyy-mm-dd&#39;) &#123;</span><br><span class="line"></span><br><span class="line">        return &#96;$&#123;y&#125;-$&#123;m&#125;-$&#123;d&#125;&#96;;</span><br><span class="line"></span><br><span class="line">      &#125; else &#123;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 获取时分秒</span><br><span class="line"></span><br><span class="line">        var hh &#x3D; dt.getHours().toString().padStart(2, &#39;0&#39;);</span><br><span class="line"></span><br><span class="line">        var mm &#x3D; dt.getMinutes().toString().padStart(2, &#39;0&#39;);</span><br><span class="line"></span><br><span class="line">        var ss &#x3D; dt.getSeconds().toString().padStart(2, &#39;0&#39;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        return &#96;$&#123;y&#125;-$&#123;m&#125;-$&#123;d&#125; $&#123;hh&#125;:$&#123;mm&#125;:$&#123;ss&#125;&#96;;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>使用ES6中的字符串新方法 String.prototype.padStart(maxLength, fillString=’’) 或 String.prototype.padEnd(maxLength, fillString=’’)来填充字符串；</p>
+</blockquote>
+<h3 id="全局过滤器"><a href="#全局过滤器" class="headerlink" title="全局过滤器"></a>全局过滤器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;&#x2F; 定义一个全局过滤器</span><br><span class="line"></span><br><span class="line">Vue.filter(&#39;dataFormat&#39;, function (input, pattern &#x3D; &#39;&#39;) &#123;</span><br><span class="line"></span><br><span class="line">  var dt &#x3D; new Date(input);</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 获取年月日</span><br><span class="line"></span><br><span class="line">  var y &#x3D; dt.getFullYear();</span><br><span class="line"></span><br><span class="line">  var m &#x3D; (dt.getMonth() + 1).toString().padStart(2, &#39;0&#39;);</span><br><span class="line"></span><br><span class="line">  var d &#x3D; dt.getDate().toString().padStart(2, &#39;0&#39;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 如果 传递进来的字符串类型，转为小写之后，等于 yyyy-mm-dd，那么就返回 年-月-日</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 否则，就返回  年-月-日 时：分：秒</span><br><span class="line"></span><br><span class="line">  if (pattern.toLowerCase() &#x3D;&#x3D;&#x3D; &#39;yyyy-mm-dd&#39;) &#123;</span><br><span class="line"></span><br><span class="line">    return &#96;$&#123;y&#125;-$&#123;m&#125;-$&#123;d&#125;&#96;;</span><br><span class="line"></span><br><span class="line">  &#125; else &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 获取时分秒</span><br><span class="line"></span><br><span class="line">    var hh &#x3D; dt.getHours().toString().padStart(2, &#39;0&#39;);</span><br><span class="line"></span><br><span class="line">    var mm &#x3D; dt.getMinutes().toString().padStart(2, &#39;0&#39;);</span><br><span class="line"></span><br><span class="line">    var ss &#x3D; dt.getSeconds().toString().padStart(2, &#39;0&#39;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return &#96;$&#123;y&#125;-$&#123;m&#125;-$&#123;d&#125; $&#123;hh&#125;:$&#123;mm&#125;:$&#123;ss&#125;&#96;;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>注意：当有局部和全局两个名称相同的过滤器时候，会以就近原则进行调用，即：局部过滤器优先于全局过滤器被调用！</p>
+</blockquote>
+<h2 id="键盘修饰符以及自定义键盘修饰符"><a href="#键盘修饰符以及自定义键盘修饰符" class="headerlink" title="键盘修饰符以及自定义键盘修饰符"></a>键盘修饰符以及自定义键盘修饰符</h2><h3 id="1-x中自定义键盘修饰符【了解即可】"><a href="#1-x中自定义键盘修饰符【了解即可】" class="headerlink" title="1.x中自定义键盘修饰符【了解即可】"></a>1.x中自定义键盘修饰符【了解即可】</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Vue.directive(&#39;on&#39;).keyCodes.f2 &#x3D; 113;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-x中自定义键盘修饰符"><a href="#2-x中自定义键盘修饰符" class="headerlink" title="2.x中自定义键盘修饰符"></a><a href="https://cn.vuejs.org/v2/guide/events.html#键值修饰符" target="_blank" rel="noopener">2.x中自定义键盘修饰符</a></h3><ol>
+<li>通过<code>Vue.config.keyCodes.名称 = 按键值</code>来自定义案件修饰符的别名：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Vue.config.keyCodes.f2 &#x3D; 113;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用自定义的按键修饰符：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;name&quot; @keyup.f2&#x3D;&quot;add&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a><a href="https://cn.vuejs.org/v2/guide/custom-directive.html" target="_blank" rel="noopener">自定义指令</a></h2><ol>
+<li>自定义全局和局部的 自定义指令：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;&#x2F; 自定义全局指令 v-focus，为绑定的元素自动获取焦点：</span><br><span class="line"></span><br><span class="line">Vue.directive(&#39;focus&#39;, &#123;</span><br><span class="line"></span><br><span class="line">  inserted: function (el) &#123; &#x2F;&#x2F; inserted 表示被绑定元素插入父节点时调用</span><br><span class="line"></span><br><span class="line">    el.focus();</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 自定义局部指令 v-color 和 v-font-weight，为绑定的元素设置指定的字体颜色 和 字体粗细：</span><br><span class="line"></span><br><span class="line">  directives: &#123;</span><br><span class="line"></span><br><span class="line">    color: &#123; &#x2F;&#x2F; 为元素设置指定的字体颜色</span><br><span class="line"></span><br><span class="line">      bind(el, binding) &#123;</span><br><span class="line"></span><br><span class="line">        el.style.color &#x3D; binding.value;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &#39;font-weight&#39;: function (el, binding2) &#123; &#x2F;&#x2F; 自定义指令的简写形式，等同于定义了 bind 和 update 两个钩子函数</span><br><span class="line"></span><br><span class="line">      el.style.fontWeight &#x3D; binding2.value;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>自定义指令的使用方式：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;searchName&quot; v-focus v-color&#x3D;&quot;&#39;red&#39;&quot; v-font-weight&#x3D;&quot;900&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Vue-1-x-中-自定义元素指令【已废弃-了解即可】"><a href="#Vue-1-x-中-自定义元素指令【已废弃-了解即可】" class="headerlink" title="Vue 1.x 中 自定义元素指令【已废弃,了解即可】"></a>Vue 1.x 中 自定义元素指令【已废弃,了解即可】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.elementDirective(&#39;red-color&#39;, &#123;</span><br><span class="line">  bind: function () &#123;</span><br><span class="line">    this.el.style.color &#x3D; &#39;red&#39;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>使用方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;red-color&gt;1232&lt;&#x2F;red-color&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="vue实例的生命周期"><a href="#vue实例的生命周期" class="headerlink" title="vue实例的生命周期"></a><a href="https://cn.vuejs.org/v2/guide/instance.html#实例生命周期" target="_blank" rel="noopener">vue实例的生命周期</a></h2><ul>
+<li>什么是生命周期：从Vue实例创建、运行、到销毁期间，总是伴随着各种各样的事件，这些事件，统称为生命周期！</li>
+<li><a href="https://cn.vuejs.org/v2/api/#选项-生命周期钩子" target="_blank" rel="noopener">生命周期钩子</a>：就是生命周期事件的别名而已；</li>
+<li>生命周期钩子 = 生命周期函数 = 生命周期事件</li>
+<li>主要的生命周期函数分类：<ul>
+<li>创建期间的生命周期函数：<ul>
+<li>beforeCreate：实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性</li>
+<li>created：实例已经在内存中创建OK，此时 data 和 methods 已经创建OK，此时还没有开始 编译模板</li>
+<li>beforeMount：此时已经完成了模板的编译，但是还没有挂载到页面中</li>
+<li>mounted：此时，已经将编译好的模板，挂载到了页面指定的容器中显示</li>
+</ul>
+</li>
+<li>运行期间的生命周期函数：<ul>
+<li>beforeUpdate：状态更新之前执行此函数， 此时 data 中的状态值是最新的，但是界面上显示的 数据还是旧的，因为此时还没有开始重新渲染DOM节点</li>
+<li>updated：实例更新完毕之后调用此函数，此时 data 中的状态值 和 界面上显示的数据，都已经完成了更新，界面已经被重新渲染好了！</li>
+</ul>
+</li>
+<li>销毁期间的生命周期函数：<ul>
+<li>beforeDestroy：实例销毁之前调用。在这一步，实例仍然完全可用。</li>
+<li>destroyed：Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</li>
 </ul>
 </li>
 </ul>
-<h3 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h3><ul>
-<li>通过npm安装:<code>npm install gulp-cli -g</code></li>
-</ul>
-<h3 id="gulp使用"><a href="#gulp使用" class="headerlink" title="gulp使用"></a>gulp使用</h3><ul>
-<li>1.在当前项目中也要安装gulp: <code>npm install gulp --save</code></li>
-<li>2.还需要在当前项目中新建一个文件: gulpfile.js</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> gulp =  <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建任务</span></span><br><span class="line">    <span class="comment">// 第一个参数: 任务名</span></span><br><span class="line">    <span class="comment">// 第二个参数: 回调函数,当我们执行任务时就会执行这个函数</span></span><br><span class="line">    gulp.task(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="number">123</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>3.执行任务: <code>gulp 任务名</code><ul>
-<li>示例: <code>gulp test</code></li>
-</ul>
 </li>
 </ul>
-<h3 id="对js进行压缩"><a href="#对js进行压缩" class="headerlink" title="对js进行压缩"></a>对js进行压缩</h3><ul>
-<li><code>npm install gulp-uglify --save</code></li>
+<h2 id="vue-resource-实现-get-post-jsonp请求"><a href="#vue-resource-实现-get-post-jsonp请求" class="headerlink" title="vue-resource 实现 get, post, jsonp请求"></a><a href="https://github.com/pagekit/vue-resource" target="_blank" rel="noopener">vue-resource 实现 get, post, jsonp请求</a></h2><p>除了 vue-resource 之外，还可以使用 <code>axios</code> 的第三方包实现实现数据的请求</p>
+<ol>
+<li>之前的学习中，如何发起数据请求？</li>
+<li>常见的数据请求类型？  get  post jsonp</li>
+<li>测试的URL请求资源地址：<ul>
+<li>get请求地址： <a href="http://vue.studyit.io/api/getlunbo" target="_blank" rel="noopener">http://vue.studyit.io/api/getlunbo</a></li>
+<li>post请求地址：<a href="http://vue.studyit.io/api/post" target="_blank" rel="noopener">http://vue.studyit.io/api/post</a></li>
+<li>jsonp请求地址：<a href="http://vue.studyit.io/api/jsonp" target="_blank" rel="noopener">http://vue.studyit.io/api/jsonp</a></li>
 </ul>
-<h3 id="对js进行合并操作"><a href="#对js进行合并操作" class="headerlink" title="对js进行合并操作"></a>对js进行合并操作</h3><ul>
-<li><code>npm install gulp-concat --save</code></li>
+</li>
+<li>JSONP的实现原理<ul>
+<li>由于浏览器的安全性限制，不允许AJAX访问 协议不同、域名不同、端口号不同的 数据接口，浏览器认为这种访问不安全；</li>
+<li>可以通过动态创建script标签的形式，把script标签的src属性，指向数据接口的地址，因为script标签不存在跨域限制，这种数据获取方式，称作JSONP（注意：根据JSONP的实现原理，知晓，JSONP只支持Get请求）；</li>
+<li>具体实现过程：<ul>
+<li>先在客户端定义一个回调方法，预定义对数据的操作；</li>
+<li>再把这个回调方法的名称，通过URL传参的形式，提交到服务器的数据接口；</li>
+<li>服务器数据接口组织好要发送给客户端的数据，再拿着客户端传递过来的回调方法名称，拼接出一个调用这个方法的字符串，发送给客户端去解析执行；</li>
+<li>客户端拿到服务器返回的字符串之后，当作Script脚本去解析执行，这样就能够拿到JSONP的数据了；</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    gulp.task(<span class="string">'script'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 1.要匹配到要处理的文件</span></span><br><span class="line">  <span class="comment">// 指定指定的文件:参数是匹配的规则</span></span><br><span class="line">  <span class="comment">// 参数也可以是数组，数组中的元素就是匹配的规则</span></span><br><span class="line">  gulp.src([<span class="string">'./app.js'</span>,<span class="string">'./sign.js'</span>])</span><br><span class="line">  <span class="comment">// concat 的参数是合并之后的文件名字</span></span><br><span class="line">  .pipe(concat(<span class="string">'index.js'</span>))</span><br><span class="line">  .pipe(uglify())</span><br><span class="line">  <span class="comment">// dest方法参数，指定输出文件的路径</span></span><br><span class="line">  .pipe(gulp.dest(<span class="string">'./dist'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li>带大家通过 Node.js ，来手动实现一个JSONP的请求例子；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">const http &#x3D; require(&#39;http&#39;);</span><br><span class="line">&#x2F;&#x2F; 导入解析 URL 地址的核心模块</span><br><span class="line">const urlModule &#x3D; require(&#39;url&#39;);</span><br><span class="line"></span><br><span class="line">const server &#x3D; http.createServer();</span><br><span class="line">&#x2F;&#x2F; 监听 服务器的 request 请求事件，处理每个请求</span><br><span class="line">server.on(&#39;request&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">  const url &#x3D; req.url;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 解析客户端请求的URL地址</span><br><span class="line">  var info &#x3D; urlModule.parse(url, true);</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; 如果请求的 URL 地址是 &#x2F;getjsonp ，则表示要获取JSONP类型的数据</span><br><span class="line">  if (info.pathname &#x3D;&#x3D;&#x3D; &#39;&#x2F;getjsonp&#39;) &#123;</span><br><span class="line">    &#x2F;&#x2F; 获取客户端指定的回调函数的名称</span><br><span class="line">    var cbName &#x3D; info.query.callback;</span><br><span class="line">    &#x2F;&#x2F; 手动拼接要返回给客户端的数据对象</span><br><span class="line">    var data &#x3D; &#123;</span><br><span class="line">      name: &#39;zs&#39;,</span><br><span class="line">      age: 22,</span><br><span class="line">      gender: &#39;男&#39;,</span><br><span class="line">      hobby: [&#39;吃饭&#39;, &#39;睡觉&#39;, &#39;运动&#39;]</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 拼接出一个方法的调用，在调用这个方法的时候，把要发送给客户端的数据，序列化为字符串，作为参数传递给这个调用的方法：</span><br><span class="line">    var result &#x3D; &#96;$&#123;cbName&#125;($&#123;JSON.stringify(data)&#125;)&#96;;</span><br><span class="line">    &#x2F;&#x2F; 将拼接好的方法的调用，返回给客户端去解析执行</span><br><span class="line">    res.end(result);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    res.end(&#39;404&#39;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(3000, () &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#39;server running at http:&#x2F;&#x2F;127.0.0.1:3000&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>vue-resource 的配置步骤：<ul>
+<li>直接在页面中，通过<code>script</code>标签，引入 <code>vue-resource</code> 的脚本文件；</li>
+<li>注意：引用的先后顺序是：先引用 <code>Vue</code> 的脚本文件，再引用 <code>vue-resource</code> 的脚本文件；</li>
+</ul>
+</li>
+<li>发送get请求：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">getInfo() &#123; &#x2F;&#x2F; get 方式获取数据</span><br><span class="line">  this.$http.get(&#39;http:&#x2F;&#x2F;127.0.0.1:8899&#x2F;api&#x2F;getlunbo&#39;).then(res &#x3D;&gt; &#123;</span><br><span class="line">    console.log(res.body);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>发送post请求：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">postInfo() &#123;</span><br><span class="line">  var url &#x3D; &#39;http:&#x2F;&#x2F;127.0.0.1:8899&#x2F;api&#x2F;post&#39;;</span><br><span class="line">  &#x2F;&#x2F; post 方法接收三个参数：</span><br><span class="line">  &#x2F;&#x2F; 参数1： 要请求的URL地址</span><br><span class="line">  &#x2F;&#x2F; 参数2： 要发送的数据对象</span><br><span class="line">  &#x2F;&#x2F; 参数3： 指定post提交的编码类型为 application&#x2F;x-www-form-urlencoded</span><br><span class="line">  this.$http.post(url, &#123; name: &#39;zs&#39; &#125;, &#123; emulateJSON: true &#125;).then(res &#x3D;&gt; &#123;</span><br><span class="line">    console.log(res.body);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>发送JSONP请求获取数据：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jsonpInfo() &#123; &#x2F;&#x2F; JSONP形式从服务器获取数据</span><br><span class="line">  var url &#x3D; &#39;http:&#x2F;&#x2F;127.0.0.1:8899&#x2F;api&#x2F;jsonp&#39;;</span><br><span class="line">  this.$http.jsonp(url).then(res &#x3D;&gt; &#123;</span><br><span class="line">    console.log(res.body);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="对css进行压缩操作"><a href="#对css进行压缩操作" class="headerlink" title="对css进行压缩操作"></a>对css进行压缩操作</h3><ul>
-<li><code>npm install gulp-cssnano --save</code></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 新建一个任务，对css进行处理</span></span><br><span class="line">gulp.task(<span class="string">'style'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 对项目中的2个css文件进行合并，压缩操作</span></span><br><span class="line">  <span class="comment">// 1.匹配到要处理的文件</span></span><br><span class="line">  gulp.src([<span class="string">'./*.css'</span>])</span><br><span class="line">  <span class="comment">// 2.合并文件</span></span><br><span class="line">  .pipe(concat(<span class="string">'index.css'</span>))</span><br><span class="line">  <span class="comment">// 3.压缩操作</span></span><br><span class="line">  .pipe(cssnano())</span><br><span class="line">  <span class="comment">// 4.输出到指定目录</span></span><br><span class="line">  .pipe(gulp.dest(<span class="string">'./dist'</span>))</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="配置本地数据库和数据接口API"><a href="#配置本地数据库和数据接口API" class="headerlink" title="配置本地数据库和数据接口API"></a>配置本地数据库和数据接口API</h2><ol>
+<li>先解压安装 <code>PHPStudy</code>;</li>
+<li>解压安装 <code>Navicat</code> 这个数据库可视化工具，并激活；</li>
+<li>打开 <code>Navicat</code> 工具，新建空白数据库，名为 <code>dtcmsdb4</code>;</li>
+<li>双击新建的数据库，连接上这个空白数据库，在新建的数据库上<code>右键</code> -&gt; <code>运行SQL文件</code>，选择并执行 <code>dtcmsdb4.sql</code> 这个数据库脚本文件；如果执行不报错，则数据库导入完成；</li>
+<li>进入文件夹 <code>vuecms3_nodejsapi</code> 内部，执行 <code>npm i</code> 安装所有的依赖项；</li>
+<li>先确保本机安装了 <code>nodemon</code>, 没有安装，则运行 <code>npm i nodemon -g</code> 进行全局安装，安装完毕后，进入到 <code>vuecms3_nodejsapi</code>目录 -&gt; <code>src</code>目录 -&gt; 双击运行 <code>start.bat</code></li>
+<li>如果API启动失败，请检查 PHPStudy 是否正常开启，同时，检查 <code>app.js</code> 中第 <code>14行</code> 中数据库连接配置字符串是否正确；PHPStudy 中默认的 用户名是root，默认的密码也是root</li>
+</ol>
+<h2 id="Vue中的动画"><a href="#Vue中的动画" class="headerlink" title="Vue中的动画"></a><a href="https://cn.vuejs.org/v2/guide/transitions.html" target="_blank" rel="noopener">Vue中的动画</a></h2><p>为什么要有动画：动画能够提高用户的体验，帮助用户更好的理解页面中的功能；</p>
+<h3 id="使用过渡类名"><a href="#使用过渡类名" class="headerlink" title="使用过渡类名"></a>使用过渡类名</h3><ol>
+<li>HTML结构：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;动起来&quot; @click&#x3D;&quot;myAnimate&quot;&gt;</span><br><span class="line">    &lt;!-- 使用 transition 将需要过渡的元素包裹起来 --&gt;</span><br><span class="line">    &lt;transition name&#x3D;&quot;fade&quot;&gt;</span><br><span class="line">      &lt;div v-show&#x3D;&quot;isshow&quot;&gt;动画哦&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;transition&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>VM 实例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建 Vue 实例，得到 ViewModel</span><br><span class="line">var vm &#x3D; new Vue(&#123;</span><br><span class="line">  el: &#39;#app&#39;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    isshow: false</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    myAnimate() &#123;</span><br><span class="line">      this.isshow &#x3D; !this.isshow;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li>定义两组类样式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* 定义进入和离开时候的过渡状态 *&#x2F;</span><br><span class="line">    .fade-enter-active,</span><br><span class="line">    .fade-leave-active &#123;</span><br><span class="line">      transition: all 0.2s ease;</span><br><span class="line">      position: absolute;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;* 定义进入过渡的开始状态 和 离开过渡的结束状态 *&#x2F;</span><br><span class="line">    .fade-enter,</span><br><span class="line">    .fade-leave-to &#123;</span><br><span class="line">      opacity: 0;</span><br><span class="line">      transform: translateX(100px);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="对html进行压缩"><a href="#对html进行压缩" class="headerlink" title="对html进行压缩"></a>对html进行压缩</h3><ul>
-<li><code>npm install gulp-htmlmin --save</code></li>
-<li><a href="https://github.com/kangax/html-minifier" target="_blank" rel="noopener">https://github.com/kangax/html-minifier</a></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 新建一个任务，对html进行压缩</span></span><br><span class="line">gulp.task(<span class="string">'html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="comment">// 1.匹配到要处理的文件</span></span><br><span class="line"> gulp.src([<span class="string">'./index.html'</span>])</span><br><span class="line"> <span class="comment">// 2.压缩操作</span></span><br><span class="line"> .pipe(htmlmin(&#123;<span class="attr">collapseWhitespace</span>:<span class="literal">true</span>&#125;))</span><br><span class="line"> <span class="comment">// 3.指定输出目录</span></span><br><span class="line"> .pipe(gulp.dest(<span class="string">'./dist'</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="使用第三方-CSS-动画库"><a href="#使用第三方-CSS-动画库" class="headerlink" title="使用第三方 CSS 动画库"></a><a href="https://cn.vuejs.org/v2/guide/transitions.html#自定义过渡类名" target="_blank" rel="noopener">使用第三方 CSS 动画库</a></h3><ol>
+<li>导入动画类库：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;.&#x2F;lib&#x2F;animate.css&quot;&gt;</span><br></pre></td></tr></table></figure></li>
+<li>定义 transition 及属性：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;transition</span><br><span class="line">    enter-active-class&#x3D;&quot;fadeInRight&quot;</span><br><span class="line">    leave-active-class&#x3D;&quot;fadeOutRight&quot;</span><br><span class="line">    :duration&#x3D;&quot;&#123; enter: 500, leave: 800 &#125;&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;animated&quot; v-show&#x3D;&quot;isshow&quot;&gt;动画哦&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;transition&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="gulp-watch"><a href="#gulp-watch" class="headerlink" title="gulp.watch"></a>gulp.watch</h3><ul>
-<li>监视文件的变化，然后执行相应的任务</li>
-<li>gulp.run, 直接执行指定的任务</li>
+</li>
+</ol>
+<h3 id="使用动画钩子函数"><a href="#使用动画钩子函数" class="headerlink" title="使用动画钩子函数"></a>使用动画钩子函数</h3><ol>
+<li>定义 transition 组件以及三个钩子函数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;切换动画&quot; @click&#x3D;&quot;isshow &#x3D; !isshow&quot;&gt;</span><br><span class="line">    &lt;transition</span><br><span class="line">    @before-enter&#x3D;&quot;beforeEnter&quot;</span><br><span class="line">    @enter&#x3D;&quot;enter&quot;</span><br><span class="line">    @after-enter&#x3D;&quot;afterEnter&quot;&gt;</span><br><span class="line">      &lt;div v-if&#x3D;&quot;isshow&quot; class&#x3D;&quot;show&quot;&gt;OK&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;transition&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>定义三个 methods 钩子方法：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">        beforeEnter(el) &#123; &#x2F;&#x2F; 动画进入之前的回调</span><br><span class="line">          el.style.transform &#x3D; &#39;translateX(500px)&#39;;</span><br><span class="line">        &#125;,</span><br><span class="line">        enter(el, done) &#123; &#x2F;&#x2F; 动画进入完成时候的回调</span><br><span class="line">          el.offsetWidth;</span><br><span class="line">          el.style.transform &#x3D; &#39;translateX(0px)&#39;;</span><br><span class="line">          done();</span><br><span class="line">        &#125;,</span><br><span class="line">        afterEnter(el) &#123; &#x2F;&#x2F; 动画进入完成之后的回调</span><br><span class="line">          this.isshow &#x3D; !this.isshow;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></li>
+<li>定义动画过渡时长和样式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.show&#123;</span><br><span class="line">      transition: all 0.4s ease;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h3 id="v-for-的列表过渡"><a href="#v-for-的列表过渡" class="headerlink" title="v-for 的列表过渡"></a><a href="https://cn.vuejs.org/v2/guide/transitions.html#列表的进入和离开过渡" target="_blank" rel="noopener">v-for 的列表过渡</a></h3><ol>
+<li>定义过渡样式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .list-enter,</span><br><span class="line">    .list-leave-to &#123;</span><br><span class="line">      opacity: 0;</span><br><span class="line">      transform: translateY(10px);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .list-enter-active,</span><br><span class="line">    .list-leave-active &#123;</span><br><span class="line">      transition: all 0.3s ease;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure></li>
+<li>定义DOM结构，其中，需要使用 transition-group 组件把v-for循环的列表包裹起来：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">  &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;txt&quot; @keyup.enter&#x3D;&quot;add&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &lt;transition-group tag&#x3D;&quot;ul&quot; name&#x3D;&quot;list&quot;&gt;</span><br><span class="line">    &lt;li v-for&#x3D;&quot;(item, i) in list&quot; :key&#x3D;&quot;i&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;&#x2F;transition-group&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>定义 VM中的结构：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建 Vue 实例，得到 ViewModel</span><br><span class="line">var vm &#x3D; new Vue(&#123;</span><br><span class="line">  el: &#39;#app&#39;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    txt: &#39;&#39;,</span><br><span class="line">    list: [1, 2, 3, 4]</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    add() &#123;</span><br><span class="line">      this.list.push(this.txt);</span><br><span class="line">      this.txt &#x3D; &#39;&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h3 id="列表的排序过渡"><a href="#列表的排序过渡" class="headerlink" title="列表的排序过渡"></a>列表的排序过渡</h3><p><code>&lt;transition-group&gt;</code> 组件还有一个特殊之处。不仅可以进入和离开动画，<strong>还可以改变定位</strong>。要使用这个新功能只需了解新增的 <code>v-move</code> 特性，<strong>它会在元素的改变定位的过程中应用</strong>。</p>
+<ul>
+<li><code>v-move</code> 和 <code>v-leave-active</code> 结合使用，能够让列表的过渡更加平缓柔和：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.v-move&#123;</span><br><span class="line">  transition: all 0.8s ease;</span><br><span class="line">&#125;</span><br><span class="line">.v-leave-active&#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F; gulp.watch 监视文件变化，执行相应任务</span><br><span class="line">  gulp.task(&#39;mywatch&#39;, function()&#123;</span><br><span class="line">  &#x2F;&#x2F; 执行指定的任务</span><br><span class="line">  gulp.run(&#39;script&#39;)</span><br><span class="line">  &#x2F;&#x2F; 1.监视js文件的变化，然后执行script任务</span><br><span class="line">  &#x2F;&#x2F; 第一个参数：要监视的文件的规则</span><br><span class="line">  &#x2F;&#x2F; 第二个参数：是要执行的任务</span><br><span class="line">  gulp.watch([&#39;.&#x2F;app.js&#39;,&#39;sign.js&#39;],[&#39;script&#39;])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><ol>
+<li><a href="https://v1-cn.vuejs.org/" target="_blank" rel="noopener">vue.js 1.x 文档</a></li>
+<li><a href="https://cn.vuejs.org/" target="_blank" rel="noopener">vue.js 2.x 文档</a></li>
+<li><a href="http://www.css88.com/archives/7715" target="_blank" rel="noopener">String.prototype.padStart(maxLength, fillString)</a></li>
+<li><a href="http://www.cnblogs.com/wuhua1/p/6686237.html" target="_blank" rel="noopener">js 里面的键盘事件对应的键码</a></li>
+<li><a href="https://github.com/pagekit/vue-resource" target="_blank" rel="noopener">pagekit/vue-resource</a></li>
+<li><a href="https://jingyan.baidu.com/article/a65957f4976aad24e67f9b9b.html" target="_blank" rel="noopener">navicat如何导入sql文件和导出sql文件</a></li>
+<li><a href="http://cubic-bezier.com/#.4,-0.3,1,.33" target="_blank" rel="noopener">贝塞尔在线生成器</a></li>
+</ol>
 
       
 
@@ -297,7 +417,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/31/gulp/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/05/Vue02/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -311,18 +431,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/03/Vue-js/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/07/Vue03/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Vue.js
+          Vue03
         
       </div>
     </a>
   
   
-    <a href="/2020/03/30/git%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git使用</div>
+    <a href="/2020/04/03/Vue-js/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue.js</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -349,7 +469,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#gulp"><span class="toc-number">1.</span> <span class="toc-text">gulp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5个核心方法"><span class="toc-number">1.1.</span> <span class="toc-text">5个核心方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装gulp"><span class="toc-number">1.2.</span> <span class="toc-text">安装gulp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp使用"><span class="toc-number">1.3.</span> <span class="toc-text">gulp使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对js进行压缩"><span class="toc-number">1.4.</span> <span class="toc-text">对js进行压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对js进行合并操作"><span class="toc-number">1.5.</span> <span class="toc-text">对js进行合并操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对css进行压缩操作"><span class="toc-number">1.6.</span> <span class="toc-text">对css进行压缩操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对html进行压缩"><span class="toc-number">1.7.</span> <span class="toc-text">对html进行压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp-watch"><span class="toc-number">1.8.</span> <span class="toc-text">gulp.watch</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue调试工具vue-devtools的安装步骤和使用"><span class="toc-number">1.</span> <span class="toc-text">Vue调试工具vue-devtools的安装步骤和使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤器"><span class="toc-number">2.</span> <span class="toc-text">过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#私有过滤器"><span class="toc-number">2.1.</span> <span class="toc-text">私有过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局过滤器"><span class="toc-number">2.2.</span> <span class="toc-text">全局过滤器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#键盘修饰符以及自定义键盘修饰符"><span class="toc-number">3.</span> <span class="toc-text">键盘修饰符以及自定义键盘修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-x中自定义键盘修饰符【了解即可】"><span class="toc-number">3.1.</span> <span class="toc-text">1.x中自定义键盘修饰符【了解即可】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-x中自定义键盘修饰符"><span class="toc-number">3.2.</span> <span class="toc-text">2.x中自定义键盘修饰符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义指令"><span class="toc-number">4.</span> <span class="toc-text">自定义指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-1-x-中-自定义元素指令【已废弃-了解即可】"><span class="toc-number">5.</span> <span class="toc-text">Vue 1.x 中 自定义元素指令【已废弃,了解即可】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue实例的生命周期"><span class="toc-number">6.</span> <span class="toc-text">vue实例的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-resource-实现-get-post-jsonp请求"><span class="toc-number">7.</span> <span class="toc-text">vue-resource 实现 get, post, jsonp请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置本地数据库和数据接口API"><span class="toc-number">8.</span> <span class="toc-text">配置本地数据库和数据接口API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue中的动画"><span class="toc-number">9.</span> <span class="toc-text">Vue中的动画</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用过渡类名"><span class="toc-number">9.1.</span> <span class="toc-text">使用过渡类名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用第三方-CSS-动画库"><span class="toc-number">9.2.</span> <span class="toc-text">使用第三方 CSS 动画库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用动画钩子函数"><span class="toc-number">9.3.</span> <span class="toc-text">使用动画钩子函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for-的列表过渡"><span class="toc-number">9.4.</span> <span class="toc-text">v-for 的列表过渡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表的排序过渡"><span class="toc-number">9.5.</span> <span class="toc-text">列表的排序过渡</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关文章"><span class="toc-number">10.</span> <span class="toc-text">相关文章</span></a></li></ol>
                     </div>
                 </span>
             </div>

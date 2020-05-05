@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>yezhibin的博客</title>
+  <title>移动web开发 | yezhibin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="热爱生活，热爱编程。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yezhibin的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="1.移动端的viewport1.1.viewport的概念1.1.1.移动设备上,用来显示网页的区域.1.1.2.a)如果把移动设备的浏览器(也有可能是app中的webview) ,当做相框的话b)viewport就相当于相框中的画,可能会比相框小,可能会比相框大,如果刚好一样大,那就皆大欢喜.1.2.修改viewport">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动web开发">
+<meta property="og:url" content="http://yoursite.com/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/index.html">
 <meta property="og:site_name" content="yezhibin的博客">
-<meta property="og:description" content="热爱生活，热爱编程。">
+<meta property="og:description" content="1.移动端的viewport1.1.viewport的概念1.1.1.移动设备上,用来显示网页的区域.1.1.2.a)如果把移动设备的浏览器(也有可能是app中的webview) ,当做相框的话b)viewport就相当于相框中的画,可能会比相框小,可能会比相框大,如果刚好一样大,那就皆大欢喜.1.2.修改viewport">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/uploads/l1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/uploads/l2.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/uploads/l3.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/uploads/l1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/uploads/l2.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/uploads/l3.jpg">
+<meta property="article:published_time" content="2020-03-07T03:18:55.000Z">
+<meta property="article:modified_time" content="2020-05-05T03:20:42.612Z">
 <meta property="article:author" content="ye zhibin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -29,6 +37,7 @@
 <meta property="article:tag" content="代码">
 <meta property="article:tag" content="开源">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/uploads/l1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="yezhibin的博客" type="application/atom+xml">
   
@@ -164,16 +173,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-移动web开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-移动web开发" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/">移动web开发</a>
+    <h1 class="article-title" itemprop="name">
+      移动web开发
     </h1>
   
 
@@ -187,7 +194,307 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>1.移动端的viewport<br>1.1.viewport的概念<br>1.1.1.移动设备上,用来显示网页的区域.<br>1.1.2.a)如果把移动设备的浏览器(也有可能是app中的webview) ,当做相框的话<br>b)viewport就相当于相框中的画,可能会比相框小,可能会比相框大,如果刚好一样大,那就皆大欢喜.<br>1.2.修改viewport</p>
-        
+<a id="more"></a>
+<p>1.2.1.我们可以通过meta标签去修改viewport的值 ,防止滚动条出现,提升用户体验<br>1.2.2.移动web常见设置：</p>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+1.2.3.可选值
+a)width:
+设置layout viewport 的宽度，为一个正整数，或字符串" device- width"
+b)initial-scale:
+设置页面的初始缩放值，为一个数字，可以带小数
+c)minimum-scale:
+允许用户的最小缩放值，为一个数字，可以带小数
+d)maximum-scale:
+允许用户的最大缩放值，为一个数字，可以带小数
+e)height:
+设置layout viewport 的高度，这个属性对我们并不重要，很少使用
+f)user-scalable:
+是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许
+注：device-width 和 device-height就是ideal viewport的宽高。
+1.2.4.    <!--对viewport的设置的meta建议写在已有的meta标签(<meta charset="UTF-8">)之后-->
+    <!--name="viewport":说明当前meta标签是用来设置viewport的属性的，这个属性只有在移动端才会有效-->
+    <!--content="":进行viewport的设置
+    width:设置viewport的宽度  device-width:获取当前设备的宽度
+    initial-scale=1:设置初始缩放比例  当我们设置width=device-width，也达到了initial-scale=1的效果，得知其实 initial-scale = ideal viewport / layout viewport  意味着，如果initial-scale设置为1，相当于设置了两个viewport的宽度一致
+    maximum-scale:设置最大的缩放比例
+    minimum-scale:设置默认状态下最小的缩放比例-->
+    <!--<meta name="viewport" content="width=device-width">-->
+    <!--<meta name="viewport" content="initial-scale=1
+    user-scalable:设置是否允许用户进行缩放yes/no">-->
+
+<pre><code>&lt;!--为了达到兼容：--&gt;
+&lt;!--&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no&quot;&gt;--&gt;
+&lt;!--meta:vp+tab--&gt;
+&lt;meta name=&quot;viewport&quot;
+      content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</code></pre><p>2.屏幕<br>2.1.移动设备与PC设备最大的差异在于屏幕，这主要体现在屏幕尺寸和屏幕分辨率两个方面。<br>2.2.屏幕尺寸，实际上指的是屏幕对角线的长度（一般用英寸来度量）<br>2.3.分辨率<br>2.3.1.例如1920<em>1080指的是屏幕垂直方向和水平方向分别有1920和1080个像素点而构成<br>3.长度单位<br>3.1.在Web开发中可以使用px（像素）、em、pt（点）、in（英寸）、cm（厘米）做为长度单位，我们最常用px（像素）做为长度单位。<br>3.2.iPhone3G/S和iPhone4/S的屏幕尺寸都为3.5英寸（in）但是屏幕分辨率却分别为480</em>320px、960*480px，由此我们可以得出英寸是一个绝对长度单位，而像素是一个相对长度单位（像素并没有固定的长度）。<br>4.像素密度<br>4.1.DPI（Dots Per Inch）是印刷行业中用来表示打印机每英寸可以喷的墨汁点数，计算机显示设备从打印机中借鉴了DPI的概念，由于计算机显示设备中的最小单位不是墨汁点而是像素，所以用PPI（Pixels Per Inch）值来表示屏幕每英寸的像素数量，我们将PPI、DPI都称为像素密度，但PPI应用更广泛，DPI在Android设备比较常见。<br>4.2.</p>
+<p>4.3.Retina即视网膜屏幕，苹果注册的命名方式，意指具有较高PPI（大于320）的屏幕。<br>4.4.思考：在屏幕尺寸（英寸）固定时，PPI和像素大小的关系？<br>结论：屏幕尺寸固定时，当PPI 越大，像素的实际大小就会越小，当PPI越小，像素实际大小就越大。<br>5.设备独立像素<br>5.1.一个163<em>163的蓝色方块，在PPI为163的屏幕上，那这个方块看起来正好就是1<em>1寸大小，在PPI为326的屏幕上，这个方块看起来就只有0.5</em>0.5寸大小了。<br>5.2.保证图像内容在不同的PPI设备看上去大小应该差不多，这就是独立像素。<br>在IOS设备上叫PT(Point)，Android设备上叫DIP(Device independent Pixel)或DP。<br>5.3.不难发现dp同px是有一个对应（比例）关系的，这个对应（比例）关系是操作系统确定并处理，目的是确保不同PPI屏幕所能显示的图像大小是一致的，通过window.devicePixelRatio可以获得该比例值。<br>5.3.1.    // 像素和设备独立像素的一个关系<br>    alert(window.devicePixelRatio);<br>6.像素<br>6.1.物理像素指的是屏幕渲染图像的最小单位，属于屏幕的物理属性，不可人为进行改变，其值大小决定了屏幕渲染图像的品质，我们以上所讨论的都指的是物理像素。<br>6.2.// 获取屏幕的物理像素尺寸<br>window.screen.width;<br>window.screen.height;<br>// 部分移动设备下获取会有错误，与移动开发无关，只需要了解<br>6.3.CSS像素，与设备无关像素，指的是通过CSS进行网页布局时用到的单位，其默认值(PC端)是和物理像素保持一致的（1个单位的CSS像素等于1个单位的物理像素），但是我们可通缩放来改变其大小。<br>6.4.我们需要理解的是物理像素和CSS像素的一个关系，1个物理像素并不总是等于一个CSS像素，通过调整浏览器缩放比例<br>7.远程调试<br>7.1.模拟调试<br>7.1.1.现代主流浏览器均支持移动开发模拟调试，通常按F12<br>7.2.真机调试<br>7.2.1.有两种方法可以实现真机调试：<br>1、将做好的网页上传至服务器或者本地搭建服务器，然后移动设备通过网络来访问。（重点）<br>2、借助第三方的调试工具，如weinre、debuggap、ghostlab(比较)等<br>真机调试必须保证移动设备同服务器间的网络是相通的。<br>8.视口<br>8.1.视口（viewport）是用来约束网站中最顶级块元素<html>的，即它决定了<html>的大小。<br>8.2.PC设备<br>8.2.1.在PC设备上viewport的大小取决于浏览器窗口的大小，以CSS像素做为度量单位。<br>8.2.2.// 获取viewport的大小<br>document.documentElement.clientWidth;<br>document.documentElement.clientHeight;<br>8.2.3.PC视口的特点<br>在PC端，我们通过调整浏览器窗口可以改变viewport的大小<br>.viewport {<br>    /*1.如果确定具体的宽高 值，当超出viewport的大小的时候，会出现滚动条<br>    2.如果设置的宽度为100%,当子元素宽高大于父容器的时候，会自动换行<br>    3.如果不想出现滚动条或者换行，可以将子元素设置为父容器的百分比</em>/<br>    width: 100%;<br>    /<em>width: 1152px;</em>/<br>    height: 200px;<br>    background-color: #CCC;<br>}</p>
+<p>.viewport .box {<br>    /<em>width: 288px;</em>/<br>    width: 25%;<br>    height: 200px;<br>    text-align: center;<br>    line-height: 200px;<br>    font-size: 28px;<br>    float: left;<br>    background-color: blue;<br>    border-right: 2px solid #ccc;<br>    box-sizing: border-box;<br>}<br>8.3.移动设备<br>8.3.1.在移动设备上viewport不再受限于浏览器的窗口，而是允许开发人员自由设置viewport的大小，通常浏览 器会设置一个默认大小的viewport，为了能够正常显示那些专为PC设计的网页，一般这个值的大小会大于屏幕的尺寸。<br>8.3.2.iPhone5s下viewport的默认宽为980px，这样便可以保证原本为PC设计的网页，在移动端上也不会发生布局的错乱。<br>.box{width: 490px;}了，发现两个盒子正好一行显示<br>设定了.box{width: 491px;}，则换行显示了<br>8.3.3.layout viewport和ideal viewport<br>在iPhone5s和部分Android中我们发现页面内容（文字、图片）被缩放了（变的非常小），而在部分安卓设备中则出现了滚动条。<br>layout viewport（布局视口）<br>指的是我们可以进行网页布局区域的大小，同样是以CSS像素做为计量单位，可以通过下面方式获取<br>// 获取layout viewport<br>document.documentElement.clientWidth;<br>document.documentElement.clientHeight;<br>移动设备会默认设置一个较大的viewport（如IOS为980px），这个viewport实际指的是layout viewport。<br>ideal viewport（理想视口）<br>设备屏幕区域，（以设备独立像素PT、DP做为单位）以CSS像素做为计量单位，其大小是不可能被改变，通过下面方式可以获取。<br>// 获取ideal viewport有两种情形<br>// 新设备<br>window.screen.width;<br>window.screen.height;<br>// 老设备<br>window.screen.width / window.devicePixelRatio;<br>window.screen.height / window.devicePixelRatio;<br>并不总是正确的，然而在实际开发我们一般无需获取这个值具体大小。<br>理解两个viewport后我们来解释为什么网页会被缩放或出现水平滚动条，其原因在于移动设备浏览器会默认设置一个layout viewport，并且这个值会大于ideal viewport，那么我们也知道ideal viewport就是屏幕区域，layout viewport是我们布局网页的区域，那么最终layout viewport是要显示在ideal viewport里的，而layout viewport大于ideal viewport时，于是就出现滚动条了，那么为什么有的移动设备网页内容被缩放了呢？移动设备厂商认为将网页完整显示给用户才最合理，而不该出现滚动条，所以就将layout viewport进行了缩放，使其恰好完整显示在ideal viewport（屏幕）里，其缩放比例为ideal viewport / layout viewport。</p>
+<p>9.移动端类库<br>9.1.iScroll.js<br>9.1.1.一个可以实现客户端原生滚动效果的类库。<br>9.1.2.<a href="https://github.com/cubiq/iscroll" target="_blank" rel="noopener">https://github.com/cubiq/iscroll</a><br>9.1.3.build目录下提供了不同版本的iScroll，可根据情况选择使用<br>9.1.4.使用</p>
+<style>
+.wrapper{
+    width: 400px;
+    height: 400px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    position: relative;
+}
+</style>
+
+<!-- html要求有3层结构如下 -->
+<div class="wrapper" id="wrapper">
+    <div>
+        <p>它只是需要这样的结构，而不是需要这样的标签</p>
+        <a>它只是需要这样的结构，而不是需要这样的标签</a>
+        <p>它只是需要这样的结构，而不是需要这样的标签</p>
+        <p>它只是需要这样的结构，而不是需要这样的标签</p>
+        ...
+    </div>
+</div>
+<script src="./js/iscroll.js"></script>
+<script type="text/javascript">
+    var myScroll = new IScroll('#wrapper',{
+        mouseWheel: true,
+        scrollbars: true
+    });
+</script>
+9.2.swipe.js
+9.2.1.轮播图滑动
+9.2.2.https://github.com/thebird/Swipe
+9.2.3.例子
+.jd_banner {
+    width: 300px;
+    overflow: hidden;
+    /*默认不可见*/
+    visibility: hidden;
+    position: relative;
+}
+.jd_bannerImg {
+    overflow: hidden;
+    position: relative;
+}
+.jd_bannerImg > li {
+    float:left;
+    width:100%;
+    position: relative;
+}
+.jd_bannerImg > li img{
+    width: 100%;
+    display: block;
+}
+
+<!-- html结构要求有三层结构 -->
+<div class="jd_banner">
+    <!--图片-->
+    <ul class="jd_bannerImg">
+        <li>
+            <a href="javascript:;">
+                <img src="./uploads/l1.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="./uploads/l2.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="./uploads/l3.jpg" alt="">
+            </a>
+        </li>
+    </ul>
+    <!--点标记-->
+    <ul class="jd_bannerIndicator">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    window.mySwipe = Swipe(document.querySelector(".jd_banner"),{
+        auto:2000
+    });
+
+<pre><code>document.getElementById(&quot;prev&quot;).onclick=function(){
+    window.mySwipe.prev();
+}
+document.getElementById(&quot;next&quot;).onclick=function(){
+    window.mySwipe.next();
+}</code></pre><p></script><br>9.3.swiper.js<br>9.3.1.Swiper常用于移动端网站的内容触摸滑动<br>Swiper拥有灵活的progress，这是自定义制作3D切换效果的利器<br>9.3.2.官网<br><a href="https://www.swiper.com.cn/" target="_blank" rel="noopener">https://www.swiper.com.cn/</a><br>9.3.3.<a href="https://github.com/nolimits4web/Swiper/" target="_blank" rel="noopener">https://github.com/nolimits4web/Swiper/</a><br>9.3.4.例子</p>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+.swiper-container{
+    width: 300px;
+    height: 146px;
+}
+ul{
+    list-style: none;
+}
+.swiper-slide img{
+    width: 100%;
+    display: block;
+}
+</style>
+
+<div class="swiper-container">
+    <!--图片-->
+    <ul class="swiper-wrapper">
+        <li class="swiper-slide">
+            <a href="javascript:;">
+                <img src="./uploads/l1.jpg" alt="">
+            </a>
+        </li>
+        <li  class="swiper-slide">
+            <a href="javascript:;">
+                <img src="./uploads/l2.jpg" alt="">
+            </a>
+        </li>
+        <li  class="swiper-slide">
+            <a href="javascript:;">
+                <img src="./uploads/l3.jpg" alt="">
+            </a>
+        </li>
+    </ul>
+</div>
+<script src="./dist/js/swiper.min.js"></script>
+<script>
+    /*var mySwiper = new Swiper ('.swiper-container',{
+        autoplay: 2000,
+        direction : 'vertical'
+    });*/
+    var mySwiper = new Swiper('.swiper-container',{
+        effect : 'cube',
+        cube: {
+            slideShadows: true,
+            shadow: true,
+            shadowOffset: 100,
+            shadowScale: 0.6
+        }
+    })
+</script>
+9.4.fastclick.js
+9.4.1.在移动设备上为了提升click的响应速度，我们选择了使用Zepto事件封装的tap来进行模拟，但是这会带来一个副作用，这个副作用就是“点透”（当点击关闭按钮时，如果下面有click事件或链接则会被触发）。
+
+<p>有时也希望我们的移动版页面在PC端上也可用，但是PC端是不支持touch事件的，这时我们面临的问题是即提升click在移动设备上的响应速度，又不能使用Zepto.js的tap事件，这时fastclick可以解决这个问题。<br>9.4.2.<a href="https://github.com/ftlabs/fastclick" target="_blank" rel="noopener">https://github.com/ftlabs/fastclick</a><br>9.4.3.例子</p>
+<!--引入fastclick文件-->
+<script src="./js/fastclick.js"></script>
+<div class="box">
+    <div class="click">click</div>
+    <div class="tap">tap</div>
+</div>
+
+<script>
+    var tap=document.querySelector(".tap");
+    var click=document.querySelector(".click");
+    /*1.不能点透
+    * 2.touch事件只有在移动端才能使用，在pc无效
+    *
+    * 需求：
+    * 1.在pc和移动端都能响应--click
+    * 2.不能点透--click
+    * 3.操作不能有延迟--touch*/
+
+    /*使用fastclick:在pc端也能响应  解决延迟问题*/
+    /*if ('addEventListener' in document) {
+        //此事件代表html结构加载完成时触发，类似jquery的$(function() {}
+        document.addEventListener('DOMContentLoaded', function() {
+            /!*参数可以是任意的dom元素，如果写document.body，说明会将document.body下面的所的元素都绑定fastclick*!/
+            FastClick.attach(document.body);
+        }, false);
+    }*/
+
+    $(function() {
+        FastClick.attach(document.body);
+    });
+
+    tap.addEventListener("click",function(){
+        tap.style.visibility="hidden";
+    })
+    click.addEventListener("click",function(){
+        console.log(123);
+    })
+</script>
+<p>10.Zepto.js<br>10.1.主要用在移动端，和jquery一样的库，比jquery小<br>10.2.Zepto是一个轻量级的针对现代高级浏览器的JavaScript库， 它与jquery有着类似的api。 如果你会用jquery，那么你也会用zepto。<br>10.3.<a href="https://github.com/madrobby/zepto" target="_blank" rel="noopener">https://github.com/madrobby/zepto</a><br>10.3.1.使用见：移动web京东项目<br>10.4.自定义构建模块<br>10.4.1.1、安装Nodejs环境<br>2、下载zepto.js<br>3、解压缩<br>4、cmd命令行进入解压缩后的目录<br>5、执行npm install 命令<br>6、编辑make文件，添加自定义模块并保存，如下图<br>7、然后执行命令 npm run-script dist<br>8、查看目录dist即构建好的zepto.js<br>10.4.2.</p>
+<p>11.网页布局<br>11.1.布局方式<br>11.1.1.1、固定宽度布局：为网页设置一个固定的宽度，通常以px做为长度单位，常见于PC端网页。</p>
+<p>2、流式布局：为网页设置一个相对的宽度，通常以百分比做为长度单位。</p>
+<p>3、栅格化布局：将网页宽度人为的划分成均等的长度，然后排版布局时则以这些均等的长度做为度量单位，通常利用百分比做为长度单位来划分成均等的长度。</p>
+<p>4、响应式布局：通过检测设备信息，决定网页布局方式，即用户如果采用不同的设备访问同一个网页，有可能会看到不一样的内容，一般情况下是检测设备屏幕的宽度来实现。<br>11.2.响应式布局<br>11.2.1.Responsive design，意在实现不同屏幕分辨率的终端上浏览网页的不同展示方式。<br>11.2.2.屏幕尺寸不一样展示给用户的网页内容也不一样，我们利用媒体查询可以检测到屏幕的尺寸（主要检测宽度），并设置不同的CSS样式，就可以实现响应式的布局。<br>11.2.3.常见的尺寸进行分类<br>/* 大屏幕 */<br>@media (min-width: 1200px){ … }</p>
+<p>/* 默认 */<br>@media (min-width:980px){ … }</p>
+<p>/* 平板电脑和小屏幕电脑之间的分辨率 */<br>@media (min-width: 768px) and (max-width: 979px) { … }</p>
+<p>/* 横向放置的手机和竖向放置的平板之间的分辨率 */<br>@media (max-width: 767px) { … }</p>
+<p>/* 横向放置的手机及分辨率更小的设备 */<br>@media (max-width: 480px){ … }<br>12.媒体查询<br>12.1.为了能够保证我们的网页可以适应多个终端，不得不专门为某些特定的设备设计不同的展示风格，通过媒体查询可以检测当前网页运行在什么终端，可以有机会实现网页适应不同终端的展示风格。<br>12.2.媒体类型<br>12.2.1.将不同的终端设备划分成不同的类型，称为媒体类型。<br>12.2.2.| 值     | 描述                               |<br>| —— | ———————————- |<br>| all    | 用于所有设备                       |<br>| print  | 用于打印机和打印预览               |<br>| screen | 用于电脑屏幕，平板电脑，智能手机等 |<br>12.3.媒体特性<br>12.3.1.每种媒体类型都具体各自不同的特性，根据不同媒体类型的媒体特性设置不同的展示风格。<br>12.3.2.</p>
+<p>12.4.关键字<br>12.4.1.关键字将媒体类型或多个媒体特性连接到一起做为媒体查询的条件。<br>12.4.2.1、and 可以将多个媒体特性连接到一起，相当于“且”的意思。<br>2、not 排除某个媒体类型，相当于“非”的意思，可以省略。<br>3、only指定某个特定的媒体类型，可以省略。<br>12.5.引入方式<br>12.5.1.1、link方法</p>
+<link href="./5-1.css" media="only screen and (max-width: 320px)">
+<link rel="stylesheet" media="screen and (min-width:992px) and (max-width:1200px)" href="b.css">
+12.5.2.2、@media方法（写在CSS里）
+@media screen and (max-width: 768px){
+    body{
+        background-color: green;
+    }
+}
+12.6.常用特性
+12.6.1.1、width / height完全等于layout viewport
+2、max-width / max-height 小于等于layout viewport
+3、min-width / min-height 大于等于layout viewport
+4、device-width / device-height 完全等于ideal viewport
+5、orientation: portrait | landscape肖像/全景模式
+12.7.书写顺序建议
+12.7.1.1.如果是判断最小值 (min-width)，那么就应该从小到大写--bootstrap就是判断最小值，从小到大写
+2.如果是判断最大值 (max-width)，那么就应该从大到小写
+12.8.说明媒体功能
+12.8.1.min-width:在pc端和移动端能正常的响应，效果一致  。它是指当前可视区域的宽度
+
+<p>min-device-width:在移动端和期望值一样  device：设备。它是指当前设备的宽度。当拖动来改变浏览器大小的时候，当前终端设备的宽度并不会变化，意味着媒体查询条件不会响应<br>12.9.例子<br>12.9.1.不同屏幕宽度区间下的body的背景色样式</p>
+<style>
+    body{
+        background-color: red;
+    }
+
+    /*宽度小于768  也就意味着条件就是屏幕的宽度需要小于768px*/
+    @media screen and (max-width: 768px){
+        body{
+            background-color: green;
+        }
+    }
+
+    /*w:768~992:*/
+    @media screen and (min-width: 768px) and (max-width: 992px){
+        body{
+            background-color: blue;
+        }
+    }
+
+    /*992~1200*/
+    @media screen and (min-width: 992px) and (max-width: 1200px){
+        body{
+            background-color: pink;
+        }
+    }
+
+    /*w>1200*/
+    @media screen and (min-width: 1200px){
+        body{
+            background-color: purple;
+        }
+    }
+</style>
+<p>12.9.2.使用媒体查询设置页面的结构</p>
+<div class="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<p>/<em>需求：<br>w &lt; 768   子元素宽度为父容器宽度100%<br>w 768<del>992  每一行放置两个子元素  50%<br>w 992</del>1200 每一行放置三个子元素  33.33%<br>w &gt;1200 每一行放置四个子元素 25%</em>/<br>.box &gt; div{<br>    width: 100%;<br>    height: 100%;<br>    background-color: skyblue;<br>    box-sizing: border-box;<br>    border-right: 2px solid blue;<br>    border-bottom: 2px solid blue;<br>    float: left;<br>}</p>
+<p>/<em>w 768~992  每一行放置两个子元素  50%</em>/<br>@media screen and (min-width: 768px){<br>    .box &gt; div{<br>        width: 50%;<br>    }<br>}<br>/* w 992~1200 每一行放置三个子元素  33.33%<em>/<br>@media screen and (min-width: 992px){<br>    .box &gt; div{<br>        width: 33.33%;<br>    }<br>}<br>/*w &gt;1200 每一行放置四个子元素 25%</em>/<br>@media screen and (min-width: 1200px){<br>    .box &gt; div{<br>        width: 25%;<br>    }<br>}<br>13.事件<br>13.1.事件类型<br>13.1.1.touchstart: 手指触摸屏幕时触发<br>touchmove: 手指在屏幕上移动时触发<br>touchend: 手指离开屏幕时触发<br>/<em>1.获取dom元素</em>/<br>var div=document.querySelector(“div”);<br>/<em>2.添加事件</em>/<br>/<em>添加开始触摸事件：当手指触摸到屏幕时触发</em>/<br>div.addEventListener(“touchstart”,function(){<br>    console.log(“touchstart”);<br>});<br>/<em>添加手指滑动事件，当手指在屏幕上滑动时触发:move事件是持续触发</em>/<br>div.addEventListener(“touchmove”,function(){<br>    console.log(“touchmove”);<br>});<br>/<em>添加触摸结束事件：当手指离开屏幕时触发</em>/<br>div.addEventListener(“touchend”,function(){<br>    console.log(“touchend”);<br>});<br>/<em>添加触摸意外中断事件</em>/<br>div.addEventListener(“touchcancel”,function(){<br>});<br>13.2.TouchEvent对象<br>13.2.1.touches: 位于屏幕上的所有手指的列表<br>targetTouches: 位于该元素上的所有手指的列表<br>changedTouches：touchstart时包含刚与触摸屏接触的触点，touchend时包含离开触摸屏的触点<br>var div=document.querySelector(“div”);<br>/<em>开始触摸</em>/<br>div.addEventListener(“touchstart”,function(e){<br>//        console.log(e.touches);<br>    /<em>console.log(e.changedTouches);</em>/<br>    console.log(e.targetTouches[0].clientX +”  : “+e.targetTouches[0].clientY);<br>});<br>/<em>触摸滑动</em>/<br>/<em>触摸结束</em>/<br>div.addEventListener(“touchend”,function(e){<br>//        console.log(e.changedTouches);<br>})<br>13.2.2.注：没有对比出touches同targetTouches的差异，推荐使用targetTouches<br>13.3.Touch对象<br>13.3.1.clientX/Y        手指相对于layout viewport的水平/垂直像素距离<br>pageX/Y     手指相对于layout viewport的水平/垂直像素距离（含滚动）<br>screenX/Y       手指相对于layout viewport的水平/垂直像素距离（含滚动）<br>（未设置viewport时，screenX/Y在Webview中不正确）<br>target          手指最初与屏幕接触时的元素</p>
+<p>移动开发通常会设置<meta name="viewport" content="width=device-width, initial-scale=1">，这时这三对坐标值是完全一样的。<br>14.屏幕适配<br>14.1.移动页面最理想的状态是，避免滚动条且不被默认缩放处理，我们可以通过设置<meta name="viewport" content="">来进行控制，并改变浏览器默认的layout viewport的宽度。<br>14.2.控制缩放<br>14.2.1.开发中一般同时设置width=device-width和initial-scale=1.0（为了解决一些兼容问题）<br>14.3.避免滚动<br>14.3.1.滚动条是 layout viewport 相对于 ideal viewport 的，所以只要设置 layout viewport 小于或等于 ideal viewport，即<meta name="viewport" content="width=device-width">。<br>14.3.2.经测试发现我们并没有完全的解决滚动条的问题，原因在于我们示例里的.box {width: 490px;}设置了一个绝对的宽度造成的，要解决这个问题我们可以设置一个百分比（100%）的宽度<br>14.4.适配方案<br>14.4.1.移动开发的核心是屏幕适配，然而并示有专门的规范进行约束，一般是对现有持术进行归纳而总结出适配方案，掌握了以上的技术细节后我们可以总结出以下几种适配方案<br>14.4.2.固定宽度<br>此方案已经很少采用了<br>1、设置<meta name="viewport" content="width=device-width, initial-scale=1"><br>2、设置内容区域大小为320px<br>3、设置内容区域水平居中显示<br>移动设备的屏幕尺寸虽然庞杂，但有几个主要尺寸，分别为320px、360px，这三个尺寸占了绝大部分，并且以320px最多，所以我们移动网页如果设计成320px宽，则可以保证在绝大多数设备里正常显示<br>14.4.3.百分比宽度<br>1、设置<meta name="viewport" content="width=device-width, initial-scale=1"><br>2、设置页面宽度为百分比<br>// 测试下列属性设置为百分比<br>width       参照父元素的宽度<br>height      参照父元素的高度<br>padding 参照父元素的宽度<br>border  不支持百分比设置<br>margin  参照父元素的宽度<br>我们发现这种方案最容易理解，但是在设置元素高度时有非常大的局限性。<br>14.4.4.rem单位<br>1、设置<meta name="viewport" content="width=device-width, initial-scale=1"><br>2. 设置页面元素宽度单位为rem 或 em<br>注：此方案比较灵活<br>关于em和rem<br>em<br>em 相对长度单位，其参照当前元素字号大小，如果当前元素未设置字号则会继承其祖先元素字号大小例如<br> .box {font-size: 16px;}则 1em = 16px<br>.box {font-size: 32px;} 则 1em = 32px，0.5em = 16px<br>rem<br>rem 相对长度单位，其参照根元素(html)字号大小例如 html {font-size: 16px;} 则 1rem = 16px<br>html {font-size: 32px;} 则 1rem = 32px，0.5rem = 16px<br>14.4.5.100%像素<br>1、设置网页宽度等于设备物理像素<br>2、设置初始化缩放比例（值为1 / window.devicePixelRatio）<br>淘宝针对iPhone设备采用的这种方案</p>
+
       
 
       
@@ -198,16 +505,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/02/fullpage%E3%80%81easing-js%E3%80%813D%E6%97%8B%E8%BD%AC%E6%8F%92%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">fullpage、easing.js、3D旋转插件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -222,623 +588,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-fullpage、easing-js、3D旋转插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/02/fullpage%E3%80%81easing-js%E3%80%813D%E6%97%8B%E8%BD%AC%E6%8F%92%E4%BB%B6/">fullpage、easing.js、3D旋转插件</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/02/fullpage%E3%80%81easing-js%E3%80%813D%E6%97%8B%E8%BD%AC%E6%8F%92%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-03-02T11:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="fullpage-全屏插件"><a href="#fullpage-全屏插件" class="headerlink" title="fullpage 全屏插件"></a>fullpage 全屏插件</h2><p>全屏滚动效果，原生js也很好实现，主要是用 mousewheel  鼠标滚轮滚动事件， 来判断上滚动还是下滚动，之后设置每次滚动的高度为屏幕的高度即可。但是，虽然效果简单，但是兼容性很差，要做很多兼容处理及比较麻烦啦！</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/02/fullpage%E3%80%81easing-js%E3%80%813D%E6%97%8B%E8%BD%AC%E6%8F%92%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-H5新API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/25/H5%E6%96%B0API/">H5新API</a>
-    </h1>
   
 
-        
-        <a href="/2020/02/25/H5%E6%96%B0API/" class="archive-article-date">
-  	<time datetime="2020-02-25T11:04:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="1-网络状态"><a href="#1-网络状态" class="headerlink" title="1 网络状态"></a>1 网络状态</h2><p>我们可以通过window.navigator.onLine来检测，用户当前的网络状况，返回一个布尔值， 但是不同浏览器会存在差异</p>
-<p>所以HTML5 给我们提供了2个事件  online  和 offline  </p>
-<p>online用户网络连接时被调用</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/25/H5%E6%96%B0API/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Jquery" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/20/Jquery/">Jquery</a>
-    </h1>
   
 
-        
-        <a href="/2020/02/20/Jquery/" class="archive-article-date">
-  	<time datetime="2020-02-20T10:56:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.介绍<br>1.1.JavaScript框架库:就是一个普通的js文件,封装了很多的函数,封装了很多兼容的代码<br>jQuery是JavaScript框架库中的一种<br>jQuery的好处:写的少,做的多,链式编程,隐式迭代等…<br>jQuery可以解决js兼容的问题</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/20/Jquery/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-DOM、BOM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/15/DOM%E3%80%81BOM/">DOM、BOM</a>
-    </h1>
   
 
-        
-        <a href="/2020/02/15/DOM%E3%80%81BOM/" class="archive-article-date">
-  	<time datetime="2020-02-15T09:47:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<ul>
-<li>掌握API和Web API的概念</li>
-<li>掌握常见浏览器提供的API的调用方式</li>
-<li>能通过Web API开发常见的页面交互功能</li>
-<li>能够利用搜索引擎解决问题<br>typora-copy-images-to: media</li>
-</ul>
-<hr>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/15/DOM%E3%80%81BOM/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JS提升" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/05/JS%E6%8F%90%E5%8D%87/">JS提升</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/05/JS%E6%8F%90%E5%8D%87/" class="archive-article-date">
-  	<time datetime="2020-02-05T04:43:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<ul>
-<li>理解面向对象开发思想</li>
-<li>掌握 JavaScript 面向对象开发相关模式</li>
-<li>掌握在 JavaScript 中使用正则表达式</li>
-</ul>
-<h2 id="typora-copy-images-to-media"><a href="#typora-copy-images-to-media" class="headerlink" title="typora-copy-images-to media"></a>typora-copy-images-to media</h2>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/05/JS%E6%8F%90%E5%8D%87/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaScript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/22/JavaScript/">JavaScript</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/22/JavaScript/" class="archive-article-date">
-  	<time datetime="2020-01-22T09:23:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<ul>
-<li>掌握编程的基本思维</li>
-<li>掌握编程的基本语法<br>typora-copy-images-to: media</li>
-</ul>
-<hr>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/22/JavaScript/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-BFC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/18/BFC/">BFC</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/18/BFC/" class="archive-article-date">
-  	<time datetime="2020-01-18T08:18:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<ul>
-<li>理解BFC</li>
-<li>了解渐进增强和优雅降级<br>typora-copy-images-to: media</li>
-</ul>
-<hr>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/18/BFC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/15/CSS/">CSS</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/15/CSS/" class="archive-article-date">
-  	<time datetime="2020-01-15T08:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<blockquote>
-<ol>
-<li>学会使用CSS选择器</li>
-<li>熟记CSS样式和外观属性</li>
-<li>熟练掌握CSS各种选择器</li>
-<li>熟练掌握CSS各种选择器</li>
-<li>熟练掌握CSS三种显示模式</li>
-<li>熟练掌握CSS背景属性</li>
-</ol>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/15/CSS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HTML" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/05/HTML/">HTML</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/05/HTML/" class="archive-article-date">
-  	<time datetime="2020-01-05T04:44:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<ul>
-<li>了解常用浏览器</li>
-<li>掌握WEB标准</li>
-<li>理解标签语义化</li>
-<li>掌握常用的排版标签</li>
-<li>掌握常用的文本格式化图像链接等标签</li>
-<li>掌握三种列表标签
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/05/HTML/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -861,8 +636,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | yezhibin的博客</title>
+  <title>React03 | yezhibin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="热爱生活，热爱编程。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yezhibin的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/2/index.html">
+  <meta name="description" content="组件的生命周期 概念：在组件创建、到加载到页面上运行、以及组件被销毁的过程中，总是伴随着各种各样的事件，这些在组件特定时期，触发的事件，统称为 组件的生命周期；  组件生命周期分为三部分：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React03">
+<meta property="og:url" content="http://yoursite.com/2020/04/16/React03/index.html">
 <meta property="og:site_name" content="yezhibin的博客">
-<meta property="og:description" content="热爱生活，热爱编程。">
+<meta property="og:description" content="组件的生命周期 概念：在组件创建、到加载到页面上运行、以及组件被销毁的过程中，总是伴随着各种各样的事件，这些在组件特定时期，触发的事件，统称为 组件的生命周期；  组件生命周期分为三部分：">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/04/16/React03/images/React%E4%B8%AD%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/16/React03/images/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%A1%A8%E6%A0%BC.png">
+<meta property="article:published_time" content="2020-04-16T11:53:11.000Z">
+<meta property="article:modified_time" content="2020-05-05T04:54:34.556Z">
 <meta property="article:author" content="ye zhibin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -29,6 +33,7 @@
 <meta property="article:tag" content="代码">
 <meta property="article:tag" content="开源">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/16/React03/images/React%E4%B8%AD%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
   
     <link rel="alternative" href="/atom.xml" title="yezhibin的博客" type="application/atom+xml">
   
@@ -164,295 +169,232 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-React03" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React03
+    </h1>
+  
+
+        
+        <a href="/2020/04/16/React03/" class="archive-article-date">
+  	<time datetime="2020-04-16T11:53:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h2><ul>
+<li><p>概念：在组件创建、到加载到页面上运行、以及组件被销毁的过程中，总是伴随着各种各样的事件，这些在组件特定时期，触发的事件，统称为 组件的生命周期；</p>
+</li>
+<li><p>组件生命周期分为三部分：</p>
+<a id="more"></a>
+<ul>
+<li><p><strong>组件创建阶段</strong>：组件创建阶段的生命周期函数，有一个显著的特点：创建阶段的生命周期函数，在组件的一辈子中，只执行一次；</p>
+<blockquote>
+<p>componentWillMount: 组件将要被挂载，此时还没有开始渲染虚拟DOM<br>render：第一次开始渲染真正的虚拟DOM，当render执行完，内存中就有了完整的虚拟DOM了<br>componentDidMount: 组件完成了挂载，此时，组件已经显示到了页面上，当这个方法执行完，组件就进入都了 运行中 的状态</p>
+</blockquote>
+</li>
+<li><p><strong>组件运行阶段</strong>：也有一个显著的特点，根据组件的state和props的改变，有选择性的触发0次或多次；</p>
+<blockquote>
+<p>componentWillReceiveProps: 组件将要接收新属性，此时，只要这个方法被触发，就证明父组件为当前子组件传递了新的属性值；<br>shouldComponentUpdate: 组件是否需要被更新，此时，组件尚未被更新，但是，state 和 props 肯定是最新的<br>componentWillUpdate: 组件将要被更新，此时，尚未开始更新，内存中的虚拟DOM树还是旧的<br>render: 此时，又要重新根据最新的 state 和 props 重新渲染一棵内存中的 虚拟DOM树，当 render 调用完毕，内存中的旧DOM树，已经被新DOM树替换了！此时页面还是旧的<br>componentDidUpdate: 此时，页面又被重新渲染了，state 和 虚拟DOM 和 页面已经完全保持同步</p>
+</blockquote>
+</li>
+<li><p><strong>组件销毁阶段</strong>：也有一个显著的特点，一辈子只执行一次；</p>
+<blockquote>
+<p>componentWillUnmount: 组件将要被卸载，此时组件还可以正常使用；</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://cn.vuejs.org/v2/guide/instance.html#生命周期图示" target="_blank" rel="noopener">vue中的生命周期图</a><br><a href="http://www.race604.com/react-native-component-lifecycle/" target="_blank" rel="noopener">React Native 中组件的生命周期</a></p>
+<p><img src="./images/React%E4%B8%AD%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="React中组件的生命周期"></p>
+<h3 id="defaultProps"><a href="#defaultProps" class="headerlink" title="defaultProps"></a>defaultProps</h3><blockquote>
+<p>在组件创建之前，会先初始化默认的props属性，这是全局调用一次，严格地来说，这不是组件的生命周期的一部分。在组件被创建并加载候，首先调用 constructor 构造器中的 this.state = {}，来初始化组件的状态。</p>
+</blockquote>
+<p>React生命周期的回调函数总结成表格如下：<br><img src="./images/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%A1%A8%E6%A0%BC.png" alt="React生命周期表格"><br>组件生命周期的执行顺序：</p>
+<ul>
+<li>Mounting：<ul>
+<li>constructor()</li>
+<li>componentWillMount()</li>
+<li>render()</li>
+<li>componentDidMount()</li>
+</ul>
+</li>
+<li>Updating：<ul>
+<li>componentWillReceiveProps(nextProps)</li>
+<li>shouldComponentUpdate(nextProps, nextState)</li>
+<li>componentWillUpdate(nextProps, nextState)</li>
+<li>render()</li>
+<li>componentDidUpdate(prevProps, prevState)</li>
+</ul>
+</li>
+<li>Unmounting：<ul>
+<li>componentWillUnmount()</li>
+</ul>
+</li>
+</ul>
+<h2 id="通过Counter计数器的小案例-了解生命周期函数"><a href="#通过Counter计数器的小案例-了解生命周期函数" class="headerlink" title="通过Counter计数器的小案例 - 了解生命周期函数"></a>通过Counter计数器的小案例 - 了解生命周期函数</h2><ol>
+<li>给组件设置默认属性：</li>
+<li>给属性进行类型校验，需要先运行<code>cnpm i prop-types --save</code></li>
+</ol>
+<h2 id="组件初始化时生命周期事件总结"><a href="#组件初始化时生命周期事件总结" class="headerlink" title="组件初始化时生命周期事件总结"></a>组件初始化时生命周期事件总结</h2><ol>
+<li>componentWillMount：</li>
+<li>render：</li>
+<li>componentDidMount：</li>
+<li>注意：在render函数中，不能调用<code>setState()</code>方法</li>
+</ol>
+<h2 id="通过原生的方式获取元素并绑定事件"><a href="#通过原生的方式获取元素并绑定事件" class="headerlink" title="通过原生的方式获取元素并绑定事件"></a>通过原生的方式获取元素并绑定事件</h2><h2 id="React中使用ref属性获取DOM元素引用"><a href="#React中使用ref属性获取DOM元素引用" class="headerlink" title="React中使用ref属性获取DOM元素引用"></a>React中使用ref属性获取DOM元素引用</h2><h2 id="使用React中的事件，绑定count自增"><a href="#使用React中的事件，绑定count自增" class="headerlink" title="使用React中的事件，绑定count自增"></a>使用React中的事件，绑定count自增</h2><h2 id="组件运行中事件的对比"><a href="#组件运行中事件的对比" class="headerlink" title="组件运行中事件的对比"></a>组件运行中事件的对比</h2><ol>
+<li>shouldComponentUpdate：</li>
+<li>componentWillUpdate：</li>
+<li>render：</li>
+<li>componentDidUpdate：</li>
+</ol>
+<h2 id="绑定this并传参的三种方式"><a href="#绑定this并传参的三种方式" class="headerlink" title="绑定this并传参的三种方式"></a>绑定this并传参的三种方式</h2><ol>
+<li>在事件中绑定this并传参：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;在事件中绑定this并传参&quot; onClick&#x3D;&#123;this.handleMsg1.bind(this, &#39;🍕&#39;, &#39;🍟&#39;)&#125; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 在事件中绑定this并传参</span><br><span class="line">handleMsg1(arg1, arg2) &#123;</span><br><span class="line">    console.log(this);</span><br><span class="line">    &#x2F;&#x2F; 此时this是个null</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        msg: &#39;在事件中绑定this并传参：&#39; + arg1 + arg2</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在构造函数中绑定this并传参:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 修改构造函数中的代码：</span><br><span class="line">this.handleMsg2 &#x3D; this.handleMsg2.bind(this, &#39;🚗&#39;, &#39;🚚&#39;);</span><br><span class="line"></span><br><span class="line">&lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;在构造函数中绑定this并传参&quot; onClick&#x3D;&#123;this.handleMsg2&#125; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 在构造函数中绑定this并传参</span><br><span class="line">handleMsg2(arg1, arg2) &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        msg: &#39;在构造函数中绑定this并传参：&#39; + arg1 + arg2</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>用箭头函数绑定this并传参：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;用箭头函数绑定this并传参&quot; onClick&#x3D;&#123;() &#x3D;&gt; &#123; this.handleMsg3(&#39;👩&#39;, &#39;👰&#39;) &#125;&#125; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 用箭头函数绑定this并传参</span><br><span class="line">    handleMsg3(arg1, arg2) &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            msg: &#39;用箭头函数绑定this并传参：&#39; + arg1 + arg2</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="绑定文本框与state中的值"><a href="#绑定文本框与state中的值" class="headerlink" title="绑定文本框与state中的值"></a>绑定文本框与state中的值</h2><ol>
+<li>在Vue.js中，默认可以通过<code>v-model</code>指令，将表单控件和我们的<code>data</code>上面的属性进行双向数据绑定，数据变化和页面之间的变化是同步的！</li>
+<li>在React.js中，默认没有提供双向数据绑定这一功能，默认的，只能把<code>state</code>之上的数据同步到界面的控件上，但是不能默认实现把界面上数据的改变，同步到<code>state</code>之上，需要程序员手动调用相关的事件，来进行逆向的数据传输！</li>
+<li>绑定文本框和state的值：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x2F;*只要将value属性，和state上的状态进行绑定，那么，这个表单元素就变成了受控表单元素，这时候，如果没有调用相关的事件，是无法手动修改表单元素中的值的*&#x2F;&#125;</span><br><span class="line">&lt;input style&#x3D;&#123;&#123; width: &#39;100%&#39; &#125;&#125; ref&#x3D;&quot;txt&quot; type&#x3D;&quot;text&quot; value&#x3D;&#123;this.state.msg&#125; onChange&#x3D;&#123;this.handleTextChange&#125; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 这是文本框内容改变时候的处理函数</span><br><span class="line">handleTextChange &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">        msg: this.refs.txt.value</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>注意<code>setState的一个问题</code>：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 保存最新的state状态值，在保存的时候，是异步地进行保存的，所以，如果想要获取最新的，刚刚保存的那个状态，需要通过回掉函数的形式去获取最新state</span><br><span class="line">this.setState(&#123;</span><br><span class="line">    msg: this.refs.txt.value</span><br><span class="line">    &#x2F;&#x2F; msg: e.target.value</span><br><span class="line">&#125;, function () &#123;</span><br><span class="line">    &#x2F;&#x2F; 获取最新的state状态值</span><br><span class="line">    console.log(this.state.msg);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ol>
+<h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><p><a href="https://facebook.github.io/react/docs/typechecking-with-proptypes.html" target="_blank" rel="noopener">类型校验</a><br><a href="https://reactjs.org/docs/animation.html#high-level-api-reactcsstransitiongroup" target="_blank" rel="noopener">Animation Add-Ons</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/30/git%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-30T04:00:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/30/git%E4%BD%BF%E7%94%A8/">git使用</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/16/React03/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/18/Node-js/" class="archive-article-date">
-  	<time datetime="2020-03-18T03:31:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/16/React02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React02</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/18/Node-js/">Node.js</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组件的生命周期"><span class="toc-number">1.</span> <span class="toc-text">组件的生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#defaultProps"><span class="toc-number">1.1.</span> <span class="toc-text">defaultProps</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过Counter计数器的小案例-了解生命周期函数"><span class="toc-number">2.</span> <span class="toc-text">通过Counter计数器的小案例 - 了解生命周期函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件初始化时生命周期事件总结"><span class="toc-number">3.</span> <span class="toc-text">组件初始化时生命周期事件总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过原生的方式获取元素并绑定事件"><span class="toc-number">4.</span> <span class="toc-text">通过原生的方式获取元素并绑定事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React中使用ref属性获取DOM元素引用"><span class="toc-number">5.</span> <span class="toc-text">React中使用ref属性获取DOM元素引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用React中的事件，绑定count自增"><span class="toc-number">6.</span> <span class="toc-text">使用React中的事件，绑定count自增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件运行中事件的对比"><span class="toc-number">7.</span> <span class="toc-text">组件运行中事件的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定this并传参的三种方式"><span class="toc-number">8.</span> <span class="toc-text">绑定this并传参的三种方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定文本框与state中的值"><span class="toc-number">9.</span> <span class="toc-text">绑定文本框与state中的值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关文章"><span class="toc-number">10.</span> <span class="toc-text">相关文章</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/" class="archive-article-date">
-  	<time datetime="2020-03-07T03:18:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/">移动web开发</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/02/fullpage%E3%80%81easing-js%E3%80%813D%E6%97%8B%E8%BD%AC%E6%8F%92%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-03-02T11:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/02/fullpage%E3%80%81easing-js%E3%80%813D%E6%97%8B%E8%BD%AC%E6%8F%92%E4%BB%B6/">fullpage、easing.js、3D旋转插件</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/H5%E6%96%B0API/" class="archive-article-date">
-  	<time datetime="2020-02-25T11:04:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/H5%E6%96%B0API/">H5新API</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/20/Jquery/" class="archive-article-date">
-  	<time datetime="2020-02-20T10:56:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/20/Jquery/">Jquery</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/15/DOM%E3%80%81BOM/" class="archive-article-date">
-  	<time datetime="2020-02-15T09:47:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/15/DOM%E3%80%81BOM/">DOM、BOM</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/05/JS%E6%8F%90%E5%8D%87/" class="archive-article-date">
-  	<time datetime="2020-02-05T04:43:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/05/JS%E6%8F%90%E5%8D%87/">JS提升</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/22/JavaScript/" class="archive-article-date">
-  	<time datetime="2020-01-22T09:23:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/22/JavaScript/">JavaScript</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/18/BFC/" class="archive-article-date">
-  	<time datetime="2020-01-18T08:18:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/18/BFC/">BFC</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/3/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -476,8 +418,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

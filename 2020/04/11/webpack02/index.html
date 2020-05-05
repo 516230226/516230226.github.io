@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | yezhibin的博客</title>
+  <title>webpack02 | yezhibin的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="热爱生活，热爱编程。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yezhibin的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/2/index.html">
+  <meta name="description" content="webpack的发布策略 在实际开发中，一般会有两套项目方案： 一套是开发期间的项目，包含了测试文件、测试数据、开发工具、测试工具等相关配置，有利于项目的开发和测试，但是这些文件仅用于开发，发布项目时候需要剔除；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack02">
+<meta property="og:url" content="http://yoursite.com/2020/04/11/webpack02/index.html">
 <meta property="og:site_name" content="yezhibin的博客">
-<meta property="og:description" content="热爱生活，热爱编程。">
+<meta property="og:description" content="webpack的发布策略 在实际开发中，一般会有两套项目方案： 一套是开发期间的项目，包含了测试文件、测试数据、开发工具、测试工具等相关配置，有利于项目的开发和测试，但是这些文件仅用于开发，发布项目时候需要剔除；">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-11T07:43:13.000Z">
+<meta property="article:modified_time" content="2020-05-05T04:44:07.540Z">
 <meta property="article:author" content="ye zhibin">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -164,295 +166,210 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-webpack02" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      webpack02
+    </h1>
+  
+
+        
+        <a href="/2020/04/11/webpack02/" class="archive-article-date">
+  	<time datetime="2020-04-11T07:43:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="webpack的发布策略"><a href="#webpack的发布策略" class="headerlink" title="webpack的发布策略"></a>webpack的发布策略</h2><ol>
+<li>在实际开发中，一般会有两套项目方案：<ul>
+<li>一套是开发期间的项目，包含了测试文件、测试数据、开发工具、测试工具等相关配置，有利于项目的开发和测试，但是这些文件仅用于开发，发布项目时候需要剔除；<a id="more"></a></li>
+<li>另一套是部署期间的项目，剔除了那些客户用不到的测试数据测试工具和文件，比较纯净，减少了项目发布后的体积，有利于安装和部署！</li>
+</ul>
+</li>
+<li>为了满足我们的发布策略，需要新建一个配置文件，命名为<code>webpack.publish.config.js</code>，将<code>webpack.config.js</code>的配置拷贝过去，剔除一些开发配置项即可：<ul>
+<li>将<code>devServer</code>节点删掉：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">       hot: true,</span><br><span class="line">       open: true,</span><br><span class="line">       port: 4321</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li>将<code>plugins</code>节点下的热更新插件删掉：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new webpack.HotModuleReplacementPlugin()</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>修改<code>url-loader</code>，将图片放入统一的images文件夹之下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: &#x2F;\.(png|jpg|gif)$&#x2F;, use: &#39;url-loader?limit&#x3D;43959&amp;name&#x3D;images&#x2F;[name].[ext]&#39; &#125;</span><br></pre></td></tr></table></figure>
+或者使用<code>img-</code>前缀加上<code>7位的hash名称</code>：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; test: &#x2F;\.(png|jpg|gif)$&#x2F;, use: &#39;url-loader?limit&#x3D;43959&amp;name&#x3D;images&#x2F;img-[hash:7].[ext]&#39; &#125;</span><br></pre></td></tr></table></figure></li>
+<li>在<code>package.json</code>中的script节点下新增<code>dev</code>命令，通过<code>--config</code>指定webpack启动时要读取的配置文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;pub&quot;: &quot;webpack --config webpack.publish.config.js&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="每次重新构建时候删除dist目录"><a href="#每次重新构建时候删除dist目录" class="headerlink" title="每次重新构建时候删除dist目录"></a>每次重新构建时候删除dist目录</h2><ol>
+<li>运行<code>cnpm i clean-webpack-plugin --save-dev</code></li>
+<li>在头部引入这个插件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var cleanWebpackPlugin &#x3D; require(&#39;clean-webpack-plugin&#39;);</span><br></pre></td></tr></table></figure></li>
+<li>在<code>plugins</code>节点下使用这个插件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new cleanWebpackPlugin([&#39;dist&#39;])</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="分离第三方包改造webpack-publish-config-js"><a href="#分离第三方包改造webpack-publish-config-js" class="headerlink" title="分离第三方包改造webpack.publish.config.js"></a>分离第三方包改造<code>webpack.publish.config.js</code></h2><ol>
+<li>改造entry节点如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">        app: path.resolve(__dirname, &#39;src&#x2F;js&#x2F;main.js&#39;), &#x2F;&#x2F; 自己代码的入口</span><br><span class="line">        vendors: [&#39;jquery&#39;] &#x2F;&#x2F; 要分离的第三方包的入口</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li>在plugins节点下新增插件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new webpack.optimize.CommonsChunkPlugin(&#123; &#x2F;&#x2F; 抽离第三方包的插件</span><br><span class="line">        name:&#39;vendors&#39;, &#x2F;&#x2F; 指定抽离第三方包的入口名称</span><br><span class="line">        filename:&#39;vendors.js&#39; &#x2F;&#x2F; 抽离出的公共模块的名称</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><code>html-webpack-plugin</code>在生成<code>index.html</code>文件的时候，会自动将抽离的第三方包引入进去！</li>
+</ol>
+<h2 id="优化压缩JS"><a href="#优化压缩JS" class="headerlink" title="优化压缩JS"></a><a href="https://webpack.js.org/configuration/plugins/#plugins" target="_blank" rel="noopener">优化压缩JS</a></h2><p>在plugins数组中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">new webpack.optimize.UglifyJsPlugin(&#123; &#x2F;&#x2F; 优化压缩JS</span><br><span class="line">    compress:&#123;</span><br><span class="line">        warnings:false &#x2F;&#x2F; 移除警告</span><br><span class="line">    &#125;</span><br><span class="line">&#125;),</span><br><span class="line">new webpack.DefinePlugin(&#123; &#x2F;&#x2F; 设置为产品上线环境，进一步压缩JS代码</span><br><span class="line">    &#39;process.env.NODE_ENV&#39;: &#39;&quot;production&quot;&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="优化压缩HTML文件"><a href="#优化压缩HTML文件" class="headerlink" title="优化压缩HTML文件"></a>优化压缩HTML文件</h2><p>在<code>plugins</code>节点下的<code>htmlWebpackPlugin</code>插件中，添加<code>minify</code>子节点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">minify:&#123;&#x2F;&#x2F; 压缩HTML代码</span><br><span class="line">    collapseWhitespace:true, &#x2F;&#x2F; 合并空白字符</span><br><span class="line">    removeComments:true, &#x2F;&#x2F; 移除注释</span><br><span class="line">    removeAttributeQuotes:true &#x2F;&#x2F; 移除属性上的引号</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他优化项请参考：<a href="https://github.com/kangax/html-minifier#options-quick-reference" target="_blank" rel="noopener">html-minifier - github</a></p>
+<h2 id="抽取CSS文件"><a href="#抽取CSS文件" class="headerlink" title="抽取CSS文件"></a><a href="https://github.com/webpack-contrib/extract-text-webpack-plugin" target="_blank" rel="noopener">抽取CSS文件</a></h2><ol>
+<li>运行<code>npm install --save-dev extract-text-webpack-plugin</code>安装抽取CSS文件的插件。</li>
+<li>在配置文件中导入插件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const ExtractTextPlugin &#x3D; require(&quot;extract-text-webpack-plugin&quot;);</span><br></pre></td></tr></table></figure></li>
+<li>修改CSS和Sass的loader如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: &#x2F;\.css$&#x2F;, use: ExtractTextPlugin.extract(&#123;</span><br><span class="line">        fallback: &quot;style-loader&quot;,</span><br><span class="line">        use: [&quot;css-loader&quot;],</span><br><span class="line">        publicPath: &#39;..&#x2F;&#39; &#x2F;&#x2F; 设置图片路径</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    test: &#x2F;\.scss$&#x2F;, use: ExtractTextPlugin.extract(&#123;</span><br><span class="line">        fallback: &quot;style-loader&quot;,</span><br><span class="line">        use: [&#39;css-loader&#39;, &#39;sass-loader&#39;],</span><br><span class="line">        publicPath: &#39;..&#x2F;&#39; &#x2F;&#x2F; 设置图片路径</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在plugins节点下新增插件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new ExtractTextPlugin(&quot;css&#x2F;styles.css&quot;), &#x2F;&#x2F; 抽取CSS文件的插件</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="压缩抽取出来的CSS文件"><a href="#压缩抽取出来的CSS文件" class="headerlink" title="压缩抽取出来的CSS文件"></a><a href="https://github.com/NMFR/optimize-css-assets-webpack-plugin" target="_blank" rel="noopener">压缩抽取出来的CSS文件</a></h2><ol>
+<li>运行<code>cnpm i optimize-css-assets-webpack-plugin --save-dev</code>安装插件到开发依赖。</li>
+<li>在配置文件头部导入插件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var OptimizeCssAssetsPlugin &#x3D; require(&#39;optimize-css-assets-webpack-plugin&#39;);</span><br></pre></td></tr></table></figure></li>
+<li>在plugins节点下新增插件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new OptimizeCssAssetsPlugin() &#x2F;&#x2F; 压缩CSS文件的插件</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><ol>
+<li><a href="http://www.sasschina.com/guide/" target="_blank" rel="noopener">Sass 基础教程</a></li>
+<li><a href="https://github.com/webpack/webpack-dev-server/releases" target="_blank" rel="noopener">webpack-dev-server</a></li>
+<li><a href="http://majing.io/questions/804" target="_blank" rel="noopener">You have not accepted the license agreements of the following </a></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/30/git%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-30T04:00:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/30/git%E4%BD%BF%E7%94%A8/">git使用</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/11/webpack02/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/18/Node-js/" class="archive-article-date">
-  	<time datetime="2020-03-18T03:31:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/04/15/React01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          React01
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/10/webpack/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/18/Node-js/">Node.js</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack的发布策略"><span class="toc-number">1.</span> <span class="toc-text">webpack的发布策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#每次重新构建时候删除dist目录"><span class="toc-number">2.</span> <span class="toc-text">每次重新构建时候删除dist目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分离第三方包改造webpack-publish-config-js"><span class="toc-number">3.</span> <span class="toc-text">分离第三方包改造webpack.publish.config.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化压缩JS"><span class="toc-number">4.</span> <span class="toc-text">优化压缩JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化压缩HTML文件"><span class="toc-number">5.</span> <span class="toc-text">优化压缩HTML文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抽取CSS文件"><span class="toc-number">6.</span> <span class="toc-text">抽取CSS文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#压缩抽取出来的CSS文件"><span class="toc-number">7.</span> <span class="toc-text">压缩抽取出来的CSS文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关文章"><span class="toc-number">8.</span> <span class="toc-text">相关文章</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/" class="archive-article-date">
-  	<time datetime="2020-03-07T03:18:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/07/%E7%A7%BB%E5%8A%A8web%E5%BC%80%E5%8F%91/">移动web开发</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/02/fullpage%E3%80%81easing-js%E3%80%813D%E6%97%8B%E8%BD%AC%E6%8F%92%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-03-02T11:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/02/fullpage%E3%80%81easing-js%E3%80%813D%E6%97%8B%E8%BD%AC%E6%8F%92%E4%BB%B6/">fullpage、easing.js、3D旋转插件</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/H5%E6%96%B0API/" class="archive-article-date">
-  	<time datetime="2020-02-25T11:04:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/H5%E6%96%B0API/">H5新API</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/20/Jquery/" class="archive-article-date">
-  	<time datetime="2020-02-20T10:56:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/20/Jquery/">Jquery</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/15/DOM%E3%80%81BOM/" class="archive-article-date">
-  	<time datetime="2020-02-15T09:47:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/15/DOM%E3%80%81BOM/">DOM、BOM</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/05/JS%E6%8F%90%E5%8D%87/" class="archive-article-date">
-  	<time datetime="2020-02-05T04:43:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/05/JS%E6%8F%90%E5%8D%87/">JS提升</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/22/JavaScript/" class="archive-article-date">
-  	<time datetime="2020-01-22T09:23:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/22/JavaScript/">JavaScript</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/18/BFC/" class="archive-article-date">
-  	<time datetime="2020-01-18T08:18:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/18/BFC/">BFC</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/3/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -476,8 +393,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

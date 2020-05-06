@@ -1,0 +1,145 @@
+/*
+* @Author: apple
+* @Date:   2017-09-17 18:58:47
+* @Last Modified by:   apple
+* @Last Modified time: 2017-09-25 21:15:59
+*/
+html, body, .section {
+	min-height: 600px;
+	min-width: 1000px;
+	/* 最小的宽度和高度 防止 缩放过于变形 */
+}
+
+#fullpage img{
+	width: 100%;
+	height: 100%;
+}
+
+.section{
+	position: relative;
+}
+
+.title{
+	color: #202020;
+	position: absolute;
+	font-size: 40px;
+	left: 50%;
+	top: 50px;
+	transform: translateX(-50%); 
+}
+
+.content{
+	position: absolute;
+	left: 50%;
+	top: 150px;
+	transform: translateX(-50%); 
+}
+
+.content p{
+	text-indent: 2em;
+	font-size: 23px;
+	color: #202020;
+	width: 700px;
+}
+
+.skillContainer,.works{
+	position: absolute;
+	left: 50%;
+	top: 200px;
+	transform: translateX(-50%); 
+}
+
+.skillContainer .down,.up{
+	background-color: white;
+	border: 10px solid #ddd;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+}
+
+.skillContainer .parent{
+	position: relative;
+}
+
+.skillContainer .parent .up{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	border-color: #2c3e50;
+	clip: rect(0px, 170px, 170px, 0px);
+	transition: all 1s;
+}
+
+.skillContainer .number{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 150px;
+	height: 150px;
+}
+
+.number span{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%,-50%); 
+}
+
+.skillContainer p{
+	text-align: center;
+}
+
+.skillContainer li{
+	float: left;
+	margin-right: 20px;
+}
+
+.works li{
+	position: relative;
+	width: 220px;
+	height: 220px;
+	float: left;
+	background-color: yellow;
+	margin-right: 20px;
+	transition: all 0.5s;
+	top: 0px;
+	background-size: cover;
+}
+
+/*.works li:after{
+	content: " ";
+	float: left;
+	width: 100%
+	height:100%;
+	background-color: rgba(0,0,0,0.5);
+}*/
+.works li a{
+	display: inline-block;
+	text-align: center;
+	line-height: 220px;
+	color: rgba(255,255,255,0);
+	width: 220px;
+	height: 220px;
+	transition: all,1s;
+	opacity: 0;
+}
+
+.works li:hover{
+	top: -10px;
+	box-shadow: 0px 10px 10px 8px rgba(0, 0, 0, .4);
+}
+
+.works li a:hover{
+	color: rgba(255,255,255,255);
+	background-color: rgba(0,0,0,0.5);
+	opacity: 1;
+}
+
+#fullpage .works img{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 50px;
+	height: 50px;
+	transform: translate(-50%,20px); 
+}
